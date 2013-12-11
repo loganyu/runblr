@@ -1,1 +1,17 @@
-<h1><%= @user.username %></h1>
+<h1> Show page for: <%= @user.username %></h1>
+
+<h3> Users </h3>
+
+<table>
+
+
+    <tr>
+      <td><%= @user.username %></td>
+    <% if current_user.followed_users.include?(@user) %>
+      <td><%= button_to "Unfollow", user_follow_url(@user.id, current_user.id), method: :delete %></td>
+    <% else %>
+      <td><%= button_to "Follow", user_follows_url(@user.id) %></td>
+    <% end %>
+      </tr>
+
+</table>

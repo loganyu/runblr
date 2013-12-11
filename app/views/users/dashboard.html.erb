@@ -6,4 +6,10 @@ Following: <br>
 Followers: <br>
 <% @user.followers.each do |follower| %>
   <%= link_to follower.username, user_url(follower) %> <br>
+<% end %> <br>
+
+All Users: <br>
+<% User.all.each do |user| %>
+  <% next if current_user == user %>
+  <%= link_to user.username, user_url(user) %> <br>
 <% end %>
