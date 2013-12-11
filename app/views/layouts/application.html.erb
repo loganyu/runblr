@@ -1,12 +1,28 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Runblr</title>
+  <title>runblr.</title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
 <body>
+
+<% if current_user.nil? %>
+  <%= link_to "Sign in", new_session_url %>
+<% else %>
+  <%= current_user.username %> <br>
+  <%= link_to "Dashboard", user_dashboard_url(current_user) %>  <br>
+  <%= link_to "Profile Page", user_url(current_user) %> <br>
+  <%= button_to "Logout", session_url, :method => :delete %> <br>
+<% end %>
+
+
+<% if flash[:errors] %>
+  <% flash[:errors].each do |error| %>
+    <%= error %>
+  <% end %>
+<% end %>
 
 <%= yield %>
 

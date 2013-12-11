@@ -14,6 +14,6 @@ module SessionsHelper
   end
 
   def new_user?
-    redirect_to current_user if current_user
+    redirect_to user_dashboard_url(current_user) if current_user
   end
 end

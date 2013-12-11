@@ -1,10 +1,10 @@
-<h1>Login</h1>
+<h1>Log in</h1>
 
 <form action="<%= session_url %>" method="post">
   <label for="user_username">Username</label>
   <input
     type="text"
-    name="user[name]"
+    name="user[username]"
     value="<%= @user.username %>"
     id="user_username">
 
@@ -16,3 +16,5 @@
 
   <input type="submit">
 </form>
+
+<%= link_to "Sign up for a new account", new_user_url %>
