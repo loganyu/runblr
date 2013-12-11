@@ -1,7 +1,6 @@
 Runblr::Application.routes.draw do
   resources :users, only: [:create, :new, :destroy, :show, :edit] do
     get 'dashboard'
-    match 'register', to: 'users/new'
   end
   resource :session, :only => [:create, :destroy, :new] do
 
