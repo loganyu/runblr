@@ -1,4 +1,21 @@
 Runblr::Application.routes.draw do
+  resources :users, only: [:create, :new, :destroy, :show, :edit] do
+    get 'dashboard'
+    match 'register', to: 'users/new'
+  end
+  resource :session, :only => [:create, :destroy, :new] do
+
+  end
+  resources :posts do
+    resources :comments, only: [:create, :new, :show, :destroy, :edit]
+    member do
+      post "like"
+      post "unlike"
+    end
+  end
+
+  root to: 'users#dashboard'
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

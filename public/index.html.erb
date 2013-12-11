@@ -1,0 +1,17 @@
+<h1>Hello World</h1>
+
+<script type="application/json" id="json-feeds">
+  <%= @feeds.to_json.html_safe %>
+</script>
+<div id='content'>
+
+</div>
+
+<script>
+$(document).ready(function(){
+
+  var feedsJSON = JSON.parse($("#json-feeds").html());
+  NR.initialize(feedsJSON);
+
+});
+</script>
