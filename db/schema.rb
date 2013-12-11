@@ -14,8 +14,8 @@
 ActiveRecord::Schema.define(:version => 20131211202531) do
 
   create_table "follows", :force => true do |t|
-    t.string   "runner_followee_id", :null => false
-    t.string   "runner_follower_id", :null => false
+    t.integer  "runner_followee_id", :null => false
+    t.integer  "runner_follower_id", :null => false
     t.datetime "created_at",         :null => false
     t.datetime "updated_at",         :null => false
   end

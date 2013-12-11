@@ -1,1 +1,9 @@
-Hello World
+Following: <br>
+<% @user.followed_users.each do |followed_user| %>
+  <%= link_to followed_user.username, user_url(followed_user) %> <br>
+<% end %> <br>
+
+Followers: <br>
+<% @user.followers.each do |follower| %>
+  <%= link_to follower.username, user_url(follower) %> <br>
+<% end %>

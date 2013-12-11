@@ -3,6 +3,7 @@ class UsersController < ApplicationController
   before_filter :new_user?, only: [:new, :create]
 
   def dashboard
+    @user = User.find_by_id(params[:user_id])
   end
 
   def create
