@@ -1,15 +1,26 @@
+<h2> Dashboard </h2>
+
 Following: <br>
-<% @user.followed_users.each do |followed_user| %>
+<% @user.followed_users.sort.each do |followed_user| %>
   <%= link_to followed_user.username, user_url(followed_user) %> <br>
 <% end %> <br>
 
 Followers: <br>
-<% @user.followers.each do |follower| %>
+<% @user.followers.sort.each do |follower| %>
   <%= link_to follower.username, user_url(follower) %> <br>
 <% end %> <br>
 
-All Users: <br>
-<% User.all.each do |user| %>
-  <% next if current_user == user %>
-  <%= link_to user.username, user_url(user) %> <br>
-<% end %>
+<h2> Search Users </h2>
+<table>
+  <% User.all.sort.each do |user| %>
+    <% next if current_user == user %>
+    <tr>
+      <td>  <%= link_to user.username, user_url(user) %> </td>
+    <% if current_user.followed_users.include?(user) %>
+      <td><%= button_to "Unfollow", user_follow_url(user.id, current_user.id), method: :delete %></td>
+    <% else %>
+      <td><%= button_to "Follow", user_follows_url(user.id) %></td>
+    <% end %>
+      </tr>
+  <% end %>
+</table>

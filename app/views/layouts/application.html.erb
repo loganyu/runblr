@@ -7,11 +7,11 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <h1>runblr.</h1>
+  <h1><font color="red">run</font>blr.</h1>
 <% if current_user.nil? %>
   <%= link_to "Sign in", new_session_url %>
 <% else %>
-  <h3> <%= current_user.username %> </h3>
+  <h3> current user: <%= current_user.username %> </h3>
   <%= link_to "Dashboard", user_dashboard_url(current_user) %>
   <%= link_to "Profile Page", user_url(current_user) %>
   <%= button_to "Logout", session_url, :method => :delete %> <br>
