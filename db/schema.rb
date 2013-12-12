@@ -11,7 +11,19 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131212053712) do
+ActiveRecord::Schema.define(:version => 20131212163418) do
+
+  create_table "comments", :force => true do |t|
+    t.text     "body",              :null => false
+    t.integer  "parent_comment_id"
+    t.integer  "post_id",           :null => false
+    t.integer  "user_id",           :null => false
+    t.datetime "created_at",        :null => false
+    t.datetime "updated_at",        :null => false
+  end
+
+  add_index "comments", ["post_id"], :name => "index_comments_on_post_id"
+  add_index "comments", ["user_id"], :name => "index_comments_on_user_id"
 
   create_table "follows", :force => true do |t|
     t.integer  "runner_followee_id", :null => false
@@ -41,6 +53,8 @@ ActiveRecord::Schema.define(:version => 20131212053712) do
     t.datetime "updated_at",   :null => false
   end
 
+  add_index "posts", ["user_id"], :name => "index_posts_on_user_id"
+
   create_table "user_post_likes", :force => true do |t|
     t.integer  "user_id"
     t.integer  "post_id"
@@ -48,6 +62,10 @@ ActiveRecord::Schema.define(:version => 20131212053712) do
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
+
+  add_index "user_post_likes", ["post_id"], :name => "index_user_post_likes_on_post_id"
+  add_index "user_post_likes", ["user_id", "post_id"], :name => "index_user_post_likes_on_user_id_and_post_id", :unique => true
+  add_index "user_post_likes", ["user_id"], :name => "index_user_post_likes_on_user_id"
 
   create_table "users", :force => true do |t|
     t.string   "username"

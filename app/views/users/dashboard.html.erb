@@ -46,7 +46,7 @@ Followers: <br>
 
 
 
-
+<h2> Posts List </h2>
 <ul>
    <% @user.posts.reverse.each do |post| %>
      <li> Post Type: <%= post.post_type %></li>
@@ -94,17 +94,3 @@ Followers: <br>
          </ul>
    <% end %>
 </ul>
-
- <table>
-   <% User.all.sort.each do |user| %>
-     <% next if current_user == user %>
-     <tr>
-       <td>  <%= link_to user.username, user_url(user) %> </td>
-     <% if current_user.followed_users.include?(user) %>
-       <td><%= button_to "Unfollow", user_follow_url(user.id, current_user.id), method: :delete %></td>
-     <% else %>
-       <td><%= button_to "Follow", user_follows_url(user.id) %></td>
-     <% end %>
-     </tr>
-   <% end %>
- </table> <br>
