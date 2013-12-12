@@ -29,16 +29,21 @@ Followers: <br>
 <%= render "post_form", post: @post %>
 
 <ul>
-  <% @user.posts.reverse.each do |post| %>
-   <li> Title: <%= post.title %></li>
-    <ul>  
-      <li><%= post.workout_type %> Run</li> 
-      <li><%= post.miles %> Miles</li>
-      <li><%= post.hours %>:<%= post.minutes %>:<%= post.seconds %></li>
-      <li><%= post.workout_date %></li>
-      <li><%= post.workout_time %></li>
-      <li><%= post.body %></li>
-      <li><%= post.url %></li>
-   </ul>
+   <% @user.posts.reverse.each do |post| %>
+     <li> Title: <%= post.title %></li>
+       <ul>  
+         <li><%= post.workout_type %> Run</li> 
+         <li><%= post.miles %> Miles</li>
+         <li><%= post.hours %>:<%= post.minutes %>:<%= post.seconds %></li>
+         <li><%= post.workout_date %></li>
+         <li><%= post.workout_time %></li>
+         <li><%= post.body %></li>
+         <li><%= post.url %></li>
+      </ul>
+      <% unless @user.likes_post?(post) %>
+        <%= link_to "like",  like_post_url(post.user), method: :post%>
+      <% else %>
+        <%= link_to "unlike",  unlike_post_url(post.user), method: :post%>
+      <% end %>
    <% end %>
  </ul>

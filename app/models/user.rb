@@ -47,6 +47,12 @@ class User < ActiveRecord::Base
   def is_password?(pass)
     BCrypt::Password.new(self.password_digest).is_password?(pass)
   end
+  
+  def likes_post?(post)
+    @user_post_like = UserPostLike.find_by_post_id_and_user_id(post.id, self.id)
+
+    @user_post_like.value == 1 ? true : false
+  end
 
   private
 
