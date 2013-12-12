@@ -84,6 +84,7 @@ Followers: <br>
                         <tr>
                           <% user = User.find_by_id(user_post_like.user_id) %>
                           <td><%= link_to user.username, user_url(user) %> liked this </td>
+                          <% next if current_user == user %>
                           <td><%= button_to "Follow", user_follows_url(user.id) %></td>
                         </tr>
                       <% end %>
