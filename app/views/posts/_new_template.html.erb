@@ -1,0 +1,16 @@
+<nav>
+  New Post
+  <ul>
+    <li>Ru</li>
+    <%= render "posts/post_form", post: post, post_type: "run" %>
+    <li>Ph</li>
+    <%= render "posts/post_form", post: post, post_type: "photo" %>
+    <li>Li</li>
+    <%= render "posts/post_form", post: post, post_type: "link" %>
+    <li>Qu</li>
+    <%= render "posts/post_form", post: post, post_type: "quote" %>
+    <li>Vi</li>
+    <%= render "posts/post_form", post: post, post_type: "video" %>
+    <li>Ni+</li>
+  <ul>
+</nav>
