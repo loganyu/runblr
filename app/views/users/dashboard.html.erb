@@ -24,3 +24,21 @@ Followers: <br>
       </tr>
   <% end %>
 </table>
+
+<h2> New Post </h2>
+<%= render "post_form", post: @post %>
+
+<ul>
+  <% @user.posts.reverse.each do |post| %>
+   <li> Title: <%= post.title %></li>
+    <ul>  
+      <li><%= post.workout_type %> Run</li> 
+      <li><%= post.miles %> Miles</li>
+      <li><%= post.hours %>:<%= post.minutes %>:<%= post.seconds %></li>
+      <li><%= post.workout_date %></li>
+      <li><%= post.workout_time %></li>
+      <li><%= post.body %></li>
+      <li><%= post.url %></li>
+   </ul>
+   <% end %>
+ </ul>

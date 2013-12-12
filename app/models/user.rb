@@ -2,6 +2,8 @@ class User < ActiveRecord::Base
   attr_accessible :username, :password, :session_token
   after_initialize :ensure_session_token
 
+  validates :username, :session_token, :password_digest, presence: true
+
   has_many(
     :inbound_follows,
     :class_name => "Follow",
@@ -30,7 +32,9 @@ class User < ActiveRecord::Base
     :source => :followee
   )
 
-  validates :username, :session_token, :password_digest, presence: true
+  has_many :posts, inverse_of: :user
+  has_many :user_post_likes, inverse_of: :user
+
 
   def password=(pw_string)
     self.password_digest = BCrypt::Password.create(pw_string)

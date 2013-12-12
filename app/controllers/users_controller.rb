@@ -4,6 +4,7 @@ class UsersController < ApplicationController
 
   def dashboard
     @user = User.find_by_id(params[:user_id])
+    @post = Post.new
   end
 
   def create
@@ -11,7 +12,7 @@ class UsersController < ApplicationController
 
     if @user.save
       login_user!(@user)
-      redirect_to @user
+      redirect_to user_dashboard_url(current_user)
     else
       flash[:errors] = @user.errors.full_messages
       render :new
