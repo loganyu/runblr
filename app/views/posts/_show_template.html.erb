@@ -4,9 +4,8 @@
    <% user.posts.reverse.each do |post| %>
      <li> Post Type: <%= post.post_type %></li>
          <ul>
-           <li> Post Info </li>
+           <li> Title: <%= link_to post.title, post_url(post) %></li>
              <ul>
-               <li> Title: <%= post.title %></li>
                <li><%= post.workout_date %></li>
                <li><%= post.workout_time %></li>
                <% if post.post_type == "run" %>
@@ -23,7 +22,7 @@
          <ul>
            <li> Options bar </li>
               <ul>
-                <%= render "posts/likes_template", post: post, user: user %>
+                <%= render "posts/likes_template", post: post %>
               </ul>
               <ul>
                 <li>
@@ -31,7 +30,7 @@
                 </li>
                 <li>
                   Post Comment
-                  <%= render "comments/new_template", post: post, user: user %>
+                  <%= render "comments/new_template", post: post %>
                 </li>
 
                   <ul>
