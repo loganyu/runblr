@@ -1,9 +1,10 @@
 class CreatePosts < ActiveRecord::Migration
   def change
     create_table :posts do |t|
+      t.string          :post_type,     null: false
       t.text          :title,                  null: false
       t.text          :body
-      t.string       :workout_type,   null: false
+      t.string       :workout_type
       t.decimal   :miles
       t.integer     :hours
       t.integer     :minutes

@@ -1,6 +1,10 @@
 <form action="<%= posts_url %>" method="POST">
 
+  <input type="hidden" name="post[post_type]" value="<%= post_type %>">
+
   Title: <input name="post[title]" value="<%= post.title %>"><br>
+  <input type="date" name="post[workout_date]" value="<%post.workout_date%>">
+  <input type="time" name="post[workout_time]" value="<%post.workout_time%>"><br>
 
   <% if post_type == "run" %>
 
@@ -13,8 +17,7 @@
         <option value="Easy">Easy</option><br>
         <option value="Race">Race</option><br>
       </select> <br>
-      <input type="date" name="post[workout_date]" value="<%post.workout_date%>">
-      <input type="time" name="post[workout_time]" value="<%post.workout_time%>"><br>
+
     Miles: <input name="post[miles]" value="<%= post.miles %>" maxlength="2" size="2"><br>
     Duration: <input name="post[hours]" value="<%= post.hours %>" maxlength="2" size="2" placeholder="00">
                     :<input name="post[minutes]" value="<%= post.minutes %>" maxlength="2" size="2" placeholder="00">
@@ -29,6 +32,7 @@
     URL: <input name="post[url]" value="<%= post.url %>"><br>
 
   <% end %>
+
 
   <input type="Submit" value="Submit">
   <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">

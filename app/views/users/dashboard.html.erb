@@ -47,15 +47,20 @@ Followers: <br>
 
 <ul>
    <% @user.posts.reverse.each do |post| %>
-     <li> Title: <%= post.title %></li>
+     <li> Post Type: <%= post.post_type %>
        <ul>
-         <li><%= post.workout_type %> Run</li>
-         <li><%= post.miles %> Miles</li>
-         <li><%= post.hours %>:<%= post.minutes %>:<%= post.seconds %></li>
+         <li> Title: <%= post.title %></li>
          <li><%= post.workout_date %></li>
          <li><%= post.workout_time %></li>
+         <% if post.post_type == "run" %>
+           <li><%= post.workout_type %> Run</li>
+           <li><%= post.miles %> Miles</li>
+           <li><%= post.hours %>:<%= post.minutes %>:<%= post.seconds %></li>
+         <% end %>
          <li><%= post.body %></li>
-         <li><%= post.url %></li>
+         <% if post.post_type == "link" || "video" %>
+           <li><%= post.url %></li>
+         <% end %>
       </ul>
       <%= post.likes %> likes
       <% unless @user.likes_post?(post) %>

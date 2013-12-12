@@ -25,9 +25,10 @@ ActiveRecord::Schema.define(:version => 20131212053712) do
   add_index "follows", ["runner_follower_id"], :name => "index_follows_on_runner_follower_id"
 
   create_table "posts", :force => true do |t|
+    t.string   "post_type",    :null => false
     t.text     "title",        :null => false
     t.text     "body"
-    t.string   "workout_type", :null => false
+    t.string   "workout_type"
     t.decimal  "miles"
     t.integer  "hours"
     t.integer  "minutes"
