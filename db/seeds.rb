@@ -11,5 +11,12 @@ users = User.create([
   {username: "mebkeflezighi", password: "password"},
   {username: "ryanhall", password: "password"},
   {username: "marycane", password: "password"},
-  {username: "nicksimmons", password: "password"},
+  {username: "nicksimmons", password: "password"}
+])
+
+follows = Follow.create([
+  {runner_followee_id: 1, runner_follower_id: 2},
+  {runner_followee_id: 1, runner_follower_id: 3},
+  {runner_followee_id: 4, runner_follower_id: 1},
+  {runner_followee_id: 5, runner_follower_id: 1}
 ])
