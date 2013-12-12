@@ -34,6 +34,7 @@ class User < ActiveRecord::Base
 
   has_many :posts, inverse_of: :user
   has_many :user_post_likes, inverse_of: :user
+  has_many :comments, inverse_of: :user
 
 
   def password=(pw_string)
