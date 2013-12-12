@@ -40,6 +40,7 @@ Followers: <br>
          <li><%= post.body %></li>
          <li><%= post.url %></li>
       </ul>
+      <%= post.likes %> likes
       <% unless @user.likes_post?(post) %>
         <%= link_to "like",  like_post_url(post.user), method: :post%>
       <% else %>

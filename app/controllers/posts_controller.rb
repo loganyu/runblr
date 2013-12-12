@@ -43,7 +43,7 @@ class PostsController < ApplicationController
   end
   
   def unlike
-    like_total(-1)
+    like_total(0)
   end
   
   private
@@ -56,7 +56,7 @@ class PostsController < ApplicationController
       @user_post_like = UserPostLike.find_by_post_id_and_user_id(@post.id, current_user.id)
 
       if @user_post_like
-        @user_post_like.value == direction ? @user_post_like.update_attributes(value: 0) : @user_post_like.update_attributes(value: direction)
+        @user_post_like.update_attributes(value: direction)
       else
         @post.user_post_likes.create(user_id: current_user.id, value: direction)
       end
