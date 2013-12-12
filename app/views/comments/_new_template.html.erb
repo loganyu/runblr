@@ -1,0 +1,5 @@
+<form action="<%= post_comments_url(post.id) %>" method="POST">
+  <textarea name="comment[body]"></textarea><br>
+  <input type="submit">
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+</form>

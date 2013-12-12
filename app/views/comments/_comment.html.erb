@@ -1,7 +1,15 @@
+<li>  <%= comment.body %> </li>
 
-<li>  <%= link_to comment.body, link_comment_url(comment.link.id, comment.id) %> </li>
+  Reply to this comment:
+  <form action="<%= post_comments_url(comment.post.id) %>" method="POST">
+    <textarea name="comment[body]"></textarea><br>
+    <input type="submit">
+    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+    <input type="hidden" name="comment[parent_comment_id]" value="<%= comment.id %>">
+  </form>
+
   <ul>
     <% comments_by_parent[comment.id].each do |child_comment| %>
-      <li><%= comment_partial(child_comment, comments_by_parent) %></li>
+      <%= comment_partial(child_comment, comments_by_parent) %>
     <% end %>
   </ul>

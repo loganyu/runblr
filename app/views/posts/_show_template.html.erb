@@ -1,5 +1,6 @@
 <h2> Posts List </h2>
 <ul>
+  <li> <%= user.posts.count %> posts </li>
    <% user.posts.reverse.each do |post| %>
      <li> Post Type: <%= post.post_type %></li>
          <ul>
@@ -23,26 +24,25 @@
            <li> Options bar </li>
               <ul>
 
-                <% unless user.likes_post?(post) %>
-                  <li><%= link_to "like",  like_post_url(post.user), method: :post%></li>
-                <% else %>
-                  <li><%= link_to "unlike",  unlike_post_url(post.user), method: :post%></li>
-                <% end %>
+                <%= render "posts/likes_template", post: post, user: user %>
 
-                <li><%= post.likes %> likes</li>
-                  <ul>
-                    <table>
-                      <% post.user_post_likes.each do |user_post_like| %>
-                        <tr>
-                          <% user = User.find_by_id(user_post_like.user_id) %>
-                          <td><%= link_to user.username, user_url(user) %> liked this </td>
-                          <% next if current_user == user %>
-                          <td><%= button_to "Follow", user_follows_url(user.id) %></td>
-                        </tr>
-                      <% end %>
-                    </table>
-                  </ul>
               </ul>
+
+              <ul>
+                <li> comment </li>
+
+                <%= render "comments/new_template", post: post, user: user %>
+
+                <li> <%= post.comments.count %> comments </li>
+
+                  <ul>
+                    <%= render "comments/comments_template", post: post %>
+                  </ul>
+
+              </ul>
+
          </ul>
+
+
    <% end %>
 </ul>
