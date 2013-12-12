@@ -26,13 +26,30 @@ Followers: <br>
 </table>
 
 <h2> New Post </h2>
-<%= render "post_form", post: @post %>
+<nav>
+  <ul>
+    <li>Ru</li>
+    <%= render "post_form", post: @post, post_type: "run" %>
+    <li>Ph</li>
+    <%= render "post_form", post: @post, post_type: "photo" %>
+    <li>Li</li>
+    <%= render "post_form", post: @post, post_type: "link" %>
+    <li>Qu</li>
+    <%= render "post_form", post: @post, post_type: "quote" %>
+    <li>Vi</li>
+    <%= render "post_form", post: @post, post_type: "video" %>
+    <li>Ni+</li>
+  <ul>
+</nav>
+
+
+
 
 <ul>
    <% @user.posts.reverse.each do |post| %>
      <li> Title: <%= post.title %></li>
-       <ul>  
-         <li><%= post.workout_type %> Run</li> 
+       <ul>
+         <li><%= post.workout_type %> Run</li>
          <li><%= post.miles %> Miles</li>
          <li><%= post.hours %>:<%= post.minutes %>:<%= post.seconds %></li>
          <li><%= post.workout_date %></li>
