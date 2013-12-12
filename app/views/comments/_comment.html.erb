@@ -1,4 +1,5 @@
-<li>  Comment Body: <%= comment.body %> </li>
+<li>  User: <%= link_to comment.user.username, user_url(comment.user) %> </li>
+<li>  Comment: <%= comment.body %> </li>
 
   <ul>
 

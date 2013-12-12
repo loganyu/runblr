@@ -1,5 +1,5 @@
 class Comment < ActiveRecord::Base
-  attr_accessible :body, :parent_comment_id
+  attr_accessible :body, :parent_comment_id, :post_id, :user_id
 
   validates :body, presence: true
   validates :user, presence: true

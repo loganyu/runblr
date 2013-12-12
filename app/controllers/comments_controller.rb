@@ -42,6 +42,7 @@ class CommentsController < ApplicationController
   end
 
   def like
+
     like_total(1)
   end
 
