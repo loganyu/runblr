@@ -1,12 +1,27 @@
-<li>  <%= comment.body %> </li>
+<li>  Comment Body: <%= comment.body %> </li>
 
-  Reply to this comment:
-  <form action="<%= post_comments_url(comment.post.id) %>" method="POST">
-    <textarea name="comment[body]"></textarea><br>
-    <input type="submit">
-    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-    <input type="hidden" name="comment[parent_comment_id]" value="<%= comment.id %>">
-  </form>
+  <ul>
+
+    <li>
+      like
+    </li>
+
+    <li>
+      XXXX likes
+    </li>
+
+
+    <li>
+      Reply to this comment:
+      <form action="<%= post_comments_url(comment.post.id) %>" method="POST">
+        <textarea name="comment[body]"></textarea><br>
+        <input type="submit">
+        <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+        <input type="hidden" name="comment[parent_comment_id]" value="<%= comment.id %>">
+      </form>
+    </li>
+
+  </ul>
 
   <ul>
     <% comments_by_parent[comment.id].each do |child_comment| %>
