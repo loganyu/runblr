@@ -11,10 +11,15 @@ Runblr::Application.routes.draw do
 
 
   resources :posts do
-    resources :comments, only: [:create, :new, :show, :destroy, :edit]
     member do
       post "like"
       post "unlike"
+    end
+    resources :comments, only: [:create, :new, :show, :destroy, :edit] do
+      member do
+        post "like"
+        post "unlike"
+      end
     end
   end
 

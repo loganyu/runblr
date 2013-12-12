@@ -1,0 +1,21 @@
+<% unless current_user.likes_comment?(comment) %>
+  <li><%= link_to "like",  like_post_comment_url(comment.post, comment), method: :post%></li>
+<% else %>
+  <li><%= link_to "unlike",  unlike_post_comment_url(comment.post, comment), method: :post%></li>
+<% end %>
+
+<li><%= comment.likes %> likes</li>
+  <ul>
+    <table>
+      <% comment.user_comment_likes.each do |user_comment_like| %>
+        <% if user_comment_like.value == 1 %>
+          <tr>
+            <% user = User.find_by_id(user_comment_like.user_id) %>
+              <td><%= link_to user.username, user_url(user) %> likes this </td>
+              <% next if current_user == user %>
+              <td><%= button_to "Follow", user_follows_url(user.id) %></td>
+          </tr>
+        <% end %>
+      <% end %>
+    </table>
+  </ul>

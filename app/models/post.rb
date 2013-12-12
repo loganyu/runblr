@@ -6,7 +6,6 @@ class Post < ActiveRecord::Base
 
   belongs_to :user, inverse_of: :posts
   has_many :user_post_likes, inverse_of: :post
-
   has_many :comments, inverse_of: :post
 
   def likes

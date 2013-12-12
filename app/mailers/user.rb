@@ -35,6 +35,7 @@ class User < ActiveRecord::Base
   has_many :posts, inverse_of: :user
   has_many :user_post_likes, inverse_of: :user
   has_many :comments, inverse_of: :user
+  has_many :user_comment_likes, inverse_of: :user
 
 
   def password=(pw_string)
@@ -53,6 +54,12 @@ class User < ActiveRecord::Base
     @user_post_like = UserPostLike.find_by_post_id_and_user_id(post.id, self.id)
     return false if @user_post_like.nil?
     @user_post_like.value == 1 ? true : false
+  end
+
+  def likes_comment?(comment)
+    @user_comment_like = UserCommentLike.find_by_comment_id_and_user_id(comment.id, self.id)
+    return false if @user_comment_like.nil?
+    @user_comment_like.value == 1 ? true : false
   end
 
   private
