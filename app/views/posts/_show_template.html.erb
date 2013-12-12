@@ -4,6 +4,7 @@
    <% user.posts.reverse.each do |post| %>
      <li> Post Type: <%= post.post_type %></li>
          <ul>
+           <li> User: <%= link_to post.user.username, user_url(user) %></li>
            <li> Title: <%= link_to post.title, post_url(post) %></li>
              <ul>
                <li><%= post.workout_date %></li>
