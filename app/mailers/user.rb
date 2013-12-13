@@ -62,6 +62,16 @@ class User < ActiveRecord::Base
     @user_comment_like.value == 1 ? true : false
   end
 
+  def send_welcome_email
+    UserMailer.welcome_email(self).deliver!
+  end
+
+  def send_password_reset
+    self.password_reset_token = SecureRandom.urlsafe_base64(16)
+    self.save!
+    UserMailer.password_reset(self).deliver!
+  end
+
   private
 
      def ensure_session_token

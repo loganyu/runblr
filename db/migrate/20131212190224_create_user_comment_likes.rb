@@ -1,8 +1,8 @@
 class CreateUserCommentLikes < ActiveRecord::Migration
   def change
     create_table :user_comment_likes do |t|
-      t.integer   :user_id
-      t.integer   :comment_id
+      t.integer   :user_id,    :null => false
+      t.integer   :comment_id, :null => false
       t.integer   :value
 
       t.timestamps

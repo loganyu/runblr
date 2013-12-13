@@ -12,6 +12,9 @@ class UsersController < ApplicationController
 
     if @user.save
       login_user!(@user)
+
+      @user.send_welcome_email
+
       redirect_to user_dashboard_url(current_user)
     else
       flash[:errors] = @user.errors.full_messages

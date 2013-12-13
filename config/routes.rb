@@ -4,11 +4,8 @@ Runblr::Application.routes.draw do
     resources :follows, only: [:create, :destroy]
   end
 
-
-
   resource :session, :only => [:create, :destroy, :new]
-
-
+  resource :password_reset
 
   resources :posts do
     member do
