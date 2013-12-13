@@ -34,7 +34,7 @@ class UsersController < ApplicationController
     if @user
       render :show
     else
-      redirect_to subs_url
+      redirect_to user_dashboard_url(current_user)
     end
   end
 

@@ -1,7 +1,15 @@
 <h2> Posts List </h2>
 <ul>
-  <li> <%= user.posts.count %> posts </li>
-   <% user.posts.reverse.each do |post| %>
+  
+  
+  <% if show_all %>
+    <% feed_posts = user.get_user_posts_feed %>
+  <% else %>
+    <% feed_posts = user.posts %>
+  <% end %>
+  
+  <li> <%= feed_posts.count %> posts </li>
+   <% feed_posts.reverse.each do |post| %>
      <li> Post Type: <%= post.post_type %></li>
          <ul>
            <li> User: <%= link_to post.user.username, user_url(user) %></li>

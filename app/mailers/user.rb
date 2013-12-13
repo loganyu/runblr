@@ -61,6 +61,15 @@ class User < ActiveRecord::Base
     return false if @user_comment_like.nil?
     @user_comment_like.value == 1 ? true : false
   end
+  
+  def get_user_posts_feed
+    all_posts = []
+    all_posts.concat(self.posts)
+    self.followed_users.each do |followed_user|
+      all_posts = all_posts.concat(followed_user.posts)
+    end
+    return all_posts.sort_by {|x| x.created_at }
+  end
 
   private
 
