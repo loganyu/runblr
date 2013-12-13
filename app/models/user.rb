@@ -4,9 +4,8 @@ class User < ActiveRecord::Base
 
   validates :username, :session_token, :password_digest, :email, presence: true
   validates :username, :email, uniqueness: true
-  validates :username, length: 6..20
-  validates :password, length: 6..20
-  validates :email, :format => /@/
+  validates :username, :length => 6..20
+  validates :email, :format => { :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i, :on => :create }
 
 
   has_many(
