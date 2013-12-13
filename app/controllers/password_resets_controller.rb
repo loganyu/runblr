@@ -1,4 +1,6 @@
 class PasswordResetsController < ApplicationController
+  before_filter :new_user?
+
   def new
     @user = User.new
   end
