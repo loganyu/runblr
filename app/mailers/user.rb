@@ -1,8 +1,13 @@
 class User < ActiveRecord::Base
-  attr_accessible :username, :password, :session_token
+  attr_accessible :username, :password, :session_token, :email
   after_initialize :ensure_session_token
 
-  validates :username, :session_token, :password_digest, presence: true
+  validates :username, :session_token, :password_digest, :email, presence: true
+  validates :username, :email, uniqueness: true
+  validates :username, length: 6..20
+  validates :password, length: 6..20
+  validates :email, :format => /@/
+
 
   has_many(
     :inbound_follows,
