@@ -1,0 +1,8 @@
+<h1 id="reset-password">Reset Password</h1>
+<form action="/password_reset" method="post" accept-charset="utf-8">
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+<label for="email">email</label>
+<input type="text" name="email" value="<%= @user.email %>" id="email">
+<br>
+<p><input type="submit" value="Submit"></p>
+</form>

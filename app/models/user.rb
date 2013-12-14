@@ -1,8 +1,12 @@
 class User < ActiveRecord::Base
-  attr_accessible :username, :password, :session_token
+  attr_accessible :username, :password, :session_token, :email
   after_initialize :ensure_session_token
 
-  validates :username, :session_token, :password_digest, presence: true
+  validates :username, :session_token, :password_digest, :email, presence: true
+  validates :username, :email, uniqueness: true
+  validates :username, :length => 6..20
+  validates :email, :format => { :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i, :on => :create }
+
 
   has_many(
     :inbound_follows,
@@ -69,6 +73,16 @@ class User < ActiveRecord::Base
       all_posts = all_posts.concat(followed_user.posts)
     end
     return all_posts.sort_by {|x| x.created_at }
+  end
+
+  def send_welcome_email
+    UserMailer.welcome_email(self).deliver!
+  end
+
+  def send_password_reset
+    self.password_reset_token = SecureRandom.urlsafe_base64(16)
+    self.save!
+    UserMailer.password_reset(self).deliver!
   end
 
   private

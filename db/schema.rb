@@ -56,8 +56,8 @@ ActiveRecord::Schema.define(:version => 20131212190224) do
   add_index "posts", ["user_id"], :name => "index_posts_on_user_id"
 
   create_table "user_comment_likes", :force => true do |t|
-    t.integer  "user_id"
-    t.integer  "comment_id"
+    t.integer  "user_id",    :null => false
+    t.integer  "comment_id", :null => false
     t.integer  "value"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
@@ -68,8 +68,8 @@ ActiveRecord::Schema.define(:version => 20131212190224) do
   add_index "user_comment_likes", ["user_id"], :name => "index_user_comment_likes_on_user_id"
 
   create_table "user_post_likes", :force => true do |t|
-    t.integer  "user_id"
-    t.integer  "post_id"
+    t.integer  "user_id",    :null => false
+    t.integer  "post_id",    :null => false
     t.integer  "value"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
@@ -80,11 +80,13 @@ ActiveRecord::Schema.define(:version => 20131212190224) do
   add_index "user_post_likes", ["user_id"], :name => "index_user_post_likes_on_user_id"
 
   create_table "users", :force => true do |t|
-    t.string   "username"
+    t.string   "username",             :null => false
+    t.string   "email",                :null => false
     t.string   "password_digest"
     t.string   "session_token"
-    t.datetime "created_at",      :null => false
-    t.datetime "updated_at",      :null => false
+    t.string   "password_reset_token"
+    t.datetime "created_at",           :null => false
+    t.datetime "updated_at",           :null => false
   end
 
 end

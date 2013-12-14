@@ -1,0 +1,9 @@
+<form action="/password_reset" method="post" accept-charset="utf-8">
+  <input type="hidden" name="_method" value="PUT">
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+  <input type="hidden" name="reset_token" value="<%= params[:reset_token] %>">
+  <label for="name">Password<label>
+  <input type="password" name="user[password]" id="name">
+
+<p><input type="submit" value="Reset Password"></p>
+</form>

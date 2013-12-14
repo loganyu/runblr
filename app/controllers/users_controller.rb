@@ -9,9 +9,11 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(params[:user])
-
     if @user.save
       login_user!(@user)
+
+      @user.send_welcome_email
+
       redirect_to user_dashboard_url(current_user)
     else
       flash[:errors] = @user.errors.full_messages
