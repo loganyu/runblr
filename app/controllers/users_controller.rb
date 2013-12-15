@@ -26,7 +26,6 @@ class UsersController < ApplicationController
     
     @user = User.new
     render :new
-    fail
   end
 
   def edit

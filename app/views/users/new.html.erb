@@ -34,7 +34,7 @@
                 <input
                   type="text"
                   name="user[email]"
-                  value="<%= params[:user][:email] %>"
+                  value="<%= @user.email %>"
                   id="user_email"
                   placeholder='Email'
                   class="entry">
@@ -45,7 +45,6 @@
                 <input
                   type="password"
                   name="user[password]"
-                  value="<%= params[:user][:password] %>"
                   id="user_password"
                   placeholder='Password'
                   class="entry">
@@ -56,7 +55,7 @@
                 <input
                   type="text"
                   name="user[username]"
-                  value="<%= params[:user][:username] %>"
+                  value="<%= @user.username %>"
                   id="user_username"
                   placeholder='Username'
                   class="entry">
