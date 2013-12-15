@@ -57,13 +57,14 @@ body {
 
 
 .dash_b_form_container {
-  padding: 20px 30px 30px 20px;
-  margin-top: -210px;
-  margin-left: -145px;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  text-align: center;
+    width: 245px;  
+    padding: 20px 30px 30px 20px;
+    margin-top: -210  px;
+    margin-left: -145px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    text-align: center;
 
 }
 
@@ -103,19 +104,18 @@ body {
   border: 1px solid rgba(0,0,0,0.8);
   border-radius: 8px;
   background-color: #fff;
-  top: 50%;
-  left: 50%;
+
 }
 
 .entry {
-  padding: 11px 10px 9px 10px;
+  padding: 6px 10px 5px 10px;
   width: 218px;
 }
 
 .signup_forms_error {
-  padding: 8px 15px;
+  padding: 8px 8px;
   font-size: 12px;
-  line-height: 16px;
+  line-height: 10px;
   font-weight: bold;
   color: rgba(255,255,255,0.8);
   background-color: #111;

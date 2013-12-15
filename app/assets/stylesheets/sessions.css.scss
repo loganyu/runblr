@@ -56,9 +56,13 @@ body {
 
 
 .dash_b_form_container {
-  padding: 20px 30px 30px;
-  margin: auto;
-  width: 245px;
+  width: 245px; 
+  padding: 20px 30px 30px 20px;
+  margin-top: -210px;
+  margin-left: -145px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
   text-align: center;
 
 }
@@ -98,12 +102,10 @@ body {
   border: 1px solid rgba(0,0,0,0.8);
   border-radius: 8px;
   background-color: #fff;
-  top: 50%;
-  left: 50%;
 }
 
 .entry {
-  padding: 11px 10px 9px 10px;
+  padding: 6px 10px 5px 10px;
   width: 218px;
 }
 
