@@ -29,39 +29,46 @@
         </h2>
       </div>
       <div class="dash_b_form">
-        <form action="<%= users_url %>" method="post" class="group">
-          <div class="signup_forms_panel">
-          
+        <form action="<%= users_url %>" method="post">
+          <div class="signup_forms_panel group">
+            <div class="form-row">
               <label for="user_email">
                 <input
                   type="text"
                   name="user[email]"
                   value="<%= @user.username %>"
                   id="user_email"
-                  placeholder='Emai'>
+                  placeholder='Emai'
+                  class="entry">
               </label>
+            </div>
+            <div class="form-row">  
               <label for="user_password">
                 <input
                   type="password"
                   name="user[password]"
                   id="user_password"
-                  placeholder='Password'>
+                  placeholder='Password'
+                  class="entry">
               </label>
-            
-              <label for="user_username" placeholder='Username'>
+            </div>
+            <div class="form-row">
+              <label for="user_username">
                 <input
                   type="text"
                   name="user[username]"
                   value="<%= @user.username %>"
                   id="user_username"
-                  placeholder='Username'>
+                  placeholder='Username'
+                  class="entry">
               </label>
+            </div>
           </div>
-          <div class="signup_forms_error">
+          <div class="signup_forms_error group">
           
           </div>
-          <div class="signup_forms_button">
-            <input type="submit">
+          <div class="signup_forms_button group">
+            <input class="sign-up-button" type="submit" value="Sign up">
           </div>
         </form>
         
