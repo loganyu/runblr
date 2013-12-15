@@ -23,8 +23,10 @@ class UsersController < ApplicationController
   end
 
   def new
+    
     @user = User.new
     render :new
+    fail
   end
 
   def edit

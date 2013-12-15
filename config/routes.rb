@@ -5,6 +5,7 @@ Runblr::Application.routes.draw do
   end
 
   resource :session, :only => [:create, :destroy, :new]
+  
   resource :password_reset
 
   resources :posts do
