@@ -1,3 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Runblr </title>
+  <link rel="stylesheet" href="dashboard.css" type="text/css">
+</head>
+
+<body id="dashboard_index">
+  <div id="container group">
+    <div id="header_container">
+      
+      <div id="header">
+        <h1 class="dashboard-logo">
+          <a class="logo_anchor" href="<%= user_dashboard_url(current_user) %>">Tumblr</a>
+        </h1>
+        <div id="tabs_outter_container">
+          <div id="user_tools">
+            <div class="tab_home">
+            </div>
+            <div class="tab_settings">
+            </div>
+            <div class="tab_log_out">
+            </div>
+            <div class="tab_search">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+      
+    <div id="content group">
+      
+      <div id="right_column">
+        <h1>
+          <a href="#" id="blog_link">Link to blog</a>
+        </h1>
+        <ul class="blog_menu">
+          <li class="posts_control">
+            <a href="#" class="posts">
+            </a>
+          </li>
+          <li class="control_item">
+            <a href="#" class="control_followers">
+            </a>
+          </li>
+          <li class="control_item">
+            <a href="#" class="control_following">
+            </a>
+          </li>
+          <li class="control_item">
+            <a href="#" class="control_posts">
+            </a>
+          </li>
+        </ul>
+      </div>
+      
+      <div id="left_column">
+        <ol id="posts">
+          <li class="post_container new_post_buttons_container">
+            <div class="new_post_buttons">
+              <nav id="post_buttons">
+                <a href="#" class="new_post_label"></a>
+                <a href="#" class="new_post_label"></a>
+                <a href="#" class="new_post_label"></a>
+                <a href="#" class="new_post_label"></a>
+                <a href="#" class="new_post_label"></a>
+              </nav>
+            </div>
+          </li>
+          
+          <!-- START POSTS -->
+          
+          <li class="post_container">
+            <div class="post">
+              <div class="post_avatar">
+                <a class="post_avatar_link" href="#"></a>
+              </div>
+              <div class="post_wrapper">
+                <div class="post_header">
+                </div>
+                <div class="post_content">
+                </div>
+                <div class="post_footer">
+                </div>
+              </div>
+            </div>
+          </li>
+          
+          <h1><font color="red">run</font>blr.</h1>
+          <% if current_user.nil? %>
+            <%= link_to "Create an Account", new_users_url %>
+          <% else %>
+            <h3> current user: <%= current_user.username %> </h3>
+            <%= link_to "Dashboard", user_dashboard_url(current_user) %>
+            <%= link_to "Profile Page", user_url(current_user) %>
+            <%= button_to "Logout", session_url, :method => :delete %> <br>
+          <% end %>
+
 <h2> Dashboard </h2>
 
 Following: <br>

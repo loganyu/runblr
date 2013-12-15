@@ -79,20 +79,6 @@ body {
   font-weight: bold;
 }
 
-.subheading {
-  position: relative;
-  font-size: 20px;
-  font-family: "Helvetica Neue";
-  width: 500px;
-  color: #fff;
-  right: 50%;
-  text-shadow: 0 2px 2px rgba(0,0,0,0.5);
-  opacity: .88;
-  -webkit-font-smoothing: antialiased;
-  white-space: nowrap;
-  
-}
-
 .dash_b_form{
 
 }
@@ -110,9 +96,9 @@ body {
 }
 
 .signup_forms_error {
-  padding: 8px 15px;
+  padding: 8px 8px;
   font-size: 12px;
-  line-height: 16px;
+  line-height: 10px;
   font-weight: bold;
   color: rgba(255,255,255,0.8);
   background-color: #111;
