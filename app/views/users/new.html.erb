@@ -6,8 +6,6 @@
 </head>
 
 <body id="account_logged_out_dashboard">
-  
-    <h1>Log in</h1>
 
     <div class="fullscreen_post_bg">
       <img class="fullscreen_post_image" src="http://anime-wallpapers.com/images/800x600/naruto-running.jpg">
@@ -38,7 +36,7 @@
                   name="user[email]"
                   value="<%= @user.username %>"
                   id="user_email"
-                  placeholder='Emai'
+                  placeholder='Email'
                   class="entry">
               </label>
             </div>
@@ -64,20 +62,22 @@
               </label>
             </div>
           </div>
-          <div class="signup_forms_error group">
-          
-          </div>
+          <% if flash[:errors] %>
+            <div class="signup_forms_error group">
+              <%= render "layouts/errors" %>
+            </div>
+          <% end %>
           <div class="signup_forms_button group">
             <input class="sign-up-button" type="submit" value="Sign up">
           </div>
         </form>
         
         <div class="tumblr_login_link">
-
+            <%= link_to "Log in to your dashboard", new_session_url %>
         </div>
       </div>
     
-    <%= link_to "Log in to your dashboard", new_session_url %>
+    
     </div>
   </body>
 </html>

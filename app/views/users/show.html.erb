@@ -1,3 +1,14 @@
+<h1><font color="red">run</font>blr.</h1>
+<% if current_user.nil? %>
+  <%= link_to "Create an Account", new_users_url %>
+<% else %>
+  <h3> current user: <%= current_user.username %> </h3>
+  <%= link_to "Dashboard", user_dashboard_url(current_user) %>
+  <%= link_to "Profile Page", user_url(current_user) %>
+  <%= button_to "Logout", session_url, :method => :delete %> <br>
+<% end %>
+
+
 <h2> Profile page for: <%= @user.username %></h2>
 
 <% unless @user == current_user %>

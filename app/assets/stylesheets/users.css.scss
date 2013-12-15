@@ -18,6 +18,10 @@ html, body, h1, h2, div, img, label, input, form, button {
   display: table;
 }
 
+a {
+  text-decoration: none;
+}
+
 body {
   font-family: sans-serif;
   color: #000;
@@ -29,13 +33,13 @@ body {
   top: 0;
   left: 0;
   width: 100%;
+  
   z-index: -1;
 }
 
 .fullscreen_post_image {
   display: block;
   width: 100%;
-  height: auto;
 }
 
 .fullscreen_post_footer{
@@ -55,7 +59,6 @@ body {
 .dash_b_form_container {
   padding: 20px 30px 30px;
   margin: auto;
-  position: relative;
   width: 245px;
   text-align: center;
 
@@ -96,7 +99,8 @@ body {
   border: 1px solid rgba(0,0,0,0.8);
   border-radius: 8px;
   background-color: #fff;
-  margin-top: 20px;
+  top: 50%;
+  left: 50%;
 }
 
 .entry {
@@ -105,7 +109,16 @@ body {
 }
 
 .signup_forms_error {
-  
+  padding: 8px 15px;
+  font-size: 12px;
+  line-height: 16px;
+  font-weight: bold;
+  color: rgba(255,255,255,0.8);
+  background-color: #111;
+  border: 1px solid rgba(0,0,0,.18);
+  border-radius: 6px;
+  margin: 15px 0 0 0;
+  opacity: 0.9;
 }
 
 .signup_forms_button {
@@ -127,9 +140,13 @@ body {
   -webkit-font-smoothing: antialiased;
   padding: 2px 6px 3px;
   margin-left: -2px;
-  margin-top: 18px;
+  margin-top: 15px;
   border: 2px outset buttonface;
   border-radius: 10px;
+}
+
+.sign-up-button:hover {
+  background-color: #3366ff;
 }
 
 .form-row {
@@ -141,6 +158,13 @@ input {
   margin: 4px 4px 4px 4px;
 }
 
-.tumblr_login_link {
-  
+.tumblr_login_link > a {
+  color: #fff;
+  text-shadow: 0 1px 1px rgba(0,0,0,0.8);
+  font-size: 12px;
+  text-align: center;
+}
+
+.tumblr_login_link > a:hover {
+ color: #c0c0c0; 
 }
