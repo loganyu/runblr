@@ -2,45 +2,75 @@
 
 <head>
   <title>Sign Up | Runblr </title>
-  <link rel="stylesheet" type="text/css" href="aa.css">
+  <link rel="stylesheet" type="text/css" href="users.css">
 </head>
 
 <body id="account_logged_out_dashboard">
+  
+    <h1>Log in</h1>
 
-  <h1>Log in</h1>
-
-  <div class="fullscreen_post_bg">
-    <img class="fullscreen_post_image" src="http://www.hdwallpapersinn.com/wp-content/uploads/2013/02/Naruto-8.jpg">
-  </div>
-  <div class="fullscreen_post_footer">
-    <div class="fullscreen_post_posted_by show">
+    <div class="fullscreen_post_bg">
+      <img class="fullscreen_post_image" src="http://anime-wallpapers.com/images/800x600/naruto-running.jpg">
     </div>
-  </div>
-
-  <div class="dash_b_form_container">
-    <div class="dash_b_form_header">
-      <h1 class="logo">
-        Runblr.
-      </h1>
-      <h2 class="subheading">
-        "Follow the runners you've been hearing about."
-        <br>
-        "Share the running that you love."
-      </h2>
-    </div>
-    <div class="dash_b_form">
-      <div class="signup_forms_panel">
-      </div>
-      <div class="signup_forms_error">
-      </div>
-      <div class="signup_forms_button">
-      </div>
-      <div class="tumblr_login_link">
+    <div class="fullscreen_post_footer">
+      <div class="fullscreen_post_posted_by show">
       </div>
     </div>
-  </div>
 
+    <div class="dash_b_form_container">
+      <div class="dash_b_form_header">
+        <h1 class="logo">
+          runblr.
+        </h1>
+        <h2 class="subheading">
+          Follow the runners you've been hearing about.
+          <br>
+          Share the running that you love.
+        </h2>
+      </div>
+      <div class="dash_b_form">
+        <form action="<%= users_url %>" method="post" class="group">
+          <div class="signup_forms_panel">
+          
+              <label for="user_email">
+                <input
+                  type="text"
+                  name="user[email]"
+                  value="<%= @user.username %>"
+                  id="user_email"
+                  placeholder='Emai'>
+              </label>
+              <label for="user_password">
+                <input
+                  type="password"
+                  name="user[password]"
+                  id="user_password"
+                  placeholder='Password'>
+              </label>
+            
+              <label for="user_username" placeholder='Username'>
+                <input
+                  type="text"
+                  name="user[username]"
+                  value="<%= @user.username %>"
+                  id="user_username"
+                  placeholder='Username'>
+              </label>
+          </div>
+          <div class="signup_forms_error">
+          
+          </div>
+          <div class="signup_forms_button">
+            <input type="submit">
+          </div>
+        </form>
+        
+        <div class="tumblr_login_link">
 
-
-
-<%= link_to "Log in to your dashboard", new_session_url %>
+        </div>
+      </div>
+    
+    <%= link_to "Log in to your dashboard", new_session_url %>
+    </div>
+  </body>
+</html>

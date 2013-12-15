@@ -1,3 +1,107 @@
 // Place all the styles related to the Users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+html, body, h1, h2, div, img, label, input, form {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+.group:after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+body {
+  font-family: sans-serif;
+  color: #000;
+  background: #fff;
+}
+
+.fullscreen_post_bg{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: -1;
+}
+
+.fullscreen_post_image {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.fullscreen_post_footer{
+  
+}
+
+.fullscreen_post_posted_by {
+  
+}
+
+.show {
+  
+}
+
+
+
+.dash_b_form_container {
+  padding: 20px 30px 30px;
+  margin: auto;
+  position: relative;
+  width: 245px;
+  border: 10px solid #ddd;
+  text-align: center;
+
+}
+
+.dash_b_form_header {
+    
+}
+
+.logo {
+
+  font-size: 60px;
+  font-family: "Bookman Old Style";
+  color: #fff;
+  font-weight: bold;
+}
+
+.subheading {
+  position: relative;
+  font-size: 20px;
+  font-family: "Helvetica Neue";
+  width: 500px;
+  color: #fff;
+  right: 50%;
+}
+
+.dash_b_form{
+  
+}
+
+.signup_forms_panel {
+  display: block;
+  margin: auto;
+}
+
+form {
+
+}
+
+input {
+  margin: auto;
+  display: block;
+  float: left;
+}
+
+.tumblr_login_link {
+  
+}
