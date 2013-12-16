@@ -1,85 +1,84 @@
-<!DOCTYPE html>
-<html>
-
 <head>
   <title>Sign Up | Runblr </title>
   <%= stylesheet_link_tag    "sign_in" %>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
 </head>
 
 <body id="account_logged_out_dashboard">
 
-    <div class="fullscreen_post_bg">
-      <!-- <img class="fullscreen_post_image" src="http://anime-wallpapers.com/images/800x600/naruto-running.jpg"> -->
-      <img class="fullscreen_post_image" src="<%=asset_path "core.jpg"%>">
+  <div class="fullscreen_post_bg">
+    <!-- <img class="fullscreen_post_image" src="http://anime-wallpapers.com/images/800x600/naruto-running.jpg"> -->
+    <img class="fullscreen_post_image" src="<%=asset_path "core.jpg"%>">
+  </div>
+  <div class="fullscreen_post_footer">
+    <div class="fullscreen_post_posted_by show">
     </div>
-    <div class="fullscreen_post_footer">
-      <div class="fullscreen_post_posted_by show">
-      </div>
+  </div>
+
+  <div class="dash_b_form_container">
+    <div class="dash_b_form_header">
+      <h1 class="logo">
+        runblr.
+      </h1>
+      <h2 class="subheading">
+        Follow the runners you've been hearing about.
+        <br>
+        Share the running that you love.
+      </h2>
     </div>
-
-    <div class="dash_b_form_container">
-      <div class="dash_b_form_header">
-        <h1 class="logo">
-          runblr.
-        </h1>
-        <h2 class="subheading">
-          Follow the runners you've been hearing about.
-          <br>
-          Share the running that you love.
-        </h2>
-      </div>
-      <div class="dash_b_form">
-        <form action="<%= users_url %>" method="post">
-          <div class="signup_forms_panel group">
-            <div class="form-row">
-              <label for="user_email">
-                <input
-                  type="text"
-                  name="user[email]"
-                  value="<%= @user.email %>"
-                  id="user_email"
-                  placeholder='Email'
-                  class="entry">
-              </label>
-            </div>
-            <div class="form-row">
-              <label for="user_password">
-                <input
-                  type="password"
-                  name="user[password]"
-                  id="user_password"
-                  placeholder='Password'
-                  class="entry">
-              </label>
-            </div>
-            <div class="form-row">
-              <label for="user_username">
-                <input
-                  type="text"
-                  name="user[username]"
-                  value="<%= @user.username %>"
-                  id="user_username"
-                  placeholder='Username'
-                  class="entry">
-              </label>
-            </div>
+    <div class="dash_b_form">
+      <form action="<%= users_url %>" method="post">
+        <div class="signup_forms_panel group">
+          <div class="form-row">
+            <label for="user_email">
+              <input
+                type="text"
+                name="user[email]"
+                value="<%= @user.email %>"
+                id="user_email"
+                placeholder='Email'
+                class="entry">
+            </label>
           </div>
-          <% if flash[:errors] %>
-            <div class="signup_forms_error group">
-              <%= render "layouts/errors" %>
-            </div>
-          <% end %>
-          <div class="signup_forms_button group">
-            <input class="sign-up-button" type="submit" value="Sign up">
+          <div class="form-row">
+            <label for="user_password">
+              <input
+                type="password"
+                name="user[password]"
+                id="user_password"
+                placeholder='Password'
+                class="entry">
+            </label>
           </div>
-        </form>
-
-        <div class="tumblr_login_link">
-            <%= link_to "Log in to your dashboard", new_session_url %>
+          <div class="form-row">
+            <label for="user_username">
+              <input
+                type="text"
+                name="user[username]"
+                value="<%= @user.username %>"
+                id="user_username"
+                placeholder='Username'
+                class="entry">
+            </label>
+          </div>
         </div>
+        <% if flash[:errors] %>
+          <div class="signup_forms_error group">
+            <%= render "layouts/errors" %>
+          </div>
+        <% end %>
+        <div class="signup_forms_button group">
+          <input class="sign-up-button" type="submit" value="Sign up">
+        </div>
+      </form>
+
+      <div class="tumblr_login_link">
+          <%= link_to "Log in to your dashboard", new_session_url %>
       </div>
-
-
     </div>
-  </body>
-</html>
+
+
+  </div>
+</body>
