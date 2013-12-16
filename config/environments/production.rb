@@ -45,8 +45,9 @@ Runblr::Application.configure do
   # Enable serving of images, stylesheets, and JavaScripts from an asset server
   # config.action_controller.asset_host = "http://assets.example.com"
 
+
   # Precompile additional assets (application.js, application.css, and all non-JS/CSS are already added)
-  # config.assets.precompile += %w( search.js )
+    config.assets.precompile += %w( comments.css.scss dashboard.css.scss follows.css.scss password_resets.css.scss posts.css.scss sessions.css.scss users.css.scss)
 
   # Disable delivery errors, bad email addresses will be ignored
   # config.action_mailer.raise_delivery_errors = false

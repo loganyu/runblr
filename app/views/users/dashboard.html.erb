@@ -2,13 +2,13 @@
 <html>
 <head>
   <title>Runblr </title>
-  <link rel="stylesheet" href="dashboard.css" type="text/css">
+  <%= stylesheet_link_tag    "dashboard" %>
 </head>
 
 <body id="dashboard_index">
   <div id="container group">
     <div id="header_container">
-      
+
       <div id="header">
         <h1 class="dashboard-logo">
           <a class="logo_anchor" href="<%= user_dashboard_url(current_user) %>">Tumblr</a>
@@ -27,9 +27,9 @@
         </div>
       </div>
     </div>
-      
+
     <div id="content group">
-      
+
       <div id="right_column">
         <h1>
           <a href="#" id="blog_link">Link to blog</a>
@@ -53,7 +53,7 @@
           </li>
         </ul>
       </div>
-      
+
       <div id="left_column">
         <ol id="posts">
           <li class="post_container new_post_buttons_container">
@@ -67,9 +67,9 @@
               </nav>
             </div>
           </li>
-          
+
           <!-- START POSTS -->
-          
+
           <li class="post_container">
             <div class="post">
               <div class="post_avatar">
@@ -85,7 +85,7 @@
               </div>
             </div>
           </li>
-          
+
           <h1><font color="red">run</font>blr.</h1>
           <% if current_user.nil? %>
             <%= link_to "Create an Account", new_users_url %>
