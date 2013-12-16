@@ -1,5 +1,7 @@
 Runblr::Application.configure do
 
+  config.assets.initialize_on_precompile = false
+
   # Settings specified here will take precedence over those in config/application.rb
 
   # In the development environment your application's code is reloaded on

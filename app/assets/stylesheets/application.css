@@ -11,3 +11,47 @@
  *= require_self
  * require_tree .
  */
+
+html, body, h1, h2, div, img, label, input, form, button, ul, ol, li, a {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+.group:after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+a {
+  text-decoration: none;
+}
+
+a, a:visited, a:hover, a:active {
+  color: inherit;
+}
+
+ul, ol {
+  list-style-type: none;
+}
+
+body {
+  font-family: sans-serif;
+  color: #000;
+  background: #fff;
+}
+
+div {
+  display: block;
+}
+
+.group:after {
+  content: "";
+  clear: both;
+  display: table;
+}
+

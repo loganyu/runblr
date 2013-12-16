@@ -1,68 +1,98 @@
 <head>
   <title>Runblr </title>
   <%= stylesheet_link_tag    "dashboard" %>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
 </head>
 
 <body id="dashboard_index">
-  <div id="container group">
+  <div id="container" class="group">
     <div id="header_container">
 
       <div id="header">
         <h1 class="dashboard-logo">
-          <a class="logo_anchor" href="<%= user_dashboard_url(current_user) %>">Tumblr</a>
+          <a class="logo_anchor" href="<%= user_dashboard_url(current_user) %>">runblr.</a>
         </h1>
         <div id="tabs_outter_container">
           <div id="user_tools">
-            <div class="tab_home">
+            <div class="tab tab_home">
+              HO
             </div>
-            <div class="tab_settings">
+            <div class="tab tab_settings">
+              SE
             </div>
-            <div class="tab_log_out">
+            <div class="tab tab_log_out">
+              LO
             </div>
-            <div class="tab_search">
+            <div class="tab tab_search">
+              SEARCH
             </div>
           </div>
         </div>
       </div>
     </div>
 
-    <div id="content group">
+    <div id="content" class="group">
 
       <div id="right_column">
-        <h1>
+        <h1 id="blog-holder">
           <a href="#" id="blog_link">Link to blog</a>
         </h1>
         <ul class="blog_menu">
-          <li class="posts_control">
-            <a href="#" class="posts">
+          <li class="control_item group">
+            <a href="#" class="right_link">
+              Posts
+            </a>
+            <a href="#" class="right_link_amount">
+              3
             </a>
           </li>
-          <li class="control_item">
-            <a href="#" class="control_followers">
+          <li class="control_item group">
+            <a href="#" class="right_link">
+              Followers
+            </a>
+            <a href="#" class="right_link_amount">
+              3
             </a>
           </li>
-          <li class="control_item">
-            <a href="#" class="control_following">
+          <li class="control_item group">
+            <a href="#" class="right_link">
+              Following
+            </a>
+            <a href="#" class="right_link_amount">
+              3
             </a>
           </li>
-          <li class="control_item">
-            <a href="#" class="control_posts">
-            </a>
-          </li>
+
         </ul>
       </div>
 
       <div id="left_column">
+
         <ol id="posts">
           <li class="post_container new_post_buttons_container">
             <div class="new_post_buttons">
               <nav id="post_buttons">
-                <a href="#" class="new_post_label"></a>
-                <a href="#" class="new_post_label"></a>
-                <a href="#" class="new_post_label"></a>
-                <a href="#" class="new_post_label"></a>
-                <a href="#" class="new_post_label"></a>
+                <a href="#" class="new_post_label">
+                  RU
+                </a>
+                <a href="#" class="new_post_label">
+                  PH
+                </a>
+                <a href="#" class="new_post_label">
+                  LI
+                </a>
+                <a href="#" class="new_post_label">
+                  QU
+                </a>
+                <a href="#" class="new_post_label">
+                  VI
+                </a>
               </nav>
+            </div>
+            <div class="post_avatar">
+              =)
             </div>
           </li>
 
@@ -71,20 +101,25 @@
           <li class="post_container">
             <div class="post">
               <div class="post_avatar">
-                <a class="post_avatar_link" href="#"></a>
+                <a class="post_avatar_link" href="#">
+                  AVAT
+                </a>
               </div>
               <div class="post_wrapper">
                 <div class="post_header">
+                  HEADER INFO
                 </div>
                 <div class="post_content">
+                  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
                 </div>
                 <div class="post_footer">
+                  FOOTER
                 </div>
               </div>
             </div>
           </li>
 
-          <h1><font color="red">run</font>blr.</h1>
+
           <% if current_user.nil? %>
             <%= link_to "Create an Account", new_users_url %>
           <% else %>
@@ -127,7 +162,7 @@ Followers: <br>
   <% end %>
 </table> <br>
 
-<%= render "posts/new_template", post: @post %>
+
 
 <%= render "posts/show_template", user: @user, show_all: true %>
 

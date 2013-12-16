@@ -3,65 +3,88 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 
-html, body, h1, h2, div, img, label, input, form, button {
-  margin: 0;
-  padding: 0;
-  border: 0;
-  font-size: 100%;
-  font: inherit;
-  vertical-align: baseline;
-}
 
-.group:after {
-  content: "";
-  clear: both;
-  display: table;
-}
-
-a {
-  text-decoration: none;
-}
-
-body {
-  font-family: sans-serif;
-  color: #000;
-  background: #fff;
-}
 
 body * {
-  border: 1px solid black;
+//  border: 1px solid black;
+color: #a7a7a7;
 }
 
 #dashboard_index {
+  background: #2f4b66;
+  color: #fff;
 
 }
 
 #container {
+  width: 900px;
+  margin: auto;
+  padding: 0 30px;
 
 }
 
 #header_container {
-
+  width: 900px!important;
+  -webkit-font-smoothing: antialiased;
+  height: 71px;
+  margin: auto;
+  position: relative;
 }
 
 #header {
+  width: 900px!important;
+  -webkit-font-smoothing: antialiased;
+  height: 71px;
+  margin: auto;
+  position: relative;
+  border: 1px solid red;
 
+}
+
+#header > h1 {
+  font-size: 50px;
+  font-family: "Bookman Old Style";
+  color: #fff;
+  font-weight: bold;
 }
 
 .dashboard-logo {
 
+  float: left;
+  color: #3f3f3f;
+  padding-top: 10px;
+  padding-left: 15px;
+
+
 }
 
-.logo_anchor {
+.logo_anchor > a {
+  margin: auto;
+  font-weight: bold;
 
 }
+
 
 #tabs_outter_container {
-
+  margin: auto;
+  float: right;
+  height: 100%;
+  padding-top: 10px;
 }
 
 #user_tools {
+  float: right;
+  margin: auto;
+  height: 100%;
+}
 
+.tab {
+  border: 1px solid red;
+  color: #fff;
+  padding: 4px 9px;
+  font-size: 32px;
+  font-weight: bold;
+  float: left;
 }
 
 .tab_home {
@@ -81,14 +104,30 @@ body * {
 }
 
 #content {
-
+  min-height: 425px;
+  padding: 20px;
+  background: #2c4762;
+  border-radius: 15px;
+  border: 2px solid black;
 }
 
 #right_column {
+  float: right;
+  border: 1px solid red;
+}
 
+#blog-holder {
+  width: 160px;
+  height: 50px;
+  border-bottom: 2px solid rgba(255,255,255,0.13);
+  padding: 30px 13px 0px 40px;
 }
 
 #blog_link {
+  font-size: 20px;
+  font-weight: bold;
+
+
 
 }
 
@@ -96,40 +135,71 @@ body * {
 
 }
 
-.posts_control {
-
-}
-
 .control_item {
-
+  width: 100%;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.13);
 }
 
-.control_followers {
-
+.right_link {
+  line-height: 36px;
+  color: rgba(255,255,255,.50);
+  padding: 0 5px;
+  float:left;
 }
 
-.control_following {
-
-}
-
-.control_posts {
-
+.right_link_amount{
+  line-height: 36px;
+  padding: 0 5px;
+  float: right;
 }
 
 #left_column {
-
+  border: 1px solid green;
+  float: left;
+  width: 625px;
 }
 
 #posts {
-
+  margin: 0 0 0 25px;
 }
 
 .post_container {
+  height: auto;
+  border: 1px solid green;
+  float: right;
+  width: 100%;
+  margin: 0 0 20px 0;
+
 
 }
 
 .new_post_buttons_container {
+  height: 70px;
 
+
+}
+
+.new_post_buttons{
+  float: right;
+  width: 500px;
+
+}
+
+#post_buttons {
+  font-size: 0pt;
+  display: block;
+  background-color: #fff;
+  color: black;
+  border-radius: 6px;
+}
+
+.new_post_label {
+  text-align: center;
+  border: 1px solid red;
+  font-size: 38pt;
+  width: 98px;
+  height: 70px;
+  display: inline-block;
 }
 
 .post {
@@ -137,7 +207,10 @@ body * {
 }
 
 .post_avatar {
-
+  float: left;
+  border: 1px solid red;
+  width: 75px;
+  height: 70px;
 }
 
 .post_avatar_link {
@@ -145,17 +218,32 @@ body * {
 }
 
 .post_wrapper {
-
+  border: 1px solid red;
+  float: right;
+  width: 500px;
+  background-color: #fff;
 }
 
 .post_header {
+  border: 1px solid red;
+  padding: 10px 20px;
+  font-size: 13px;
+  border-top-right-radius: 6px;
+  border-top-left-radius: 6px;
 
 }
 
 .post_content {
+  border: 1px solid red;
+  padding: 10px 20px;
 
 }
 
 .post_footer {
-
+  border: 1px solid red;
+  padding: 10px 20px;
+  font-size: 13px;
+  border-bottom-right-radius: 6px;
+  border-bottom-left-radius: 6px;
+  background-color: #E8E8E8;
 }
