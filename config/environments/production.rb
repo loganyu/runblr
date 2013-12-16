@@ -48,7 +48,7 @@ Runblr::Application.configure do
 
 
   # Precompile additional assets (application.js, application.css, and all non-JS/CSS are already added)
-    config.assets.precompile += %w( comments.css dashboard.css follows.css password_resets.css posts.css sessions.css users.css)
+    config.assets.precompile += %w( comments.css dashboard.css follows.css password_resets.css posts.css sessions.css sign_in.css users.css)
 
   # Disable delivery errors, bad email addresses will be ignored
   # config.action_mailer.raise_delivery_errors = false

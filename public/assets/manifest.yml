@@ -21,6 +21,8 @@ posts.css: posts-1b13569e9620782f423d4cd3ce931750.css
 posts/index.css: posts-1b13569e9620782f423d4cd3ce931750.css
 sessions.css: sessions-cae386843c65ec21825ac48974ba9c36.css
 sessions/index.css: sessions-cae386843c65ec21825ac48974ba9c36.css
+sign_in.css: sign_in-a1da92f61afafab859349683b8b113c6.css
+sign_in/index.css: sign_in-a1da92f61afafab859349683b8b113c6.css
 users.css: users-1b13569e9620782f423d4cd3ce931750.css
 users/index.css: users-1b13569e9620782f423d4cd3ce931750.css
 jquery.min.map: jquery.min-6336c5bca4c709e809647cdfcb484d0a.map
