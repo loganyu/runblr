@@ -9,8 +9,8 @@
 <body id="account_logged_out_dashboard">
 
     <div class="fullscreen_post_bg">
-      <img class="fullscreen_post_image" src="http://www.sharewallpapers.org/d/288225-1/sasuke+and+naruto.jpg">
-      <!-- <img class="fullscreen_post_image" src="<%=asset_path "ladies.jpg"%>"> -->
+      <!-- <img class="fullscreen_post_image" src="http://www.sharewallpapers.org/d/288225-1/sasuke+and+naruto.jpg"> -->
+      <img class="fullscreen_post_image" src="<%=asset_path "ladies.jpg"%>">
     </div>
     <div class="fullscreen_post_footer">
       <div class="fullscreen_post_posted_by show">
@@ -37,7 +37,7 @@
                   class="entry">
               </label>
             </div>
-            <div class="form-row">  
+            <div class="form-row">
               <label for="user_password">
                 <input
                   type="password"
@@ -57,15 +57,15 @@
             <input class="sign-up-button" type="submit" value="Log in">
           </div>
         </form>
-        
+
         <div class="tumblr_login_link">
             <%= link_to "Sign up for a new account", new_user_url %>
             <br>
             <%= link_to "Forgot Password?", new_password_reset_url %>
         </div>
       </div>
-    
-    
+
+
     </div>
   </body>
 </html>
