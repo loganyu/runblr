@@ -1,0 +1,58 @@
+<form action="<%= users_url %>" method="post">
+  <input type="hidden" name="_method" value="PUT">
+    <input
+      type="hidden"
+      name="authenticity_token"
+      value="<%= form_authenticity_token %>">
+
+  <div class="signup_forms_panel group">
+    <div class="form-row">
+      <label for="user_email">
+        <input
+          type="text"
+          name="user[email]"
+          value="<%= @user.email %>"
+          id="user_email"
+          placeholder='Email'
+          class="entry">
+      </label>
+    </div>
+    <div class="form-row">
+      <label for="user_password">
+        <input
+          type="password"
+          name="user[password]"
+          id="user_password"
+          placeholder='Password'
+          class="entry">
+      </label>
+    </div>
+    <div class="form-row">
+      <label for="user_username">
+        <input
+          type="text"
+          name="user[username]"
+          value="<%= @user.username %>"
+          id="user_username"
+          placeholder='Username'
+          class="entry">
+      </label>
+    </div>
+  </div>
+  <% if flash[:errors] %>
+    <div class="signup_forms_error group">
+      <%= render "layouts/errors" %>
+    </div>
+  <% end %>
+  <div class="edit_forms_button group">
+    <input class="edit-button" type="submit" value="Update">
+  </div>
+</form>
+
+Upload photo:
+<form action="<%= user_url %>" method="POST"  enctype="multipart/form-data">
+  <input type="hidden" name="_method" value="PUT">
+  <input type="file" name="user[profile_picture]">
+  <input type="Submit" value="Submit">
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+</form>

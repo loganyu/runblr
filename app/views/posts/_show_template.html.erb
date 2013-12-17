@@ -14,8 +14,14 @@
      <li class="post_container">
        <div class="post">
          <div class="post_avatar">
-           <a class="post_avatar_link" href="#">
-             AVAT
+           <a class="post_avatar_link" href="<%= user_url(post.user) %>">
+             <div class="post_avatar">
+               <% if current_user.profile_picture.url(:small).nil? %>
+                 <img src="<%=asset_path "naruto_profile_pic.png"%>">
+               <% else %>
+                 <img src="<%= current_user.profile_picture.url(:small) %>">
+               <% end %>
+             </div>
            </a>
          </div>
          <div class="post_wrapper">

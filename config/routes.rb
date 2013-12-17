@@ -1,7 +1,6 @@
 Runblr::Application.routes.draw do
-  resources :users, only: [:create, :new, :destroy, :show, :edit] do
+  resources :users, only: [:create, :new, :destroy, :show, :update, :edit] do
     get 'dashboard'
-    get 'settings'
     resources :follows, only: [:create, :destroy]
   end
 

@@ -1,10 +1,14 @@
 class UsersController < ApplicationController
-  before_filter :authenticate_user!, only: [:dashboard, :settings]
+  before_filter :authenticate_user!, only: [:dashboard, :settings, :edit]
   before_filter :new_user?, only: [:new, :create]
 
   def dashboard
     @user = User.find_by_id(params[:user_id])
     @post = Post.new
+  end
+
+  def settings
+    @user = User.find_by_id(params[:user_id])
   end
 
   def create
@@ -27,8 +31,23 @@ class UsersController < ApplicationController
     render :new
   end
 
+
+
   def edit
     @user = User.find_by_id(params[:id])
+  end
+
+  def update
+    @user = User.find_by_id(params[:id])
+
+    if @user.update_attributes(params[:user])
+      flash[:notice] = "Settings updated"
+      redirect_to :back
+    else
+      flash.now[:errors] = @comment.errors.full_messages
+      redirect_to :back
+    end
+
   end
 
   def show

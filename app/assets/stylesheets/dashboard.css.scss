@@ -4,7 +4,7 @@
 
 
 body * {
-  border: 1px solid black;
+
 }
 
 #dashboard_index {
@@ -38,7 +38,6 @@ a, a:visited, a:active {
   height: 71px;
   margin: auto;
   position: relative;
-  border: 1px solid red;
 
 }
 
@@ -80,7 +79,6 @@ a, a:visited, a:active {
 }
 
 .tab {
-  border: 1px solid red;
   padding: 4px 9px;
   font-size: 32px;
   font-weight: bold;
@@ -117,7 +115,6 @@ a, a:visited, a:active {
 
 #right_column {
   float: right;
-  border: 1px solid red;
 }
 
 #blog-holder {
@@ -163,7 +160,6 @@ a, a:visited, a:active {
 }
 
 #left_column {
-  border: 1px solid green;
   float: left;
   width: 625px;
 }
@@ -174,7 +170,6 @@ a, a:visited, a:active {
 
 .post_container {
   height: auto;
-  border: 1px solid green;
   float: right;
   width: 100%;
   margin: 0 0 20px 0;
@@ -183,7 +178,7 @@ a, a:visited, a:active {
 }
 
 .new_post_buttons_container {
-  height: 70px;
+  height: 77px;
 
 
 }
@@ -195,24 +190,29 @@ a, a:visited, a:active {
 .new_post_buttons{
   float: right;
   width: 500px;
+  height: 77px;
 
 }
 
 #post_buttons {
   font-size: 0pt;
+  width: 100%;
+  height: auto;
   display: block;
   background-color: #fff;
+
   color: black;
   border-radius: 6px;
 }
 
 .new_post_label {
   text-align: center;
-  border: 1px solid red;
   font-size: 38pt;
-  width: 97px;
-  height: 70px;
+  width: 99px;
+  height: 75px;
   display: inline-block;
+  border-left: 1px solid black;
+  padding-top: 20px;
 }
 
 .post {
@@ -221,9 +221,9 @@ a, a:visited, a:active {
 
 .post_avatar {
   float: left;
-  border: 1px solid red;
+  border: 1px solid black;
   width: 75px;
-  height: 70px;
+  height: 75px;
 }
 
 .post_avatar_link {
@@ -231,31 +231,32 @@ a, a:visited, a:active {
 }
 
 .post_wrapper {
-  border: 1px solid red;
   float: right;
   width: 500px;
-  background-color: #fff;
+  background: #2c4762;
+
 }
 
 .post_header {
-  border: 1px solid red;
   padding: 10px 20px;
   font-size: 13px;
   border-top-right-radius: 6px;
   border-top-left-radius: 6px;
-
+  background-color: #E8E8E8;
+  color: black;
 }
 
 .post_content {
-  border: 1px solid red;
-  padding: 10px 20px;
+  padding: 20px 20px;
+  border-left: 20px solid #E8E8E8;
+  border-right: 20px solid #E8E8E8;
   color: black;
+  background: white;
 }
 
 
 
 .post_footer {
-  border: 1px solid red;
   padding: 10px 20px;
   font-size: 13px;
   border-bottom-right-radius: 6px;

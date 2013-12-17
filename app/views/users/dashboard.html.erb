@@ -20,7 +20,7 @@
               <%= link_to "HO", user_dashboard_url(current_user) %>
             </div>
             <div class="tab tab_settings">
-              <%= link_to "SE", user_settings_url(current_user) %>
+              <%= link_to "SE", edit_user_url(current_user) %>
             </div>
             <div class="tab tab_log_out">
               <%= link_to "LO", session_url, :method => :delete %>
@@ -114,7 +114,11 @@
               </nav>
             </div>
             <div class="post_avatar">
-              =)
+              <% if current_user.profile_picture.url(:small).nil? %>
+                <img src="<%=asset_path "naruto_profile_pic.png"%>">
+              <% else %>
+                <img src="<%= current_user.profile_picture.url(:small) %>">
+              <% end %>
             </div>
           </li>
 
