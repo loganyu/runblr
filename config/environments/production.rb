@@ -1,6 +1,16 @@
 Runblr::Application.configure do
   # Settings specified here will take precedence over those in config/application.rb
 
+  # paperclip
+      config.paperclip_defaults = {
+        :storage => :s3,
+        :s3_credentials => {
+          :bucket => "runblr-prod",
+          :access_key_id => "AKIAJXXAU7KCEIQQ74RQ",
+          :secret_access_key => "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",
+          :s3_host_name => 's3.amazonaws.com'
+        }
+      }
 
   # Code is not reloaded between requests
   config.cache_classes = true
@@ -48,7 +58,7 @@ Runblr::Application.configure do
 
 
   # Precompile additional assets (application.js, application.css, and all non-JS/CSS are already added)
-    config.assets.precompile += %w( comments.css dashboard.css follows.css password_resets.css posts.css sessions.css sign_in.css users.css)
+    config.assets.precompile += %w( comments.css dashboard.css follows.css password_resets.css posts.css sessions.css sign_in.css users.css show.css)
 
   # Disable delivery errors, bad email addresses will be ignored
   # config.action_mailer.raise_delivery_errors = false

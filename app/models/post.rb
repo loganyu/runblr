@@ -1,5 +1,5 @@
 class Post < ActiveRecord::Base
-  attr_accessible :post_type, :title, :body, :workout_type, :workout_date, :workout_time, :miles, :hours, :minutes, :seconds, :url, :user_id
+  attr_accessible :post_type, :title, :body, :workout_type, :workout_date, :workout_time, :miles, :hours, :minutes, :seconds, :url, :user_id, :photo
 
   validates :title, presence: true
   validates :user, presence: true
@@ -7,6 +7,11 @@ class Post < ActiveRecord::Base
   belongs_to :user, inverse_of: :posts
   has_many :user_post_likes, inverse_of: :post
   has_many :comments, inverse_of: :post
+
+  has_attached_file :photo, :styles => {
+    :big => "600x600>",
+    :small => "450x400#"
+  }
 
   def likes
     self.user_post_likes.sum(:value)

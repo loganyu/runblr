@@ -4,7 +4,7 @@ body {
 }
 
 .container {
-  width: 600px;
+  width: 604px;
   margin: auto;
   margin-top: 40px;
   margin-bottom: 40px;
@@ -35,6 +35,7 @@ body {
 
 .content {
   float: left;
+  border-bottom: 2px solid black;
 }
 
 #posts {
@@ -113,6 +114,7 @@ body {
   font-size: 13px;
 
 }
+
 
 .post_content {
   padding: 10px 20px;

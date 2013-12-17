@@ -1,5 +1,16 @@
 Runblr::Application.configure do
 
+  # paperclip
+    config.paperclip_defaults = {
+      :storage => :s3,
+      :s3_credentials => {
+        :bucket => "runblr-dev",
+        :access_key_id => "AKIAJXXAU7KCEIQQ74RQ",
+        :secret_access_key => "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",
+        :s3_host_name => 's3.amazonaws.com'
+      }
+    }
+
   config.assets.initialize_on_precompile = false
 
   # Settings specified here will take precedence over those in config/application.rb

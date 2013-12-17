@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-  attr_accessible :username, :password, :session_token, :email
+  attr_accessible :username, :password, :session_token, :email, :profile_picture
   after_initialize :ensure_session_token
 
   validates :username, :session_token, :password_digest, :email, presence: true
@@ -7,6 +7,10 @@ class User < ActiveRecord::Base
   validates :username, :length => 6..20
   validates :email, :format => { :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i, :on => :create }
 
+  has_attached_file :profile_picture, :styles => {
+          :big => "600x600>",
+          :small => "75x75#"
+        }
 
   has_many(
     :inbound_follows,
@@ -65,7 +69,7 @@ class User < ActiveRecord::Base
     return false if @user_comment_like.nil?
     @user_comment_like.value == 1 ? true : false
   end
-  
+
   def get_user_posts_feed
     all_posts = []
     all_posts.concat(self.posts)

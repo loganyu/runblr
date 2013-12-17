@@ -37,6 +37,9 @@
                    <% if post.post_type == "link" || "video" %>
                      <li><%= post.url %></li>
                    <% end %>
+                   <% if post.post_type == "link" || "video" %>
+                     <li><img src="<%= post.photo.url(:small) %>"></li>
+                   <% end %>
                  </ul>
              </ul>
            </div>
