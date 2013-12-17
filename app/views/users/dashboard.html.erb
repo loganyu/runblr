@@ -138,12 +138,12 @@
 <h2> Dashboard </h2>
 
 Following: <br>
-<% @user.followed_users.sort.each do |followed_user| %>
+<% current_user.followed_users.sort.each do |followed_user| %>
   <%= link_to followed_user.username, user_url(followed_user) %> <br>
 <% end %> <br>
 
 Followers: <br>
-<% @user.followers.sort.each do |follower| %>
+<% current_user.followers.sort.each do |follower| %>
   <%= link_to follower.username, user_url(follower) %> <br>
 <% end %> <br>
 
@@ -164,5 +164,5 @@ Followers: <br>
 
 
 
-<%= render "posts/show_template", user: @user, show_all: true %>
+<%= render "posts/show_template", user: current_user, show_all: true %>
 
