@@ -9,7 +9,7 @@ development:
   database: runblr_development
   host: localhost
   pool: 5
-  username: appacademy
+  username: loganyu
   password:
 
 # Warning: The database defined as "test" will be erased and
@@ -21,5 +21,5 @@ test:
   database: runblr_test
   host: localhost
   pool: 5
-  username: appacademy
+  username: loganyu
   password:
