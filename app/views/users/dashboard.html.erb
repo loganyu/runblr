@@ -17,13 +17,13 @@
         <div id="tabs_outter_container">
           <div id="user_tools">
             <div class="tab tab_home">
-              HO
+              <%= link_to "HO", user_dashboard_url(current_user) %>
             </div>
             <div class="tab tab_settings">
-              SE
+              <a href="#">SE</a>
             </div>
             <div class="tab tab_log_out">
-              LO
+              <%= link_to "LO", session_url, :method => :delete %>
             </div>
             <div class="tab tab_search">
               SEARCH
@@ -37,7 +37,7 @@
 
       <div id="right_column">
         <h1 id="blog-holder">
-          <a href="#" id="blog_link">Link to blog</a>
+          <%= link_to "Profile Page", user_url(current_user), id: "blog_link" %>
         </h1>
         <ul class="blog_menu">
           <li class="control_item group">

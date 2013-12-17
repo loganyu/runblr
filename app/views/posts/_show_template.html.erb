@@ -1,13 +1,13 @@
 <h2> Posts List </h2>
 <ul>
-  
-  
+
+
   <% if show_all %>
     <% feed_posts = user.get_user_posts_feed %>
   <% else %>
     <% feed_posts = user.posts %>
   <% end %>
-  
+
   <li> <%= feed_posts.count %> posts </li>
    <% feed_posts.reverse.each do |post| %>
      <li> Post Type: <%= post.post_type %></li>

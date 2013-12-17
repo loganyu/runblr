@@ -1,6 +1,6 @@
 <h1><font color="red">run</font>blr.</h1>
 <% if current_user.nil? %>
-  <%= link_to "Create an Account", new_users_url %>
+  <%= link_to "Create an Account", new_user_url %>
 <% else %>
   <h3> current user: <%= current_user.username %> </h3>
   <%= link_to "Dashboard", user_dashboard_url(current_user) %>
