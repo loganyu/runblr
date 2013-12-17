@@ -53,16 +53,38 @@
               Followers
             </a>
             <a href="#" class="right_link_amount">
-              3
+              <%= current_user.followers.count %>
             </a>
+          </li>
+          <li class="control_item group">
+            <% current_user.followers.sort.each do |follower| %>
+              <%= link_to follower.username, user_url(follower) %> <br>
+
+
+              <% if current_user.followed_users.include?(follower) %>
+                <td><%= button_to "Unfollow", user_follow_url(follower.id, current_user.id), method: :delete %></td>
+              <% else %>
+                <td><%= button_to "Follow", user_follows_url(follower.id) %></td>
+              <% end %>
+
+            <% end %>
+
           </li>
           <li class="control_item group">
             <a href="#" class="right_link">
               Following
             </a>
             <a href="#" class="right_link_amount">
-              3
+              <%= current_user.followed_users.count %>
             </a>
+          <li class="control_item group">
+            <% current_user.followed_users.sort.each do |followed_user| %>
+              <%= link_to followed_user.username, user_url(followed_user) %> <br>
+
+                <td><%= button_to "Unfollow", user_follow_url(followed_user.id, current_user.id), method: :delete %></td>
+
+            <% end %>
+
           </li>
 
         </ul>
@@ -121,45 +143,8 @@
             </div>
           </li>
 
-
-          <% if current_user.nil? %>
-            <%= link_to "Create an Account", new_users_url %>
-          <% else %>
-            <h3> current user: <%= current_user.username %> </h3>
-            <%= link_to "Dashboard", user_dashboard_url(current_user) %>
-            <%= link_to "Profile Page", user_url(current_user) %>
-            <%= button_to "Logout", session_url, :method => :delete %> <br>
-          <% end %>
-
         </ol>
       </div>
     </div>
   </div>
 </body>
-
-<h2> Dashboard </h2>
-
-Following: <br>
-<% current_user.followed_users.sort.each do |followed_user| %>
-  <%= link_to followed_user.username, user_url(followed_user) %> <br>
-<% end %> <br>
-
-Followers: <br>
-<% current_user.followers.sort.each do |follower| %>
-  <%= link_to follower.username, user_url(follower) %> <br>
-<% end %> <br>
-
-<h2> Search Users </h2>
-<table>
-  <% User.all.sort.each do |user| %>
-    <% next if current_user == user %>
-    <tr>
-      <td>  <%= link_to user.username, user_url(user) %> </td>
-    <% if current_user.followed_users.include?(user) %>
-      <td><%= button_to "Unfollow", user_follow_url(user.id, current_user.id), method: :delete %></td>
-    <% else %>
-      <td><%= button_to "Follow", user_follows_url(user.id) %></td>
-    <% end %>
-    </tr>
-  <% end %>
-</table> <br>

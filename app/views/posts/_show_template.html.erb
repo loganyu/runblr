@@ -42,23 +42,22 @@
             </div>
            <div class="post_footer">
              <ul>
-               <li> Options bar </li>
-                  <ul>
-                    <%= render "posts/likes_template", post: post %>
-                  </ul>
-                  <ul>
-                    <li>
-                      <%= post.comments.count %> comments
-                    </li>
-                    <li>
-                      Post Comment
-                      <%= render "comments/new_template", post: post %>
-                    </li>
+                <ul>
+                  <%= render "posts/likes_template", post: post %>
+                </ul>
+                <ul>
+                  <li>
+                    <%= post.comments.count %> comments
+                  </li>
+                  <li>
+                    Post Comment
+                    <%= render "comments/new_template", post: post %>
+                  </li>
 
-                      <ul>
-                        <%= render "comments/comments_template", post: post %>
-                      </ul>
-                  </ul>
+                    <ul>
+                      <%= render "comments/comments_template", post: post %>
+                    </ul>
+                </ul>
              </ul>
            </div>
          </div>
