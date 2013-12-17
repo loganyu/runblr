@@ -5,7 +5,7 @@
 
     <%= render "comments/likes_template", comment: comment %>
 
-    <li>
+    <li class="comment_form">
       Reply to this comment:
       <form action="<%= post_comments_url(comment.post.id) %>" method="POST">
         <textarea name="comment[body]"></textarea><br>

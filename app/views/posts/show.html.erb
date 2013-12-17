@@ -28,12 +28,12 @@
            <li>
              <%= post.comments.count %> comments
            </li>
-           <li>
+           <li class="comment-form">
              Post Comment
              <%= render "comments/new_template", post: post %>
            </li>
 
-             <ul>
+             <ul class="child-template">
                <%= render "comments/comments_template", post: post %>
              </ul>
          </ul>
