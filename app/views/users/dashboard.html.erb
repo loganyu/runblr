@@ -98,6 +98,8 @@
 
           <!-- START POSTS -->
 
+          <%= render "posts/show_template", user: current_user, show_all: true %>
+
           <li class="post_container">
             <div class="post">
               <div class="post_avatar">
@@ -161,8 +163,3 @@ Followers: <br>
     </tr>
   <% end %>
 </table> <br>
-
-
-
-<%= render "posts/show_template", user: current_user, show_all: true %>
-

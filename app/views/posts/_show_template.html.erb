@@ -10,44 +10,59 @@
 
   <li> <%= feed_posts.count %> posts </li>
    <% feed_posts.reverse.each do |post| %>
-     <li> Post Type: <%= post.post_type %></li>
-         <ul>
-           <li> User: <%= link_to post.user.username, user_url(user) %></li>
-           <li> Title: <%= link_to post.title, post_url(post) %></li>
+
+     <li class="post_container">
+       <div class="post">
+         <div class="post_avatar">
+           <a class="post_avatar_link" href="#">
+             AVAT
+           </a>
+         </div>
+         <div class="post_wrapper">
+           <div class="post_header">
+             <%= link_to post.user.username, user_url(user) %>
+           </div>
+           <div class="post_content">
              <ul>
-               <li><%= post.workout_date %></li>
-               <li><%= post.workout_time %></li>
-               <% if post.post_type == "run" %>
-                 <li><%= post.workout_type %> Run</li>
-                 <li><%= post.miles %> Miles</li>
-                 <li><%= post.hours %>:<%= post.minutes %>:<%= post.seconds %></li>
-               <% end %>
-               <li><%= post.body %></li>
-               <% if post.post_type == "link" || "video" %>
-                 <li><%= post.url %></li>
-               <% end %>
+               <li> Title: <%= link_to post.title, post_url(post) %></li>
+                 <ul>
+                   <li><%= post.workout_date %></li>
+                   <li><%= post.workout_time %></li>
+                   <% if post.post_type == "run" %>
+                     <li><%= post.workout_type %> Run</li>
+                     <li><%= post.miles %> Miles</li>
+                     <li><%= post.hours %>:<%= post.minutes %>:<%= post.seconds %></li>
+                   <% end %>
+                   <li><%= post.body %></li>
+                   <% if post.post_type == "link" || "video" %>
+                     <li><%= post.url %></li>
+                   <% end %>
+                 </ul>
              </ul>
-         </ul>
-         <ul>
-           <li> Options bar </li>
-              <ul>
-                <%= render "posts/likes_template", post: post %>
-              </ul>
-              <ul>
-                <li>
-                  <%= post.comments.count %> comments
-                </li>
-                <li>
-                  Post Comment
-                  <%= render "comments/new_template", post: post %>
-                </li>
-
+            </div>
+           <div class="post_footer">
+             <ul>
+               <li> Options bar </li>
                   <ul>
-                    <%= render "comments/comments_template", post: post %>
+                    <%= render "posts/likes_template", post: post %>
                   </ul>
-              </ul>
-         </ul>
+                  <ul>
+                    <li>
+                      <%= post.comments.count %> comments
+                    </li>
+                    <li>
+                      Post Comment
+                      <%= render "comments/new_template", post: post %>
+                    </li>
 
-
+                      <ul>
+                        <%= render "comments/comments_template", post: post %>
+                      </ul>
+                  </ul>
+             </ul>
+           </div>
+         </div>
+       </div>
+     </li>
    <% end %>
 </ul>
