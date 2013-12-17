@@ -3,17 +3,18 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 
-
-
 body * {
   border: 1px solid black;
-color: #a7a7a7;
 }
 
 #dashboard_index {
   background: #2f4b66;
   color: #fff;
 
+}
+
+a, a:visited, a:active {
+  color: inherit;
 }
 
 #container {
@@ -80,11 +81,14 @@ color: #a7a7a7;
 
 .tab {
   border: 1px solid red;
-  color: #fff;
   padding: 4px 9px;
   font-size: 32px;
   font-weight: bold;
   float: left;
+}
+
+.tab > a {
+  color: white;
 }
 
 .tab_home {
@@ -121,6 +125,11 @@ color: #a7a7a7;
   height: 50px;
   border-bottom: 2px solid rgba(255,255,255,0.13);
   padding: 30px 13px 0px 40px;
+
+}
+
+#blog-holder > a {
+  color: white;
 }
 
 #blog_link {
@@ -177,6 +186,10 @@ color: #a7a7a7;
   height: 70px;
 
 
+}
+
+.new_post_buttons> a {
+  color: black;
 }
 
 .new_post_buttons{
@@ -236,7 +249,7 @@ color: #a7a7a7;
 .post_content {
   border: 1px solid red;
   padding: 10px 20px;
-
+  color: black;
 }
 
 
@@ -248,5 +261,5 @@ color: #a7a7a7;
   border-bottom-right-radius: 6px;
   border-bottom-left-radius: 6px;
   background-color: #E8E8E8;
-
+  color: black;
 }

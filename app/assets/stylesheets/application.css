@@ -21,6 +21,8 @@ html, body, h1, h2, div, img, label, input, form, button, ul, ol, li, a {
   vertical-align: baseline;
 }
 
+
+
 .group:after {
   content: "";
   clear: both;
@@ -38,8 +40,7 @@ ul, ol {
 
 body {
   font-family: sans-serif;
-  color: #000;
-  background: #fff;
+
 }
 
 div {

@@ -7,19 +7,29 @@
 </head>
 
 <body>
-  <header>
-  </header>
+  <div class="container">
+    <div class="header group">
+      <h1 class="header-logo">
+        <% if current_user.nil? %>
+          <%= link_to "Create an Account", new_user_url %>
+        <% else %>
+          <%= link_to "Dashboard", user_dashboard_url(current_user) %>
+        <% end %>
+      </h1>
+      <div class="header-title">
+        <h2> Profile page for: <%= @user.username %></h2>
+      </div>
+    </div>
 
-  <div id="content">
+    <div id="content group">
+      <ol id="posts">
+        <%= render "posts/show_template", user: @user, show_all: false %>
+      </ol>
+    </div>
   </div>
-
-  <footer>
-  </footer>
-
-
 </body>
 
-<h1><font color="red">run</font>blr.</h1>
+<!-- <h1><font color="red">run</font>blr.</h1>
 <% if current_user.nil? %>
   <%= link_to "Create an Account", new_user_url %>
 <% else %>
@@ -27,12 +37,12 @@
   <%= link_to "Dashboard", user_dashboard_url(current_user) %>
   <%= link_to "Profile Page", user_url(current_user) %>
   <%= button_to "Logout", session_url, :method => :delete %> <br>
-<% end %>
+<% end %> -->
 
 
-<h2> Profile page for: <%= @user.username %></h2>
+<!-- <h2> Profile page for: <%= @user.username %></h2> -->
 
-<% unless @user == current_user %>
+<!-- <% unless @user == current_user %>
   <table>
       <tr>
         <td><%= @user.username %></td>
@@ -43,6 +53,6 @@
       <% end %>
         </tr>
   </table>
-<% end %>
+<% end %> -->
 
-<%= render "posts/show_template", user: @user, show_all: false %>
+<!-- <%= render "posts/show_template", user: @user, show_all: false %> -->
