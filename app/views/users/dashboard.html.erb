@@ -20,7 +20,7 @@
               <%= link_to "HO", user_dashboard_url(current_user) %>
             </div>
             <div class="tab tab_settings">
-              <a href="#">SE</a>
+              <%= link_to "SE", user_settings_url(current_user) %>
             </div>
             <div class="tab tab_log_out">
               <%= link_to "LO", session_url, :method => :delete %>

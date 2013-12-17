@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_filter :authenticate_user!, only: [:dashboard]
+  before_filter :authenticate_user!, only: [:dashboard, :settings]
   before_filter :new_user?, only: [:new, :create]
 
   def dashboard
@@ -28,6 +28,7 @@ class UsersController < ApplicationController
   end
 
   def edit
+    @user = User.find_by_id(params[:id])
   end
 
   def show

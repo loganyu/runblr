@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131217210624) do
+ActiveRecord::Schema.define(:version => 20131217215222) do
 
   create_table "comments", :force => true do |t|
     t.text     "body",              :null => false
@@ -84,13 +84,17 @@ ActiveRecord::Schema.define(:version => 20131217210624) do
   add_index "user_post_likes", ["user_id"], :name => "index_user_post_likes_on_user_id"
 
   create_table "users", :force => true do |t|
-    t.string   "username",             :null => false
-    t.string   "email",                :null => false
+    t.string   "username",                     :null => false
+    t.string   "email",                        :null => false
     t.string   "password_digest"
     t.string   "session_token"
     t.string   "password_reset_token"
-    t.datetime "created_at",           :null => false
-    t.datetime "updated_at",           :null => false
+    t.datetime "created_at",                   :null => false
+    t.datetime "updated_at",                   :null => false
+    t.string   "profile_picture_file_name"
+    t.string   "profile_picture_content_type"
+    t.integer  "profile_picture_file_size"
+    t.datetime "profile_picture_updated_at"
   end
 
 end
