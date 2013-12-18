@@ -30,29 +30,30 @@
 </body>
 
 <script>
+$(document).ready(function(event){
 
-  function toggleFollowButtons ($dataid) {
+    function toggleFollowButtons ($dataid) {
 
-      $(".user_"+$dataid).toggleClass("can-follow");
-  }
+        $(".user_"+$dataid).toggleClass("can-follow");
+    }
 
-  $("div.follow-button-container").on("submit", "form", function (event) {
-    event.preventDefault();
-    var $currentTarget = $(event.currentTarget);
+    $("div.follow-button-container").on("submit", "form", function (event) {
+      event.preventDefault();
+      var $currentTarget = $(event.currentTarget);
 
-    var $form = $(this);
+      var $form = $(this);
 
-    $.ajax({
-      url: $form.attr("action"),
-      type: "POST",
-      data: $currentTarget.serializeJSON(),
-      success: function () {
+      $.ajax({
+        url: $form.attr("action"),
+        type: "POST",
+        data: $currentTarget.serializeJSON(),
+        success: function () {
 
-        toggleFollowButtons($form.attr("data-id"));
+          toggleFollowButtons($form.attr("data-id"));
 
-      }
+        }
+      });
     });
-  });
-
+});
 </script>
 
