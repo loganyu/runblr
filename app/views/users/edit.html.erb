@@ -52,6 +52,7 @@
 Upload photo:
 <form action="<%= user_url %>" method="POST"  enctype="multipart/form-data">
   <input type="hidden" name="_method" value="PUT">
+  <input type="hidden" name="user[has_profile_picture]" value="true">
   <input type="file" name="user[profile_picture]">
   <input type="Submit" value="Submit">
   <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">

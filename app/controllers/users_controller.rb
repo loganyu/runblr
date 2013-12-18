@@ -13,6 +13,7 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(params[:user])
+    @user.has_profile_picture = false
     if @user.save
       login_user!(@user)
 

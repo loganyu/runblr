@@ -114,10 +114,10 @@
               </nav>
             </div>
             <div class="post_avatar">
-              <% if current_user.profile_picture.url(:small).nil? %>
-                <img src="<%=asset_path "naruto_profile_pic.png"%>">
-              <% else %>
+              <% if current_user.has_profile_picture %>
                 <img src="<%= current_user.profile_picture.url(:small) %>">
+              <% else %>
+                <img src="<%=asset_path "naruto_profile_pic.png"%>">
               <% end %>
             </div>
           </li>

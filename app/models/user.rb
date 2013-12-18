@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-  attr_accessible :username, :password, :session_token, :email, :profile_picture
+  attr_accessible :username, :password, :session_token, :email, :profile_picture, :has_profile_picture
   after_initialize :ensure_session_token
 
   validates :username, :session_token, :password_digest, :email, presence: true
