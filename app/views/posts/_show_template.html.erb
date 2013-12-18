@@ -26,7 +26,10 @@
          </div>
          <div class="post_wrapper">
            <div class="post_header">
-             <%= link_to post.user.username, user_url(user) %>
+             <%= link_to post.user.username, user_url(post.user) %>
+             <% unless current_user == post.user %>
+                 <%= render "users/follow_button", follower: post.user %>
+             <% end %>
            </div>
            <div class="post_content">
              <ul>

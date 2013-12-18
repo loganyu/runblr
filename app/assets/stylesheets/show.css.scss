@@ -1,3 +1,11 @@
+span.can-follow form.unfollow, form.follow {
+  display: none;
+}
+
+span.can-follow form.follow, form.unfollow {
+  display: block;
+}
+
 body {
   color: #fff;
   font-size: 35pt;

@@ -1,4 +1,11 @@
-<li>  User: <%= link_to comment.user.username, user_url(comment.user) %> </li>
+<li>  User: <%= link_to comment.user.username, user_url(comment.user) %>
+  <% unless current_user == comment.user %>
+    <div class="follow-button-container">
+      <%= render "users/follow_button", follower: comment.user %>
+    </div>
+  <% end %>
+
+</li>
 <li>  Comment: <%= comment.body %> </li>
 
   <ul>
