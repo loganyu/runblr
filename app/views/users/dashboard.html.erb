@@ -61,13 +61,50 @@
               <%= link_to follower.username, user_url(follower) %> <br>
 
 
-              <% if current_user.followed_users.include?(follower) %>
+              <!-- <% if current_user.followed_users.include?(follower) %>
                 <td><%= button_to "Unfollow", user_follow_url(follower.id, current_user.id), method: :delete %></td>
               <% else %>
                 <td><%= button_to "Follow", user_follows_url(follower.id) %></td>
-              <% end %>
+              <% end %> -->
 
-            <% end %>
+
+            <!-- <% if current_user.followed_users.include?(follower) %>
+              <td><%= button_to "Unfollow", user_follow_url(follower.id, current_user.id), method: :delete %></td>
+            <% else %>
+              <td><%= button_to "Follow", user_follows_url(follower.id) %></td>
+            <% end %> -->
+
+            <span class="follow-buttons<%= " can-follow" if !current_user.followed_users.include?(follower) %>">
+              <!-- <td><%= button_to "Unfollow", user_follow_url(follower.id, current_user.id), method: :delete, form_class: "unfollow" %></td>
+              <td><%= button_to "Follow", user_follows_url(follower.id), form_class: "follow" %></td> -->
+
+              <form action="<%= user_follow_url(follower.id, current_user.id) %>" method="post"
+                     class="unfollow">
+                <input type="hidden" name="authenticity_token"
+                                    value="<%= form_authenticity_token %>">
+                <input type="hidden" name="_method" value="delete">
+
+                <input type="submit" name="commit" value="Unfollow">
+              </form>
+
+              <form action="<%= user_follows_url(follower.id) %>" method="post"
+                     class="follow">
+                <input type="hidden" name="authenticity_token"
+                                    value="<%= form_authenticity_token %>">
+
+
+                <input type="submit" name="commit" value="Follow">
+              </form>
+
+
+            </span>
+
+
+          <% end %>
+
+
+
+
 
           </li>
           <li class="control_item group">
@@ -154,3 +191,28 @@
 
   <%= render "posts/new_template", post: @post %>
 </body>
+
+<script>
+
+  function toggleFollowButtons ($button) {
+    $button
+      .parents(".follow-buttons")
+      .toggleClass("can-follow");
+  }
+
+  $("ul.blog_menu").on("submit", "form", function (event) {
+    event.preventDefault();
+    var $currentTarget = $(event.currentTarget);
+    var $form = $(this);
+    console.log($currentTarget)
+
+    $.ajax({
+      url: $form.attr("action"),
+      type: "POST",
+      data: $currentTarget.serializeJSON(),
+      success: function () {
+        toggleFollowButtons($currentTarget) }
+    });
+  });
+
+</script>
