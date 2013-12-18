@@ -117,7 +117,7 @@
               <% if current_user.has_profile_picture %>
                 <img src="<%= current_user.profile_picture.url(:small) %>">
               <% else %>
-                <img src="<%=asset_path "naruto_profile_pic.png"%>">
+                <img src="<%=asset_path "blank_profile.png"%>">
               <% end %>
             </div>
           </li>

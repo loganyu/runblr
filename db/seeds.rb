@@ -7,11 +7,11 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 users = User.create([
-  {username: "loganyu", password: "password", email: "yu.logan@gmail.com"},
-  {username: "mebkeflezighi", password: "password", email: "meb@email.com"},
-  {username: "ryanhall", password: "password", email: "ryan@email.com"},
-  {username: "marycane", password: "password", email: "mary@email.com"},
-  {username: "nicksimmons", password: "password", email: "nick@email.com"}
+  {username: "loganyu", password: "password", email: "yu.logan@gmail.com", has_profile_picture: "false"},
+  {username: "mebkeflezighi", password: "password", email: "meb@email.com", has_profile_picture: "false"},
+  {username: "ryanhall", password: "password", email: "ryan@email.com", has_profile_picture: "false"},
+  {username: "marycane", password: "password", email: "mary@email.com", has_profile_picture: "false"},
+  {username: "nicksimmons", password: "password", email: "nick@email.com", has_profile_picture: "false"}
 ])
 
 follows = Follow.create([
