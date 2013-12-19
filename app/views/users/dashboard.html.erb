@@ -166,11 +166,10 @@
 </body>
 
 <script>
+$(document).ready(function(event){
 
   function toggleFollowButtons ($dataid) {
-    // $button
-//       .parents(".follow-buttons")
-//       .toggleClass("can-follow");
+
       $(".user_"+$dataid).toggleClass("can-follow");
   }
 
@@ -192,4 +191,24 @@
     });
   });
 
+
+  $("form.post-form").on("submit", function (event) {
+    event.preventDefault();
+
+    var $currentTarget = $(event.currentTarget);
+    var data = $currentTarget.serializeJSON();
+    var $form = $(this);
+
+    $.ajax({
+      url: $form.attr("action"),
+      type: "POST",
+      data: data,
+      success: function () {
+        console.log(data);
+        $("li.posts-list").prepend($("<li>").text("Hi HI HI HI"));
+      }
+    });
+  });
+
+});
 </script>

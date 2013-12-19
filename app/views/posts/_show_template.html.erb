@@ -8,7 +8,7 @@
     <% feed_posts = user.posts %>
   <% end %>
 
-  <li> <%= feed_posts.count %> posts </li>
+  <li class="posts-list"> <%= feed_posts.count %> posts </li>
    <% feed_posts.reverse.each do |post| %>
 
      <li class="post_container">
