@@ -75,10 +75,6 @@
 
           <% end %>
 
-
-
-
-
           </li>
           <li class="control_item group">
             <a href="#" class="right_link">
@@ -172,7 +168,7 @@ $(document).ready(function(event){
 
   function toggleFollowButtons ($dataid) {
 
-      $(".user_"+$dataid).toggleClass("can-follow");
+      $(".user_follow_"+$dataid).toggleClass("can-follow");
   }
 
   $("div.follow-button-container").on("submit", "form", function (event) {
@@ -211,6 +207,32 @@ $(document).ready(function(event){
       }
     });
   });
-  
+
+  // LIKES
+  //
+  function toggleLikeButtons ($button) {
+    $button
+      .parents(".like-buttons")
+      .toggleClass("can-like");
+  }
+
+  $("div.like-button-container").on("submit", "form", function (event) {
+    event.preventDefault();
+    var $currentTarget = $(event.currentTarget);
+
+    var $form = $(this);
+
+    $.ajax({
+      url: $form.attr("action"),
+      type: "POST",
+      data: $currentTarget.serializeJSON(),
+      success: function () {
+        toggleLikeButtons($currentTarget);
+
+      }
+    });
+  });
+
+
 });
 </script>

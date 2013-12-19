@@ -3,6 +3,19 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 
+
+// LIKE BUTTONS
+
+span.can-like form.unlike, form.like {
+  display: none;
+}
+
+span.can-like form.like, form.unlike {
+  display: block;
+}
+
+// FOLLOW BUTTONS
+
 span.can-follow form.unfollow, form.follow {
   display: none;
 }

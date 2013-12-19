@@ -51,7 +51,7 @@ class PostsController < ApplicationController
   def unlike
     like_total(0)
   end
-  
+
 
 
   private

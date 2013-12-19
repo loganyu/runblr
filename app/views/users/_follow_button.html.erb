@@ -1,5 +1,5 @@
 <div class="follow-button-container">
-  <span class="follow-buttons<%= " can-follow" if !current_user.followed_users.include?(follower) %> user_<%= follower.id %>">
+  <span class="follow-buttons<%= " can-follow" if !current_user.followed_users.include?(follower) %> user_follow_<%= follower.id %>">
   <!-- <td><%= button_to "Unfollow", user_follow_url(follower.id, current_user.id), method: :delete, form_class: "unfollow" %></td>
   <td><%= button_to "Follow", user_follows_url(follower.id), form_class: "follow" %></td> -->
 
@@ -20,7 +20,10 @@
 
     <input type="submit" name="commit" value="Follow">
   </form>
+
+  </span>
+
 </div>
 
-</span>
+
 
