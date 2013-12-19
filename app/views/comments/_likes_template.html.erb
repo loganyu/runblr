@@ -13,11 +13,12 @@
             <% user = User.find_by_id(user_comment_like.user_id) %>
               <td><%= link_to user.username, user_url(user) %> likes this </td>
               <% next if current_user == user %>
-              <% if current_user.followed_users.include?(user) %>
+              <!-- <% if current_user.followed_users.include?(user) %>
                 <td><%= button_to "Unfollow", user_follow_url(user.id, current_user.id), method: :delete %></td>
               <% else %>
                 <td><%= button_to "Follow", user_follows_url(user.id) %></td>
-              <% end %>
+              <% end %> -->
+              <td> <%= render "users/follow_button", follower: user %> <td>
           </tr>
         <% end %>
       <% end %>

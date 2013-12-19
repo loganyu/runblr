@@ -59,15 +59,25 @@
           <li class="control_item group">
             <% current_user.followers.sort.each do |follower| %>
               <%= link_to follower.username, user_url(follower) %> <br>
-
-
-              <% if current_user.followed_users.include?(follower) %>
+                <%= render "users/follow_button", follower: follower %>
+              <!-- <% if current_user.followed_users.include?(follower) %>
                 <td><%= button_to "Unfollow", user_follow_url(follower.id, current_user.id), method: :delete %></td>
               <% else %>
                 <td><%= button_to "Follow", user_follows_url(follower.id) %></td>
-              <% end %>
+              <% end %> -->
 
-            <% end %>
+
+            <!-- <% if current_user.followed_users.include?(follower) %>
+              <td><%= button_to "Unfollow", user_follow_url(follower.id, current_user.id), method: :delete %></td>
+            <% else %>
+              <td><%= button_to "Follow", user_follows_url(follower.id) %></td>
+            <% end %> -->
+
+          <% end %>
+
+
+
+
 
           </li>
           <li class="control_item group">
@@ -81,8 +91,8 @@
             <% current_user.followed_users.sort.each do |followed_user| %>
               <%= link_to followed_user.username, user_url(followed_user) %> <br>
 
-                <td><%= button_to "Unfollow", user_follow_url(followed_user.id, current_user.id), method: :delete %></td>
-
+                <!-- <td><%= button_to "Unfollow", user_follow_url(followed_user.id, current_user.id), method: :delete %></td> -->
+                  <%= render "users/follow_button", follower: followed_user %>
             <% end %>
 
           </li>
@@ -154,3 +164,51 @@
 
   <%= render "posts/new_template", post: @post %>
 </body>
+
+<script>
+$(document).ready(function(event){
+
+  function toggleFollowButtons ($dataid) {
+
+      $(".user_"+$dataid).toggleClass("can-follow");
+  }
+
+  $("div.follow-button-container").on("submit", "form", function (event) {
+    event.preventDefault();
+    var $currentTarget = $(event.currentTarget);
+
+    var $form = $(this);
+
+    $.ajax({
+      url: $form.attr("action"),
+      type: "POST",
+      data: $currentTarget.serializeJSON(),
+      success: function () {
+
+        toggleFollowButtons($form.attr("data-id"));
+
+      }
+    });
+  });
+
+
+  $("form.post-form").on("submit", function (event) {
+    event.preventDefault();
+
+    var $currentTarget = $(event.currentTarget);
+    var data = $currentTarget.serializeJSON();
+    var $form = $(this);
+
+    $.ajax({
+      url: $form.attr("action"),
+      type: "POST",
+      data: data,
+      success: function () {
+        console.log(data);
+        $("li.posts-list").prepend($("<li>").text("Hi HI HI HI"));
+      }
+    });
+  });
+
+});
+</script>

@@ -29,30 +29,31 @@
   </div>
 </body>
 
-<!-- <h1><font color="red">run</font>blr.</h1>
-<% if current_user.nil? %>
-  <%= link_to "Create an Account", new_user_url %>
-<% else %>
-  <h3> current user: <%= current_user.username %> </h3>
-  <%= link_to "Dashboard", user_dashboard_url(current_user) %>
-  <%= link_to "Profile Page", user_url(current_user) %>
-  <%= button_to "Logout", session_url, :method => :delete %> <br>
-<% end %> -->
+<script>
+$(document).ready(function(event){
 
+    function toggleFollowButtons ($dataid) {
 
-<!-- <h2> Profile page for: <%= @user.username %></h2> -->
+        $(".user_"+$dataid).toggleClass("can-follow");
+    }
 
-<!-- <% unless @user == current_user %>
-  <table>
-      <tr>
-        <td><%= @user.username %></td>
-      <% if current_user && current_user.followed_users.include?(@user) %>
-        <td><%= button_to "Unfollow", user_follow_url(@user.id, current_user.id), method: :delete %></td>
-      <% else %>
-        <td><%= button_to "Follow", user_follows_url(@user.id) %></td>
-      <% end %>
-        </tr>
-  </table>
-<% end %> -->
+    $("div.follow-button-container").on("submit", "form", function (event) {
+      event.preventDefault();
+      var $currentTarget = $(event.currentTarget);
 
-<!-- <%= render "posts/show_template", user: @user, show_all: false %> -->
+      var $form = $(this);
+
+      $.ajax({
+        url: $form.attr("action"),
+        type: "POST",
+        data: $currentTarget.serializeJSON(),
+        success: function () {
+
+          toggleFollowButtons($form.attr("data-id"));
+
+        }
+      });
+    });
+});
+</script>
+
