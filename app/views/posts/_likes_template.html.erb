@@ -3,12 +3,13 @@
 <% else %>
   <li><%= link_to "unlike",  unlike_post_url(post), method: :post%></li>
 <% end %> -->
+<li>
 
 <div class="like-button-container">
   <span class="like-buttons<%= " can-like" if !current_user.likes_post?(post) %> ">
 
   <form action="<%= unlike_post_url(post) %> " method="post"
-         class="unlike">
+         class="unlike" data-id="<%= post.id %>">
     <input type="hidden" name="authenticity_token"
                         value="<%= form_authenticity_token %>">
 
@@ -16,7 +17,7 @@
   </form>
 
   <form action="<%= like_post_url(post) %>" method="post"
-         class="like" >
+         class="like" data-id="<%= post.id %>">
     <input type="hidden" name="authenticity_token"
                         value="<%= form_authenticity_token %>">
 
@@ -26,10 +27,10 @@
   </span>
 </div>
 
+</li>
 
-
-
-<li><%= post.likes %> likes</li>
+<li class="like-info-container data-post-likes-<%= post.id %>">
+  <div><%= post.likes %> likes</div>
   <ul>
     <table>
       <% post.user_post_likes.each do |user_post_like| %>
@@ -51,4 +52,4 @@
       <% end %>
     </table>
   </ul>
-
+</li>

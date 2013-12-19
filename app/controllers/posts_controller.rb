@@ -9,7 +9,6 @@ class PostsController < ApplicationController
       # redirect_to :back
       respond_to do |format|
         format.html { render partial: "new_post_template", post: @post}
-        format.js { render :json => @user }
       end
     end
     # else
@@ -45,11 +44,23 @@ class PostsController < ApplicationController
   end
 
   def like
+    @post = Post.find_by_id(params[:id])
+
     like_total(1)
+
+    respond_to do |format|
+      format.html { render partial: "likes_information", post: @post}
+    end
   end
 
   def unlike
+    @post = Post.find_by_id(params[:id])
+
     like_total(0)
+
+    respond_to do |format|
+      format.html { render partial: "likes_information", post: @post}
+    end
   end
 
 
@@ -69,7 +80,7 @@ class PostsController < ApplicationController
         @post.user_post_likes.create(user_id: current_user.id, value: direction)
       end
 
-      redirect_to :back
+      # redirect_to :back
     end
 
     def user_owns_post?

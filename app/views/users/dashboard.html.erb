@@ -214,6 +214,9 @@ $(document).ready(function(event){
     $button
       .parents(".like-buttons")
       .toggleClass("can-like");
+
+
+
   }
 
   $("div.like-button-container").on("submit", "form", function (event) {
@@ -226,9 +229,9 @@ $(document).ready(function(event){
       url: $form.attr("action"),
       type: "POST",
       data: $currentTarget.serializeJSON(),
-      success: function () {
+      success: function (like_info) {
         toggleLikeButtons($currentTarget);
-
+        $(".data-post-likes-"+$form.attr("data-id")).html(like_info)
       }
     });
   });
