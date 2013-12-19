@@ -233,7 +233,8 @@ $(document).ready(function(event){
       type: "POST",
       data: data,
       success: function (post) {
-        $("div.posts-list").prepend(post)
+        $("div.posts-list").prepend(post);
+        $("."+data.post.post_type+"-post").toggleClass("hide");
         $form.each(function() {
           this.reset();
         });
@@ -312,6 +313,8 @@ $(document).ready(function(event){
       }
     });
   });
+
+  // NEW POST BUTTONS
 
   $(".run-click").on("click", function() {
     $(".run-post").toggleClass("hide");
