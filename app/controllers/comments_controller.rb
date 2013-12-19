@@ -7,12 +7,13 @@ class CommentsController < ApplicationController
     @post = Post.find(params[:post_id])
     @comment = @post.comments.build(params[:comment])
     @comment.user = current_user
-
     if @comment.save
-      head :ok
-    else
-      flash[:errors] = @comment.errors.full_messages
-      head :ok
+      respond_to do |format|
+        format.html { render partial: "new_comment_template", locals: { post: @post, comment: @comment } }
+      end
+    # else
+    #   flash[:errors] = @comment.errors.full_messages
+    #   head :ok
     end
   end
 

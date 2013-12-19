@@ -171,7 +171,7 @@ $(document).ready(function(event){
       $(".user_follow_"+$dataid).toggleClass("can-follow");
   }
 
-  $("div.follow-button-container").on("submit", "form", function (event) {
+  $("div.follow-button-container").on("submit", ".follow-form", function (event) {
     event.preventDefault();
     var $currentTarget = $(event.currentTarget);
 
@@ -203,7 +203,7 @@ $(document).ready(function(event){
       type: "POST",
       data: data,
       success: function (post) {
-        $("li.posts-list").prepend(post)
+        $("div.posts-list").prepend(post)
         $form.each(function() {
           this.reset();
         });
@@ -211,8 +211,8 @@ $(document).ready(function(event){
     });
   });
 
-  // LIKES
-  //
+  // POST LIKES
+
   function toggleLikeButtons ($button) {
     $button
       .parents(".like-buttons")
@@ -235,6 +235,28 @@ $(document).ready(function(event){
       success: function (like_info) {
         toggleLikeButtons($currentTarget);
         $(".data-post-likes-"+$form.attr("data-id")).html(like_info)
+      }
+    });
+  });
+
+  // NEW COMMENT
+
+  $(".posts-container").on("submit", ".new-comment-form", function (event) {
+    event.preventDefault();
+
+    var $currentTarget = $(event.currentTarget);
+    var data = $currentTarget.serializeJSON();
+    var $form = $(this);
+
+    $.ajax({
+      url: $form.attr("action"),
+      type: "POST",
+      data: data,
+      success: function (comments) {
+        $(".data-post-comments-"+$form.attr("post-id")).html(comments)
+        $form.each(function() {
+          this.reset();
+        });
       }
     });
   });

@@ -4,7 +4,7 @@
   <td><%= button_to "Follow", user_follows_url(follower.id), form_class: "follow" %></td> -->
 
   <form action="<%= user_follow_url(follower.id, current_user.id) %>" method="post"
-         class="unfollow" data-id="<%= follower.id %>">
+         class="unfollow follow-form" data-id="<%= follower.id %>">
     <input type="hidden" name="authenticity_token"
                         value="<%= form_authenticity_token %>">
     <input type="hidden" name="_method" value="delete">
@@ -13,7 +13,7 @@
   </form>
 
   <form action="<%= user_follows_url(follower.id) %>" method="post"
-         class="follow" data-id="<%= follower.id %>">
+         class="follow follow-form" data-id="<%= follower.id %>">
     <input type="hidden" name="authenticity_token"
                         value="<%= form_authenticity_token %>">
 

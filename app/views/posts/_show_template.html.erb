@@ -1,14 +1,15 @@
+<% if show_all %>
+  <% feed_posts = user.get_user_posts_feed %>
+<% else %>
+  <% feed_posts = user.posts %>
+<% end %>
+
 <h2> Posts List </h2>
+<h2> <%= feed_posts.count %> posts </h2>
+
 <ul class="posts-container">
 
-
-  <% if show_all %>
-    <% feed_posts = user.get_user_posts_feed %>
-  <% else %>
-    <% feed_posts = user.posts %>
-  <% end %>
-
-  <li class="posts-list"> <%= feed_posts.count %> posts </li>
+  <div class="posts-list">
    <% feed_posts.reverse.each do |post| %>
 
      <li class="post_container">
@@ -61,14 +62,17 @@
                   <li>
                     <%= post.comments.count %> comments
                   </li>
-                  <li>
-                    Post Comment
-                    <%= render "comments/new_template", post: post %>
-                  </li>
 
+                    <li>
+                      Post Comment
+                      <%= render "comments/new_template", post: post %>
+                    </li>
+
+                  <div>
                     <ul>
                       <%= render "comments/comments_template", post: post %>
                     </ul>
+                  </div>
                 </ul>
              </ul>
            </div>
@@ -76,4 +80,5 @@
        </div>
      </li>
    <% end %>
+ </div>
 </ul>
