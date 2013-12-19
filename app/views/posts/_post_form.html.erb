@@ -1,13 +1,20 @@
 <form action="<%= posts_url %>" method="POST"  enctype="multipart/form-data" class="post-form">
 
+
   <input type="hidden" name="post[post_type]" value="<%= post_type %>">
 
   <h1> New <%= post_type %> </h1>
+  <br>
 
-  Title: <input name="post[title]" value="<%= post.title %>"><br>
-  <input type="date" name="post[workout_date]" value="<%post.workout_date%>">
-  <input type="time" name="post[workout_time]" value="<%post.workout_time%>"><br>
-  0
+  <% if post_type == "run" %>
+
+  Title: <input name="post[title]" value="<%= post.title %>" style="width: 366px"><br><br>
+  Date: <input type="date" name="post[workout_date]" value="<%post.workout_date%>" style="text-align:center"><br><br>
+  Time: <input type="time" name="post[workout_time]" value="<%post.workout_time%>" style="text-align:center"><br><br>
+
+
+  <% end %>
+
   <% if post_type == "run" %>
 
     Workout Type:
@@ -18,31 +25,43 @@
         <option value="Tempo">Tempo</option><br>
         <option value="Easy">Easy</option><br>
         <option value="Race">Race</option><br>
-      </select> <br>
+      </select> <br><br>
 
-    Miles: <input name="post[miles]" value="<%= post.miles %>" maxlength="2" size="2"><br>
-    Duration: <input name="post[hours]" value="<%= post.hours %>" maxlength="2" size="2" placeholder="00">
-                    :<input name="post[minutes]" value="<%= post.minutes %>" maxlength="2" size="2" placeholder="00">
-                    :<input name="post[seconds]" value="<%= post.seconds %>" maxlength="2" size="2" placeholder="00"><br>
+    Miles: <input name="post[miles]" value="<%= post.miles %>" maxlength="3" size="3"><br><br>
+
+    Duration: <input name="post[hours]" value="<%= post.hours %>" maxlength="2" size="2"
+                style="text-align:center" placeholder="00">
+                    : <input name="post[minutes]" value="<%= post.minutes %>" maxlength="2"size="2"
+                    style="text-align:center" placeholder="00">
+                    : <input name="post[seconds]" value="<%= post.seconds %>" maxlength="2" size="2"
+                    style="text-align:center" placeholder="00"><br><br>
+
 
   <% end %>
 
-  <textarea name="post[body]" value="<%= post.body %>"></textarea><br>
+  <% if post_type == "run" || post_type == "quote" %>
 
-  <% if post_type == "link" || "video" %>
+    <textarea style="width:398px; height:50px" name="post[body]" value="<%= post.body %>"></textarea><br>
 
-    URL: <input name="post[url]" value="<%= post.url %>"><br>
+  <% end %>
+
+  <% if post_type == "link" || post_type == "video" %>
+
+    URL: <input name="post[url]" value="<%= post.url %>" style="width: 362px"><br>
 
   <% end %>
 
   <% if post_type == "photo" %>
 
-  Photo: <input type="file" name="post[photo]">
+    <input type="file" name="post[photo]">
+    <br>
 
   <% end %>
 
+  <br>
   <input type="Submit" value="Submit">
   <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+
 </form>
 
 
