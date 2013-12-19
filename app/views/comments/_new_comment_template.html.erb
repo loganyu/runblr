@@ -1,6 +1,4 @@
-<div class="comments-container data-post-comments-<%= post.id %>" >
-  <% comments_by_parent = post.comments_by_parent %>
-  <% comments_by_parent[nil].each do |top_level_comments| %>
-      <%= comment_partial(top_level_comments, comments_by_parent) %>
-  <% end %>
-</div>
+<% comments_by_parent = post.comments_by_parent %>
+<% comments_by_parent[nil].each do |top_level_comments| %>
+    <%= comment_partial(top_level_comments, comments_by_parent) %>
+<% end %>
