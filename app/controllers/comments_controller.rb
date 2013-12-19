@@ -43,12 +43,21 @@ class CommentsController < ApplicationController
   end
 
   def like
-
+    @comment = Comment.find_by_id(params[:id])
     like_total(1)
+
+    respond_to do |format|
+      format.html { render partial: "comment_likes_information", comment: @comment}
+    end
   end
 
   def unlike
+    @comment = Comment.find_by_id(params[:id])
     like_total(0)
+
+    respond_to do |format|
+      format.html { render partial: "comment_likes_information", comment: @comment}
+    end
   end
 
   private
@@ -66,7 +75,7 @@ class CommentsController < ApplicationController
         @comment.user_comment_likes.create(user_id: current_user.id, value: direction)
       end
 
-      redirect_to :back
+      # redirect_to :back
     end
 
     def user_owns_comment?

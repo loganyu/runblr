@@ -1,10 +1,37 @@
-<% unless current_user.likes_comment?(comment) %>
+<!-- <% unless current_user.likes_comment?(comment) %>
   <li><%= link_to "like",  like_post_comment_url(comment.post, comment), method: :post%></li>
 <% else %>
   <li><%= link_to "unlike",  unlike_post_comment_url(comment.post, comment), method: :post%></li>
-<% end %>
+<% end %> -->
 
-<li><%= comment.likes %> likes</li>
+<li>
+
+<div class="comment-like-button-container">
+  <span class="comment-like-buttons<%= " comment-can-like" if !current_user.likes_comment?(comment) %> ">
+
+    <form action="<%= unlike_post_comment_url(comment.post, comment) %> " method="post"
+           class="comment-unlike comments-liking-form" data-id="<%= comment.id %>">
+      <input type="hidden" name="authenticity_token"
+                          value="<%= form_authenticity_token %>">
+
+      <input type="submit" name="commit" value="Unlike">
+    </form>
+
+    <form action="<%= like_post_comment_url(comment.post, comment) %>" method="post"
+           class="comment-like comments-liking-form" data-id="<%= comment.id %>">
+      <input type="hidden" name="authenticity_token"
+                          value="<%= form_authenticity_token %>">
+
+      <input type="submit" name="commit" value="Like">
+    </form>
+
+  </span>
+</div>
+
+</li>
+
+<li class="comment-like-info-container data-comment-likes-<%= comment.id %>">
+  <div><%= comment.likes %> likes</div>
   <ul>
     <table>
       <% comment.user_comment_likes.each do |user_comment_like| %>
@@ -24,3 +51,4 @@
       <% end %>
     </table>
   </ul>
+</li>

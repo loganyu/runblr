@@ -171,7 +171,7 @@ $(document).ready(function(event){
       $(".user_follow_"+$dataid).toggleClass("can-follow");
   }
 
-  $("div.follow-button-container").on("submit", ".follow-form", function (event) {
+  $(".posts-container").on("submit", ".follow-form", function (event) {
     event.preventDefault();
     var $currentTarget = $(event.currentTarget);
 
@@ -213,7 +213,7 @@ $(document).ready(function(event){
 
   // POST LIKES
 
-  function toggleLikeButtons ($button) {
+  function togglePostLikeButtons ($button) {
     $button
       .parents(".like-buttons")
       .toggleClass("can-like");
@@ -230,7 +230,7 @@ $(document).ready(function(event){
       type: "POST",
       data: $currentTarget.serializeJSON(),
       success: function (like_info) {
-        toggleLikeButtons($currentTarget);
+        togglePostLikeButtons($currentTarget);
         $(".data-post-likes-"+$form.attr("data-id")).html(like_info)
       }
     });
@@ -258,6 +258,30 @@ $(document).ready(function(event){
     });
   });
 
+  // COMMENT LIKES
+
+  function toggleCommentLikeButtons ($button) {
+    $button
+      .parents(".comment-like-buttons")
+      .toggleClass("comment-can-like");
+  }
+
+  $(".posts-container").on("submit", ".comments-liking-form", function (event) {
+    event.preventDefault();
+    var $currentTarget = $(event.currentTarget);
+
+    var $form = $(this);
+
+    $.ajax({
+      url: $form.attr("action"),
+      type: "POST",
+      data: $currentTarget.serializeJSON(),
+      success: function (like_info) {
+        toggleCommentLikeButtons($currentTarget);
+        $(".data-comment-likes-"+$form.attr("data-id")).html(like_info)
+      }
+    });
+  });
 
 });
 </script>

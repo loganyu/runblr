@@ -3,6 +3,16 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 
+// COMMENT LIKE BUTTONS
+
+span.comment-can-like form.comment-unlike, form.comment-like {
+  display: none;
+}
+
+span.comment-can-like form.comment-like, form.comment-unlike {
+  display: block;
+}
+
 // COMMENT INDENT
 
 .sub-comment {
