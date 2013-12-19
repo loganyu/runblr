@@ -1,3 +1,4 @@
+    <div class="sub-comment">
 <li>  User: <%= link_to comment.user.username, user_url(comment.user) %>
   <% unless current_user == comment.user %>
     <div class="follow-button-container">
@@ -22,10 +23,6 @@
       </form>
     </div>
 
-
-
-
-
   </ul>
 
   <ul>
@@ -33,3 +30,4 @@
       <%= comment_partial(child_comment, comments_by_parent) %>
     <% end %>
   </ul>
+  </div>
