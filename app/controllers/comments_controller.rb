@@ -9,10 +9,10 @@ class CommentsController < ApplicationController
     @comment.user = current_user
 
     if @comment.save
-      redirect_to :back
+      head :ok
     else
       flash[:errors] = @comment.errors.full_messages
-      redirect_to :back
+      head :ok
     end
   end
 
