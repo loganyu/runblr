@@ -102,22 +102,52 @@
           <li class="post_container new_post_buttons_container">
             <div class="new_post_buttons">
               <nav id="post_buttons">
-                <a href="#" class="new_post_label">
+                <a href="#" class="new_post_label run-click">
                   RU
                 </a>
-                <a href="#" class="new_post_label">
+                <a href="#" class="new_post_label photo-click">
                   PH
                 </a>
-                <a href="#" class="new_post_label">
+                <a href="#" class="new_post_label link-click">
                   LI
                 </a>
-                <a href="#" class="new_post_label">
+                <a href="#" class="new_post_label quote-click">
                   QU
                 </a>
-                <a href="#" class="new_post_label">
+                <a href="#" class="new_post_label video-click">
                   VI
                 </a>
               </nav>
+
+              <!-- POST FORMS -->
+
+
+              <div class="new_post_form_container">
+
+                <div class="new_post_form run-post hide">
+                  <%= render "posts/post_form", post: @post, post_type: "run" %>
+                </div>
+
+                <div class="new_post_form photo-post hide">
+                  <%= render "posts/post_form", post: @post, post_type: "photo" %>
+                </div>
+
+                <div class="new_post_form link-post hide">
+                  <%= render "posts/post_form", post: @post, post_type: "link" %>
+                </div>
+
+                <div class="new_post_form quote-post hide">
+                  <%= render "posts/post_form", post: @post, post_type: "quote" %>
+                </div>
+
+                <div class="new_post_form video-post hide">
+                  <%= render "posts/post_form", post: @post, post_type: "video" %>
+                </div>
+
+              </div>
+
+
+
             </div>
             <div class="post_avatar">
               <% if current_user.has_profile_picture %>
@@ -171,7 +201,7 @@ $(document).ready(function(event){
       $(".user_follow_"+$dataid).toggleClass("can-follow");
   }
 
-  $(".posts-container").on("submit", ".follow-form", function (event) {
+  $("#dashboard_index").on("submit", ".follow-form", function (event) {
     event.preventDefault();
     var $currentTarget = $(event.currentTarget);
 
@@ -281,6 +311,46 @@ $(document).ready(function(event){
         $(".data-comment-likes-"+$form.attr("data-id")).html(like_info)
       }
     });
+  });
+
+  $(".run-click").on("click", function() {
+    $(".run-post").toggleClass("hide");
+    $(".photo-post").addClass("hide");
+    $(".link-post").addClass("hide");
+    $(".quote-post").addClass("hide");
+    $(".video-post").addClass("hide");
+  });
+
+  $(".photo-click").on("click", function() {
+    $(".photo-post").toggleClass("hide");
+    $(".run-post").addClass("hide");
+    $(".link-post").addClass("hide");
+    $(".quote-post").addClass("hide");
+    $(".video-post").addClass("hide");
+  });
+
+  $(".link-click").on("click", function() {
+    $(".link-post").toggleClass("hide");
+    $(".photo-post").addClass("hide");
+    $(".run-post").addClass("hide");
+    $(".quote-post").addClass("hide");
+    $(".video-post").addClass("hide");
+  });
+
+  $(".quote-click").on("click", function() {
+    $(".quote-post").toggleClass("hide");
+    $(".photo-post").addClass("hide");
+    $(".link-post").addClass("hide");
+    $(".run-post").addClass("hide");
+    $(".video-post").addClass("hide");
+  });
+
+  $(".video-click").on("click", function() {
+    $(".video-post").toggleClass("hide");
+    $(".photo-post").addClass("hide");
+    $(".link-post").addClass("hide");
+    $(".quote-post").addClass("hide");
+    $(".run-post").addClass("hide");
   });
 
 });

@@ -21,7 +21,9 @@ html, body, h1, h2, div, img, label, input, form, button, ul, ol, li, a {
   vertical-align: baseline;
 }
 
-
+h1 {
+  font-size: 48px;
+}
 
 .group:after {
   content: "";

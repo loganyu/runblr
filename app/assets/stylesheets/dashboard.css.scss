@@ -40,6 +40,8 @@ span.can-follow form.follow, form.unfollow {
   display: block;
 }
 
+
+
 body * {
 
 }
@@ -216,8 +218,44 @@ a, a:visited, a:active {
 
 .new_post_buttons_container {
   height: 77px;
+  position: relative;
+}
+
+.new_post_buttons_container {
+
+}
 
 
+.new_post_form {
+  width: 459px;
+  padding: 20px 20px;
+  position:absolute;
+  top: 100;
+  left: 100;
+  background: gray;
+  border: 1px solid black;
+  border-radius: 5px;
+  display: white;
+}
+
+.run-post.hide {
+  display: none;
+}
+
+.photo-post.hide {
+  display: none;
+}
+
+.link-post.hide {
+  display: none;
+}
+
+.quote-post.hide {
+  display: none;
+}
+
+.video-post.hide {
+  display: none;
 }
 
 .new_post_buttons> a {
@@ -251,6 +289,10 @@ a, a:visited, a:active {
   border-left: 1px solid black;
   padding-top: 20px;
 }
+
+.new_post_label:active {
+  background: gray;
+};
 
 .post {
 
