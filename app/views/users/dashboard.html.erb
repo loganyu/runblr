@@ -168,6 +168,8 @@
 <script>
 $(document).ready(function(event){
 
+  // FOLLOW BUTTONS
+
   function toggleFollowButtons ($dataid) {
 
       $(".user_"+$dataid).toggleClass("can-follow");
@@ -191,6 +193,7 @@ $(document).ready(function(event){
     });
   });
 
+  // NEW POST
 
   $("form.post-form").on("submit", function (event) {
     event.preventDefault();
@@ -203,12 +206,11 @@ $(document).ready(function(event){
       url: $form.attr("action"),
       type: "POST",
       data: data,
-      success: function () {
-        console.log(data);
-        $("li.posts-list").prepend($("<li>").text("Hi HI HI HI"));
+      success: function (post) {
+        $("li.posts-list").prepend(post)
       }
     });
   });
-
+  
 });
 </script>

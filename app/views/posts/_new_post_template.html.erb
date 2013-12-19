@@ -1,0 +1,64 @@
+<li class="post_container">
+  <div class="post">
+    <div class="post_avatar">
+      <a class="post_avatar_link" href="<%= user_url(@post.user) %>">
+        <div class="post_avatar">
+          <% if @post.user.has_profile_picture %>
+            <img src="<%= @post.user.profile_picture.url(:small) %>">
+          <% else %>
+            <img src="<%=asset_path "blank_profile.png"%>">
+          <% end %>
+        </div>
+      </a>
+    </div>
+    <div class="post_wrapper">
+      <div class="post_header">
+        <%= link_to @post.user.username, user_url(@post.user) %>
+        <% unless current_user == @post.user %>
+            <%= render "users/follow_button", follower: @post.user %>
+        <% end %>
+      </div>
+      <div class="post_content">
+        <ul>
+          <li> <%= link_to @post.title, post_url(@post) %></li>
+            <ul>
+              <li><%= @post.workout_date %></li>
+              <li><%= @post.workout_time %></li>
+              <% if @post.post_type == "run" %>
+                <li><%= @post.workout_type %> Run</li>
+                <li><%= @post.miles %> Miles</li>
+                <li><%= @post.hours %>:<%= @post.minutes %>:<%= @post.seconds %></li>
+              <% end %>
+              <li><%= @post.body %></li>
+              <% if @post.post_type == "link" || "video" %>
+                <li><%= @post.url %></li>
+              <% end %>
+              <% if @post.post_type == "link" || "video" %>
+                <li><img src="<%= @post.photo.url(:small) %>"></li>
+              <% end %>
+            </ul>
+        </ul>
+      </div>
+      <div class="post_footer">
+        <ul>
+           <ul>
+             <%= render "posts/likes_template", post: @post %>
+           </ul>
+           <ul>
+             <li>
+               <%= @post.comments.count %> comments
+             </li>
+             <li>
+               Post Comment
+               <%= render "comments/new_template", post: @post %>
+             </li>
+
+               <ul>
+                 <%= render "comments/comments_template", post: @post %>
+               </ul>
+           </ul>
+        </ul>
+      </div>
+    </div>
+  </div>
+</li>
