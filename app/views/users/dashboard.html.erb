@@ -204,6 +204,9 @@ $(document).ready(function(event){
       data: data,
       success: function (post) {
         $("li.posts-list").prepend(post)
+        $form.each(function() {
+          this.reset();
+        });
       }
     });
   });
