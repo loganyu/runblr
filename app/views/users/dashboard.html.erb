@@ -222,7 +222,7 @@ $(document).ready(function(event){
 
   }
 
-  $("div.like-button-container").on("submit", "form", function (event) {
+  $(".posts-container").on("submit", ".posts-liking-form", function (event) {
     event.preventDefault();
     var $currentTarget = $(event.currentTarget);
 

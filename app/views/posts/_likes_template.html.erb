@@ -9,7 +9,7 @@
   <span class="like-buttons<%= " can-like" if !current_user.likes_post?(post) %> ">
 
   <form action="<%= unlike_post_url(post) %> " method="post"
-         class="unlike" data-id="<%= post.id %>">
+         class="unlike posts-liking-form" data-id="<%= post.id %>">
     <input type="hidden" name="authenticity_token"
                         value="<%= form_authenticity_token %>">
 
@@ -17,7 +17,7 @@
   </form>
 
   <form action="<%= like_post_url(post) %>" method="post"
-         class="like" data-id="<%= post.id %>">
+         class="like posts-liking-form" data-id="<%= post.id %>">
     <input type="hidden" name="authenticity_token"
                         value="<%= form_authenticity_token %>">
 

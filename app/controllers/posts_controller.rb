@@ -45,7 +45,6 @@ class PostsController < ApplicationController
 
   def like
     @post = Post.find_by_id(params[:id])
-
     like_total(1)
 
     respond_to do |format|
