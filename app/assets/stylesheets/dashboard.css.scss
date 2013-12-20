@@ -2,6 +2,10 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+.post-comment-title {
+  margin-bottom: 5px;
+}
+
 .username-link {
   color: #000099;
   font-weight: bold;
@@ -57,6 +61,30 @@
   background: #3300FF;
   color: #F8F8F8;
 }
+
+// LIKE BUTTON
+
+.like-button-submit{
+  position: relative;
+  display: inline-block;
+  padding: 2px 4px;
+  font-weight: bold;
+  background: #3333FF;
+  color: #D8D8D8;
+  border-radius: 5px;
+}
+
+.like-button-submit:active {
+  background: #3300FF;
+  color: #F8F8F8;
+}
+
+// FOLLOW BUTTON
+
+.follow-button-submit{
+
+}
+
 
 // COMMENT LIKE BUTTONS
 

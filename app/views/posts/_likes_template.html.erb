@@ -13,7 +13,7 @@
     <input type="hidden" name="authenticity_token"
                         value="<%= form_authenticity_token %>">
 
-    <input type="submit" name="commit" value="Unlike">
+    <input type="submit" name="commit" value="Unlike" class="like-button-submit">
   </form>
 
   <form action="<%= like_post_url(post) %>" method="post"
@@ -21,7 +21,7 @@
     <input type="hidden" name="authenticity_token"
                         value="<%= form_authenticity_token %>">
 
-    <input type="submit" name="commit" value="Like">
+    <input type="submit" name="commit" value="Like" class="like-button-submit">
   </form>
 
   </span>

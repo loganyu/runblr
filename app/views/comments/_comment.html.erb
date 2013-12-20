@@ -14,7 +14,7 @@
     <%= render "comments/likes_template", comment: comment %>
 
     <div class="new-comment-container">
-      Reply to this comment:
+      <div class="post-comment-title"> Reply to this comment: </div>
       <form action="<%= post_comments_url(comment.post.id) %>" method="POST" class="new-comment-form" post-id="<%= comment.post.id %>">
         <textarea name="comment[body]"></textarea><br>
         <input type="submit">

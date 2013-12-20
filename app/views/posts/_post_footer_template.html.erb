@@ -3,13 +3,13 @@
      <%= render "posts/likes_template", post: post %>
    </ul>
    <ul>
-     
+
      <li>
        <%= post.comments.count %> comments
      </li>
 
        <li>
-         Post Comment
+         <div class="post-comment-title">Post Comment</div>
          <%= render "comments/new_template", post: post %>
        </li>
 
