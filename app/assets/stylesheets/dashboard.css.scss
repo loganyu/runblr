@@ -2,6 +2,29 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+// SUBMIT BUTTON
+
+.submit {
+}
+
+.submit > input {
+  position: relative;
+  display: inline-block;
+  padding: 10px 20px;
+  font-weight: bold;
+  background: #3333FF;
+  color: #D8D8D8;
+  box-shadow: 0 3px 0 0 #070;
+  border-radius: 5px;
+}
+
+
+.submit > input:active {
+  top: 3px;
+  box-shadow: none;
+  background: #3300FF;
+  color: #F8F8F8;
+}
 
 // COMMENT LIKE BUTTONS
 
