@@ -27,6 +27,8 @@
   right: 7px;
 }
 
+// CLICK USER LINKS
+
 .post-comment-title {
   margin-bottom: 5px;
 }
@@ -34,11 +36,21 @@
 .username-link {
   color: #000099;
   font-weight: bold;
+  position: relative;
 }
 
 .username-link:active {
   color: #006699;
 }
+
+.follow-button-container{
+  position: absolute;
+
+}
+
+.username-link:hover {
+
+};
 
 .post-count {
   padding-bottom: 20px;

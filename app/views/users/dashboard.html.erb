@@ -313,5 +313,14 @@ $(document).ready(function(event){
     $(".run-post").addClass("hide");
   });
 
+  // HOVER FOLLOW BUTTONS
+
+  $(".username-link").mouseover( function() {
+    console.log($(this).children(".follow-button-container"));
+    $(this).children(".follow-button-container").show();
+  }).mouseout(function() {
+    $(this).children(".follow-button-container").hide();
+  });
+
 });
 </script>
