@@ -37,7 +37,7 @@
         <% if user_post_like.value == 1 %>
           <tr>
             <% user = User.find_by_id(user_post_like.user_id) %>
-              <td><%= link_to user.username, user_url(user) %> likes this </td>
+              <td><%= link_to user.username, user_url(user), :class => "username-link"%> likes this </td>
               <% next if current_user == user %>
               <!-- <% if current_user.followed_users.include?(user) %>
                 <td><%= button_to "Unfollow", user_follow_url(user.id, current_user.id), method: :delete %></td>

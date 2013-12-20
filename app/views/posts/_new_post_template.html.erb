@@ -13,7 +13,7 @@
     </div>
     <div class="post_wrapper">
       <div class="post_header">
-        <%= link_to @post.user.username, user_url(@post.user) %>
+        <%= link_to @post.user.username, user_url(@post.user), :class => "username-link" %>
         <% unless current_user == @post.user %>
             <%= render "users/follow_button", follower: @post.user %>
         <% end %>
@@ -22,24 +22,7 @@
         <%= render "posts/post_content_template", post: @post %>
       </div>
       <div class="post_footer">
-        <ul>
-           <ul>
-             <%= render "posts/likes_template", post: @post %>
-           </ul>
-           <ul>
-             <li>
-               <%= @post.comments.count %> comments
-             </li>
-             <li>
-               Post Comment
-               <%= render "comments/new_template", post: @post %>
-             </li>
-
-               <ul>
-                 <%= render "comments/comments_template", post: @post %>
-               </ul>
-           </ul>
-        </ul>
+        <%= render "posts/post_footer_template", post: @post%>
       </div>
     </div>
   </div>

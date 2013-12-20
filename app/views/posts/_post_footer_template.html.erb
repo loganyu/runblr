@@ -1,0 +1,22 @@
+<ul>
+   <ul>
+     <%= render "posts/likes_template", post: post %>
+   </ul>
+   <ul>
+     
+     <li>
+       <%= post.comments.count %> comments
+     </li>
+
+       <li>
+         Post Comment
+         <%= render "comments/new_template", post: post %>
+       </li>
+
+     <div>
+       <ul>
+         <%= render "comments/comments_template", post: post %>
+       </ul>
+     </div>
+   </ul>
+</ul>

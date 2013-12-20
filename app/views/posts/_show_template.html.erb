@@ -4,8 +4,9 @@
   <% feed_posts = user.posts %>
 <% end %>
 
-<h2> Posts List </h2>
-<h2> <%= feed_posts.count %> posts </h2>
+<div class="post-count">
+  <h2> <%= feed_posts.count %> posts </h2>
+</div>
 
 <ul class="posts-container">
 
@@ -27,7 +28,7 @@
          </div>
          <div class="post_wrapper">
            <div class="post_header">
-             <%= link_to post.user.username, user_url(post.user) %>
+             <%= link_to post.user.username, user_url(post.user), :class => "username-link" %>
              <% unless current_user == post.user %>
                  <%= render "users/follow_button", follower: post.user %>
              <% end %>
@@ -36,27 +37,7 @@
              <%= render "posts/post_content_template", post: post %>
            </div>
            <div class="post_footer">
-             <ul>
-                <ul>
-                  <%= render "posts/likes_template", post: post %>
-                </ul>
-                <ul>
-                  <li>
-                    <%= post.comments.count %> comments
-                  </li>
-
-                    <li>
-                      Post Comment
-                      <%= render "comments/new_template", post: post %>
-                    </li>
-
-                  <div>
-                    <ul>
-                      <%= render "comments/comments_template", post: post %>
-                    </ul>
-                  </div>
-                </ul>
-             </ul>
+             <%= render "posts/post_footer_template", post: post%>
            </div>
          </div>
        </div>

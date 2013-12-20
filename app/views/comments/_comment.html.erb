@@ -1,13 +1,13 @@
-    <div class="sub-comment">
-<li>  User: <%= link_to comment.user.username, user_url(comment.user) %>
-  <% unless current_user == comment.user %>
-    <div class="follow-button-container">
-      <%= render "users/follow_button", follower: comment.user %>
-    </div>
-  <% end %>
+<div class="sub-comment">
+  <li>  User: <%= link_to comment.user.username, user_url(comment.user), :class => "username-link" %>
+    <% unless current_user == comment.user %>
+      <div class="follow-button-container">
+        <%= render "users/follow_button", follower: comment.user %>
+      </div>
+    <% end %>
 
-</li>
-<li>  Comment: <%= comment.body %> </li>
+  </li>
+  <li>  Comment: <%= comment.body %> </li>
 
   <ul>
 
@@ -30,4 +30,4 @@
       <%= comment_partial(child_comment, comments_by_parent) %>
     <% end %>
   </ul>
-  </div>
+</div>

@@ -2,6 +2,18 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+.username-link {
+  color: #000099;
+  font-weight: bold;
+}
+
+.username-link:active {
+  color: #006699;
+}
+
+.post-count {
+  padding-bottom: 20px;
+}
 
 // POST CONTENT
 
@@ -17,6 +29,10 @@
 .post_body {
 
 }
+
+// POST FOOTER
+
+
 
 // POST SUBMIT BUTTON
 
