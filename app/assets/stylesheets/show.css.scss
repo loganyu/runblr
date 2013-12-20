@@ -142,3 +142,112 @@ body {
   color: black;
   border-left: 1px solid black;
 }
+
+
+// COMMENT SUBMIT BUTTON
+
+.comment-button-submit {
+  position: relative;
+  display: inline-block;
+  padding: 2px 4px;
+  font-weight: bold;
+  background: #3333FF;
+  color: #D8D8D8;
+  border-radius: 5px;
+}
+
+.comment-button-submit:active {
+  background: #3300FF;
+  color: #F8F8F8;
+}
+
+// POST SUBMIT BUTTON
+
+.submit {
+}
+
+.submit-post > input {
+  position: relative;
+  display: inline-block;
+  padding: 10px 20px;
+  font-weight: bold;
+  background: #3333FF;
+  color: #D8D8D8;
+  box-shadow: 0 3px 0 0 #070;
+  border-radius: 5px;
+}
+
+
+.submit-post > input:active {
+  top: 3px;
+  box-shadow: none;
+  background: #3300FF;
+  color: #F8F8F8;
+}
+
+// LIKE BUTTON
+
+.like-button-submit{
+  position: relative;
+  display: inline-block;
+  padding: 2px 4px;
+  font-weight: bold;
+  background: #3333FF;
+  color: #D8D8D8;
+  border-radius: 5px;
+}
+
+.like-button-submit:active {
+  background: #3300FF;
+  color: #F8F8F8;
+}
+
+// FOLLOW BUTTON
+
+.follow-button-submit{
+  position: relative;
+  display: inline-block;
+  padding: 2px 4px;
+  font-weight: bold;
+  background: #3333FF;
+  color: #D8D8D8;
+  border-radius: 5px;
+}
+
+
+// COMMENT LIKE BUTTONS
+
+span.comment-can-like form.comment-unlike, form.comment-like {
+  display: none;
+}
+
+span.comment-can-like form.comment-like, form.comment-unlike {
+  display: block;
+}
+
+// COMMENT INDENT
+
+.sub-comment {
+ padding-left: 15px;
+ border-left: 2px solid gray;
+}
+
+// LIKE BUTTONS
+
+span.can-like form.unlike, form.like {
+  display: none;
+}
+
+span.can-like form.like, form.unlike {
+  display: block;
+}
+
+// FOLLOW BUTTONS
+
+span.can-follow form.unfollow, form.follow {
+  display: none;
+}
+
+span.can-follow form.follow, form.unfollow {
+  display: block;
+}
