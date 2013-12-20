@@ -19,25 +19,7 @@
         <% end %>
       </div>
       <div class="post_content">
-        <ul>
-          <li> <%= link_to @post.title, post_url(@post) %></li>
-            <ul>
-              <li><%= @post.workout_date %></li>
-              <li><%= @post.workout_time %></li>
-              <% if @post.post_type == "run" %>
-                <li><%= @post.workout_type %> Run</li>
-                <li><%= @post.miles %> Miles</li>
-                <li><%= @post.hours %>:<%= @post.minutes %>:<%= @post.seconds %></li>
-              <% end %>
-              <li><%= @post.body %></li>
-              <% if @post.post_type == "link" || "video" %>
-                <li><%= @post.url %></li>
-              <% end %>
-              <% if @post.post_type == "link" || "video" %>
-                <li><img src="<%= @post.photo.url(:small) %>"></li>
-              <% end %>
-            </ul>
-        </ul>
+        <%= render "posts/post_content_template", post: @post %>
       </div>
       <div class="post_footer">
         <ul>

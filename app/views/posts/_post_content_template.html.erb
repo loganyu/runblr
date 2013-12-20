@@ -1,0 +1,41 @@
+<ul>
+  <div class="post_title">
+    <h2><%= link_to post.title, post_url(post) %></h2>
+  </div>
+  <div class="post_body">
+    <ul>
+      <% unless post.workout_date.nil? %>
+        <li>Workout Date: <%= post.workout_date %></li>
+      <% end %>
+      <% unless post.workout_time.nil? %>
+        <li>Workout Time: <%= post.workout_time %></li>
+      <% end %>
+      <% unless post.workout_time.nil? %>
+        <li>Run Type: <%= post.workout_type %> Run</li>
+      <% end %>
+      <% unless post.miles.nil? %>
+        <li>Total Miles: <%= post.miles %> </li>
+      <% end %>
+      <% unless post.hours.nil? && post.minutes.nil? && post.seconds.nil? %>
+
+        <% if post.hours.nil? %>
+          <% post.hours = 0 %>
+        <% end %>
+        <% if post.minutes.nil? %>
+          <% post.minutes = 0 %>
+        <% end %>
+        <% if post.seconds.nil? %>
+          <% post.seconds = 0 %>
+        <% end %>
+          <li>Time: <%= "%02d" % post.hours %>:<%= "%02d" % post.minutes %>:<%= "%02d" % post.seconds %></li>
+      <% end %>
+      <li><%= post.body %></li>
+      <% if post.post_type == "link" || post.post_type == "video" %>
+        <li><%= post.url %></li>
+      <% end %>
+      <% if post.post_type == "link" || post.post_type == "video" %>
+        <li><img src="<%= post.photo.url(:small) %>"></li>
+      <% end %>
+    </ul>
+  </div>
+</ul>

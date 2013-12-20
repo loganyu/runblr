@@ -2,12 +2,28 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-// SUBMIT BUTTON
+
+// POST CONTENT
+
+.post_title {
+  padding-bottom: 5px;
+  color: #000099;
+}
+
+.post_title:active {
+  color: #006699;
+}
+
+.post_body {
+
+}
+
+// POST SUBMIT BUTTON
 
 .submit {
 }
 
-.submit > input {
+.submit-post > input {
   position: relative;
   display: inline-block;
   padding: 10px 20px;
@@ -19,7 +35,7 @@
 }
 
 
-.submit > input:active {
+.submit-post > input:active {
   top: 3px;
   box-shadow: none;
   background: #3300FF;
