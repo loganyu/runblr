@@ -189,6 +189,7 @@ $(document).ready(function(event){
       type: "POST",
       data: data,
       success: function (post) {
+        console.log(data);
         $("div.posts-list").prepend(post);
         $("."+data.post.post_type+"-post").toggleClass("hide");
         $form.each(function() {

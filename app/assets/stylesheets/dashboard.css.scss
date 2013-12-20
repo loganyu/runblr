@@ -61,7 +61,22 @@
 
 // POST FOOTER
 
+// COMMENT SUBMIT BUTTON
 
+.comment-button-submit {
+  position: relative;
+  display: inline-block;
+  padding: 2px 4px;
+  font-weight: bold;
+  background: #3333FF;
+  color: #D8D8D8;
+  border-radius: 5px;
+}
+
+.comment-button-submit:active {
+  background: #3300FF;
+  color: #F8F8F8;
+}
 
 // POST SUBMIT BUTTON
 

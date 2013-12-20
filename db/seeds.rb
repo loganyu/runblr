@@ -25,32 +25,25 @@ posts = Post.create([
   {post_type: "run", title: "Post Title", user_id: 1,
     body: "Post body", workout_type: "Tempo",
     miles: 6, hours: 2, minutes: 23, seconds: 15},
-  {post_type: "run", title: "Post Title", user_id: 1},
-  {post_type: "run", title: "Post Title", user_id: 2},
-  {post_type: "run", title: "Post Title", user_id: 2},
-  {post_type: "run", title: "Post Title", user_id: 3},
-  {post_type: "run", title: "Post Title", user_id: 3},
-  {post_type: "run", title: "Post Title", user_id: 4},
-  {post_type: "run", title: "Post Title", user_id: 4},
-  {post_type: "run", title: "Post Title", user_id: 5},
-  {post_type: "run", title: "Post Title", user_id: 5},
-  {post_type: "run", title: "Post Title", user_id: 6},
-  {post_type: "run", title: "Post Title", user_id: 6}
+    {post_type: "run", title: "Post Title", user_id: 1},
+    {post_type: "run", title: "Foot Locker Race", body: "Covered a lot of grounds today on my run....parts of Horse Train, League, C.I.F.S.D. Foot Locker, Aztec XC, &SD Rock n Roll courses.", user_id: 2},
+    {post_type: "run", title: "Nationals", body: "Good luck to all runners of all divisions at nationals today!", user_id: 2},
+    {post_type: "run", title: "Good luck!", body: "Good luck to all runners of all divisions at nationals today!", user_id: 3},
+    {post_type: "run", title: "Congratulations!", body: "Congratulations to Everyone that competed at FLNationals, especially the New Yorkers!", user_id: 3},
+    {post_type: "run", title: "Jesus!", body: 'Had a little girl walk by me today and tell her mom, "he (referring to me) looks like Jesus." Greatest compliment ever!', user_id: 3},
+    {post_type: "run", title: "Thanks", body: "20 yrs ago, I was nervous about the biggest race in H.S. Today, Sara helped passing out daddy's books", user_id: 4},
+    {post_type: "run", title: "Cold", body: "If you aren't outside today you're messing up", user_id: 5},
+    {post_type: "run", title: "Thug life", body: "assistant coach thug life", user_id: 5}
 ])
 
 comments = Comment.create([
-  {body: "Comment body", post_id: 1, user_id: 2},
-  {body: "Comment body", post_id: 2, user_id: 3},
-  {body: "Comment body", post_id: 3, user_id: 4},
-  {body: "Comment body", post_id: 4, user_id: 5},
-  {body: "Comment body", post_id: 5, user_id: 6},
-  {body: "Comment body", post_id: 6, user_id: 7},
-  {body: "Comment body", post_id: 7, user_id: 8},
-  {body: "Comment body", post_id: 8, user_id: 9},
-  {body: "Comment body", post_id: 9, user_id: 10},
-  {body: "Comment body", post_id: 10, user_id: 1},
-  {body: "Comment body", post_id: 1, user_id: 4, parent_comment_id: 1},
-  {body: "Comment body", post_id: 1, user_id: 5, parent_comment_id: 2}
+  {body: "Yay!", post_id: 1, user_id: 2},
+  {body: "Horray!", post_id: 2, user_id: 3},
+  {body: "Cool!", post_id: 3, user_id: 4},
+  {body: "Cats!", post_id: 4, user_id: 5},
+  {body: "Nice going.", post_id: 5, user_id: 1},
+  {body: "Right!", post_id: 1, user_id: 4, parent_comment_id: 1},
+  {body: "Cats cats!", post_id: 1, user_id: 5, parent_comment_id: 2}
 ])
 
 post_likes = UserPostLike.create([

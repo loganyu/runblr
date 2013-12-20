@@ -17,7 +17,7 @@
       <div class="post-comment-title"> Reply to this comment: </div>
       <form action="<%= post_comments_url(comment.post.id) %>" method="POST" class="new-comment-form" post-id="<%= comment.post.id %>">
         <textarea name="comment[body]"></textarea><br>
-        <input type="submit">
+          <input type="submit" class="comment-button-submit">
         <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
         <input type="hidden" name="comment[parent_comment_id]" value="<%= comment.id %>">
       </form>
