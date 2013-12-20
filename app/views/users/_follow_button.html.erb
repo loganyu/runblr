@@ -9,7 +9,7 @@
                         value="<%= form_authenticity_token %>">
     <input type="hidden" name="_method" value="delete">
 
-    <input type="submit" name="commit" value="Unfollow">
+    <input type="submit" name="commit" value="Unfollow" class="follow-button-submit">
   </form>
 
   <form action="<%= user_follows_url(follower.id) %>" method="post"
@@ -18,7 +18,7 @@
                         value="<%= form_authenticity_token %>">
 
 
-    <input type="submit" name="commit" value="Follow">
+    <input type="submit" name="commit" value="Follow" class="follow-button-submit">
   </form>
 
   </span>

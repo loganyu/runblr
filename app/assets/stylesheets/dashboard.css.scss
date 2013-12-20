@@ -82,7 +82,13 @@
 // FOLLOW BUTTON
 
 .follow-button-submit{
-
+  position: relative;
+  display: inline-block;
+  padding: 2px 4px;
+  font-weight: bold;
+  background: #3333FF;
+  color: #D8D8D8;
+  border-radius: 5px;
 }
 
 
@@ -321,6 +327,7 @@ a, a:visited, a:active {
   border-radius: 5px;
   display: white;
   opacity: 0.9;
+  z-index: 1;
 }
 
 .run-post.hide {
