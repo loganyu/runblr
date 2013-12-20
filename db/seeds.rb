@@ -22,10 +22,10 @@ follows = Follow.create([
 ])
 
 posts = Post.create([
-  {post_type: "run", title: "Post Title", user_id: 1,
-    body: "Post body", workout_type: "Tempo",
+  {post_type: "run", title: "Run to school.", user_id: 1,
+    body: "It was really cold!", workout_type: "Tempo",
     miles: 6, hours: 2, minutes: 23, seconds: 15},
-    {post_type: "run", title: "Post Title", user_id: 1},
+    {post_type: "run", title: "This is so cool!", user_id: 1},
     {post_type: "run", title: "Foot Locker Race", body: "Covered a lot of grounds today on my run....parts of Horse Train, League, C.I.F.S.D. Foot Locker, Aztec XC, &SD Rock n Roll courses.", user_id: 2},
     {post_type: "run", title: "Nationals", body: "Good luck to all runners of all divisions at nationals today!", user_id: 2},
     {post_type: "run", title: "Good luck!", body: "Good luck to all runners of all divisions at nationals today!", user_id: 3},
