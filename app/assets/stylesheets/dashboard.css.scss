@@ -2,6 +2,23 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+
+// EDIT SETTINGS
+
+.edit-title {
+  padding: 10px 10px;
+}
+
+.edit-user-info-form{
+  width: 245px;
+  padding: 20px 30px 30px 20px;
+}
+
+.shift-edit {
+  position: relative;
+  right: 7px;
+}
+
 .post-comment-title {
   margin-bottom: 5px;
 }
@@ -135,7 +152,7 @@ body * {
 
 }
 
-#dashboard_index {
+.dashboard_index {
   background: #2f4b66;
   color: #fff;
 
@@ -145,7 +162,7 @@ a, a:visited, a:active {
   color: inherit;
 }
 
-#container {
+.container {
   width: 900px;
   margin: auto;
   padding: 0 30px;

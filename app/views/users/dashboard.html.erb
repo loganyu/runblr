@@ -6,32 +6,10 @@
   <%= csrf_meta_tags %>
 </head>
 
-<body id="dashboard_index">
-  <div id="container" class="group">
-    <div id="header_container">
+<body class="dashboard_index">
+  <div class="container group">
 
-      <div id="header">
-        <h1 class="dashboard-logo">
-          <a class="logo_anchor" href="<%= user_dashboard_url(current_user) %>">runblr.</a>
-        </h1>
-        <div id="tabs_outter_container">
-          <div id="user_tools">
-            <div class="tab tab_home">
-              <%= link_to "HO", user_dashboard_url(current_user) %>
-            </div>
-            <div class="tab tab_settings">
-              <%= link_to "SE", edit_user_url(current_user) %>
-            </div>
-            <div class="tab tab_log_out">
-              <%= link_to "LO", session_url, :method => :delete %>
-            </div>
-            <div class="tab tab_search">
-              SEARCH
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+    <%= render "users/header_partial"%>
 
     <div id="content" class="group">
 
