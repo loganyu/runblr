@@ -59,7 +59,7 @@
           <%= render "layouts/errors" %>
         </div>
       <% end %>
-      <div class="edit_forms_button group">
+      <div class="edit_forms_button group submit-post">
         <input class="edit-button" type="submit" value="Update">
       </div>
     </form>
@@ -70,8 +70,12 @@
     <form action="<%= user_url %>" method="POST"  enctype="multipart/form-data" class="edit-user-info-form">
       <input type="hidden" name="_method" value="PUT">
       <input type="hidden" name="user[has_profile_picture]" value="true">
-      <input type="file" name="user[profile_picture]"><br>
-      <input type="Submit" value="Submit">
+      <div class="upload-profile-picture">
+        <input type="file" name="user[profile_picture]">
+      </div>
+      <div class="submit-post submit-profile-picture">
+        <input type="Submit" value="Submit">
+      </div>
       <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
     </form>
   </div>
