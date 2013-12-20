@@ -12,13 +12,17 @@
  * require_tree .
  */
 
-html, body, h1, h2, div, img, label, input, form, button, ul, ol, li, a {
+html, body, h1, h2, div, img, label, input, form, button, ul, ol, li, a, textarea {
   margin: 0;
   padding: 0;
   border: 0;
   font-size: 100%;
   font: inherit;
   vertical-align: baseline;
+}
+
+input, textarea {
+  padding: 5px 10px;
 }
 
 h1 {
@@ -40,7 +44,7 @@ ul, ol {
   list-style-type: none;
 }
 
-body {
+body, textarea {
   font-family: sans-serif;
 
 }
