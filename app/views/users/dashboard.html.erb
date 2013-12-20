@@ -157,7 +157,7 @@ $(document).ready(function(event){
       $(".user_follow_"+$dataid).toggleClass("can-follow");
   }
 
-  $("#dashboard_index").on("submit", ".follow-form", function (event) {
+  $(".dashboard_index").on("submit", ".follow-form", function (event) {
     event.preventDefault();
     var $currentTarget = $(event.currentTarget);
 
