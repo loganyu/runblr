@@ -36,7 +36,6 @@
 .username-link {
   color: #000099;
   font-weight: bold;
-  position: relative;
 }
 
 .username-link:active {
@@ -45,11 +44,19 @@
 
 .follow-button-container{
   position: absolute;
-
+  display: none;
+  z-index: 2;
+  top: 15px;
+  left: 0px;
 }
 
 .username-link:hover {
 
+};
+
+.username-link-container {
+  display: inline-block;
+  position: relative;
 };
 
 .post-count {

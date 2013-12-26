@@ -1,12 +1,9 @@
 <div class="sub-comment">
-  <ul>  User: <%= link_to comment.user.username, user_url(comment.user), :class => "username-link" %>
+  <div class="username-link-container">  User: <%= link_to comment.user.username, user_url(comment.user), :class => "username-link" %>
     <% unless current_user == comment.user %>
-      <div class="follow-button-container">
-        <%= render "users/follow_button", follower: comment.user %>
-      </div>
+        <li><%= render "users/follow_button", follower: comment.user %></li>
     <% end %>
-
-  </ul>
+  </div>
   <li>  Comment: <%= comment.body %> </li>
 
   <ul>
