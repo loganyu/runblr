@@ -1,22 +1,19 @@
 <div><%= @comment.likes %> likes</div>
 <ul>
-  <table>
     <% @comment.user_comment_likes.each do |user_comment_like| %>
       <% if user_comment_like.value == 1 %>
-        <tr>
           <% user = User.find_by_id(user_comment_like.user_id) %>
           <div class="username-link-container">
-            <td><%= link_to user.username, user_url(user), :class => "username-link" %> likes this </td>
+            <li><%= link_to user.username, user_url(user), :class => "username-link" %> likes this </li>
             <% next if current_user == user %>
             <!-- <% if current_user.followed_users.include?(user) %>
               <td><%= button_to "Unfollow", user_follow_url(user.id, current_user.id), method: :delete %></td>
             <% else %>
               <td><%= button_to "Follow", user_follows_url(user.id) %></td>
             <% end %> -->
-            <td> <%= render "users/follow_button", follower: user %> </td>
+            <li> <%= render "users/follow_button", follower: user %> </li>
           </div>
-        </tr>
+          <br>
       <% end %>
     <% end %>
-  </table>
 </ul>
