@@ -315,9 +315,13 @@ $(document).ready(function(event){
 
   // HOVER FOLLOW BUTTONS
 
-$(document).on('mouseover', ".username-link-container", function() {
-  $(this).find(".follow-button-container").show();
-}).on('mouseout',  ".username-link-container", function() {
-  $(this).find(".follow-button-container").hide();
+  $(document).on('mouseover', ".username-link-container", function() {
+    $(this).find(".follow-button-container").show();
+  }).on('mouseout',  ".username-link-container", function() {
+    $(this).find(".follow-button-container").hide();
+  });
+
 });
+
+
 </script>
