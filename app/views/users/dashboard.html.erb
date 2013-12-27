@@ -316,12 +316,13 @@ $(document).ready(function(event){
 
   // POP UP COMMENT BOXES
   
-  $(".post-comment-title").on("click", function() {
-    $(this).children(".new-comment-container").toggleClass("hide");
-  }).children().click(function(e) {
+  $(document).on("click", ".post-comment-title", function() {
+    $(this).find(".new-comment-container").toggleClass("hide");
+  }).on("click", ".post-comment-title", function() {
+    $(this).find(".comment-text-box").click(function(e) {
     return false;
   });
-
+  });
 });
 
 

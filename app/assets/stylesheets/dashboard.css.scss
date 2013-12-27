@@ -10,6 +10,11 @@
   cursor: pointer;
 }
 
+.post-comment-title:hover {
+  text-decoration: underline;
+  
+}
+
 .post-comment-title:active {
   color: blue;
   
