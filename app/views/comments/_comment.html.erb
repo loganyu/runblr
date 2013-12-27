@@ -1,24 +1,14 @@
 <div class="sub-comment">
   <div class="comment-container group">
     <div class="comment-left">
-      <div class="username-link-container">  <%= link_to comment.user.username, user_url(comment.user), :class => "username-link" %>
-        <% unless current_user == comment.user %>
-            <li><%= render "users/follow_button", follower: comment.user %></li>
-        <% end %>
+      <div class="username-link-footer-container">
+        <div class="username-link-container">  <%= link_to comment.user.username, user_url(comment.user), :class => "username-link" %>
+          <% unless current_user == comment.user %>
+              <li><%= render "users/follow_button", follower: comment.user %></li>
+          <% end %>
+        </div>
       </div>
-      
-      <div class="delete-comment-container">
-      
-        <form action="<%= post_comment_url(comment.post.id, comment.id) %>" method="put"
-               class="delete-comment" data-id="<%= comment.id %>">
-          <input type="hidden" name="authenticity_token"
-                              value="<%= form_authenticity_token %>">
-          <input type="hidden" name="_method" value="delete">
 
-          <input type="submit" name="commit" value="Delete" class="delete-post-button" data-confirm='Are you sure?'>
-        </form>
-      
-      </div>
     
       <div>
         <a class="post_avatar_link" href="<%= user_url(comment.user) %>">
@@ -36,8 +26,27 @@
   </div>
   <ul>
     
-    <%= render "comments/likes_template", comment: comment %>
+    <div class="comment-footer group">
+      <div class="comment-likes-container">
+        <%= render "comments/likes_template", comment: comment %>
+      </div>
+      
+      <% if comment.user == current_user %>
+      
+        <div class="delete-comment-container">
+    
+          <form action="<%= post_comment_url(comment.post.id, comment.id) %>" method="put"
+                 class="delete-comment" data-id="<%= comment.id %>">
+            <input type="hidden" name="authenticity_token"
+                                value="<%= form_authenticity_token %>">
+            <input type="hidden" name="_method" value="delete">
 
+            <input type="submit" name="commit" value="Delete" class="delete-post-button" data-confirm='Are you sure?'>
+          </form>
+    
+        </div>
+      <% end %>
+    </div>
     
     <div class="post-comment-title"> Reply to this comment.
       <div class="new-comment-container hide">
@@ -49,6 +58,8 @@
         </form>
       </div>
     </div>
+    
+    
 
   </ul>
 

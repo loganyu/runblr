@@ -535,6 +535,23 @@ a, a:visited, a:active {
   float: right;
 }
 
+// COMMENT HEADER
+
+.comment-footer {
+  width: 340px;
+}
+
+.comment-likes-container {
+  float: left;
+}
+
+.delete-comment-container {
+  float: right;
+}
+
+
+
+
 .delete-post-button {
   position: relative;
   display: inline-block;
