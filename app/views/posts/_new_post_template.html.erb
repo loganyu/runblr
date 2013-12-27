@@ -12,26 +12,32 @@
       </a>
     </div>
     <div class="post_wrapper">
-      <div class="post_header">
-        <div class="username-link-container">
-        <%= link_to @post.user.username, user_url(@post.user), :class => "username-link" %>
-        <% unless current_user == @post.user %>
-            <%= render "users/follow_button", follower: @post.user %>
-        <% end %>
-        </div>
+      <div class="post_header group">
         
-        <div class="delete-post-container">
-          
-          <form action="<%= post_url(@post.id) %> " method="post"
-                 class="delete-post" data-id="<%= @post.id %>">
-            <input type="hidden" name="authenticity_token"
-                                value="<%= form_authenticity_token %>">
-            <input type="hidden" name="_method" value="delete">
-
-            <input type="submit" name="commit" value="Delete" class="delete-post-button">
-          </form>
-          
+        <div class="username-link-header-container">
+          <div class="username-link-container">
+          <%= link_to @post.user.username, user_url(@post.user), :class => "username-link" %>
+          <% unless current_user == @post.user %>
+              <%= render "users/follow_button", follower: @post.user %>
+          <% end %>
+          </div>
         </div>
+        <% if @post.user == current_user %>
+        
+          <div class="delete-post-container">
+          
+            <form action="<%= post_url(@post.id) %> " method="post"
+                   class="delete-post" data-id="<%= @post.id %>">
+              <input type="hidden" name="authenticity_token"
+                                  value="<%= form_authenticity_token %>">
+              <input type="hidden" name="_method" value="delete">
+
+              <input type="submit" name="commit" value="Delete" class="delete-post-button" data-confirm='Are you sure?'>
+            </form>
+          
+          </div>
+          
+        <% end %>
         
       </div>
       <div class="post_content">

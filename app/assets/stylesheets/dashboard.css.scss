@@ -187,7 +187,7 @@
   display: inline-block;
   padding: 2px 4px;
   font-weight: bold;
-  background: #A80000;
+  background: #3333FF;
   color: #D8D8D8;
   border-radius: 5px;
 }
@@ -516,6 +516,7 @@ a, a:visited, a:active {
   border-top-left-radius: 6px;
   background-color: #E8E8E8;
   color: black;
+  height: 20px;
 }
 
 .post_content {
@@ -526,6 +527,23 @@ a, a:visited, a:active {
   background: white;
 }
 
+.username-link-header-container {
+  float: left;
+}
+
+.delete-post-container {
+  float: right;
+}
+
+.delete-post-button {
+  position: relative;
+  display: inline-block;
+  padding: 2px 4px;
+  font-weight: bold;
+  background: #A80000;
+  color: #D8D8D8;
+  border-radius: 5px;
+}
 
 
 .post_footer {
