@@ -18,14 +18,7 @@
           <%= link_to "Profile Page", user_url(current_user), id: "blog_link" %>
         </h1>
         <ul class="blog_menu">
-          <li class="control_item group">
-            <a href="#" class="right_link">
-              Posts
-            </a>
-            <a href="#" class="right_link_amount">
-              3
-            </a>
-          </li>
+
           <li class="control_item group">
             <a href="#" class="right_link">
               Followers
@@ -149,6 +142,7 @@
 
 <script>
 $(document).ready(function(event){
+  
 
   // FOLLOW BUTTONS
 
@@ -156,6 +150,9 @@ $(document).ready(function(event){
 
       $(".user_follow_"+$dataid).toggleClass("can-follow");
   }
+  
+
+  
 
   $(".dashboard_index").on("submit", ".follow-form", function (event) {
     event.preventDefault();
@@ -167,15 +164,18 @@ $(document).ready(function(event){
       url: $form.attr("action"),
       type: "POST",
       data: $currentTarget.serializeJSON(),
-      success: function () {
+      success: function (right_column) {
+        console.log(right_column);
 
         toggleFollowButtons($form.attr("data-id"));
+        $("#right_column").html(right_column);
 
       }
     });
   });
 
   // NEW POST
+  
 
   $("form.post-form").on("submit", function (event) {
     event.preventDefault();
@@ -189,7 +189,6 @@ $(document).ready(function(event){
       type: "POST",
       data: data,
       success: function (post) {
-        console.log(data);
         $("div.posts-list").prepend(post);
         $("."+data.post.post_type+"-post").toggleClass("hide");
         $form.each(function() {

@@ -1,0 +1,51 @@
+<h1 id="blog-holder">
+  <%= link_to "Profile Page", user_url(current_user), id: "blog_link" %>
+</h1>
+<ul class="blog_menu">
+
+  <li class="control_item group">
+    <a href="#" class="right_link">
+      Followers
+    </a>
+    <a href="#" class="right_link_amount">
+      <%= current_user.followers.count %>
+    </a>
+  </li>
+  <li class="control_item group">
+    <% current_user.followers.sort.each do |follower| %>
+      <%= link_to follower.username, user_url(follower) %> <br>
+        <%= render "users/follow_button", follower: follower %>
+      <!-- <% if current_user.followed_users.include?(follower) %>
+        <td><%= button_to "Unfollow", user_follow_url(follower.id, current_user.id), method: :delete %></td>
+      <% else %>
+        <td><%= button_to "Follow", user_follows_url(follower.id) %></td>
+      <% end %> -->
+
+
+    <!-- <% if current_user.followed_users.include?(follower) %>
+      <td><%= button_to "Unfollow", user_follow_url(follower.id, current_user.id), method: :delete %></td>
+    <% else %>
+      <td><%= button_to "Follow", user_follows_url(follower.id) %></td>
+    <% end %> -->
+
+  <% end %>
+
+  </li>
+  <li class="control_item group">
+    <a href="#" class="right_link">
+      Following
+    </a>
+    <a href="#" class="right_link_amount">
+      <%= current_user.followed_users.count %>
+    </a>
+  <li class="control_item group">
+    <% current_user.followed_users.sort.each do |followed_user| %>
+      <%= link_to followed_user.username, user_url(followed_user) %> <br>
+
+        <!-- <td><%= button_to "Unfollow", user_follow_url(followed_user.id, current_user.id), method: :delete %></td> -->
+          <%= render "users/follow_button", follower: followed_user %>
+    <% end %>
+
+  </li>
+
+</ul>
