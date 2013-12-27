@@ -23,7 +23,7 @@ class PostsController < ApplicationController
   end
 
   def edit
-    @post = params[:post]
+    @post = Post.find_by_id(params[:post][:id])
   end
 
   def show
@@ -40,7 +40,10 @@ class PostsController < ApplicationController
   end
 
   def destroy
-    @post = post
+    @post = Post.find_by_id(params[:id])
+    @post.delete
+    
+    head :ok
   end
 
   def like

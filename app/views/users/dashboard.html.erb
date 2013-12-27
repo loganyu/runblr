@@ -191,6 +191,25 @@ $(document).ready(function(event){
       }
     });
   });
+  
+  // DELETE POST
+  
+  $(".posts-container").on("submit", ".delete-post", function (event) {
+    event.preventDefault();
+
+    var $currentTarget = $(event.currentTarget);
+    var data = $currentTarget.serializeJSON();
+    var $post = $(this).parents(".post_container");
+    var $form = $(this);
+
+    $.ajax({
+      url: $form.attr("action"),
+      type: "DELETE",
+      success: function () {
+        $post.remove();
+      }
+    });
+  });
 
   // POST LIKES
 

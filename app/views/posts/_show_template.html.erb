@@ -34,6 +34,18 @@
                    <%= render "users/follow_button", follower: post.user %>
                <% end %>
              </div>
+             <div class="delete-post-container">
+               
+               <form action="<%= post_url(post.id) %> " method="post"
+                      class="delete-post" data-id="<%= post.id %>">
+                 <input type="hidden" name="authenticity_token"
+                                     value="<%= form_authenticity_token %>">
+                 <input type="hidden" name="_method" value="delete">
+
+                 <input type="submit" name="commit" value="Delete" class="delete-post-button">
+               </form>
+               
+             </div>
            </div>
            <div class="post_content">
              <%= render "posts/post_content_template", post: post %>
