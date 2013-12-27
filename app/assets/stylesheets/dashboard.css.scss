@@ -3,7 +3,44 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 
+// COMMENT FORMAT
+
+.post-comment-title {
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.post-comment-title:active {
+  color: blue;
+  
+}
+
+.new-comment-container.hide {
+  display: none;
+}
+
+.comment-text-box {
+  width: 300px;
+}
+
+
+
+.comment-container {
+  width: 300px;
+  padding: 20px 20px;
+  background: white;
+}
+
+.comment-body {
+  padding: 15px 100px;
+}
+
+.comment-left {
+  float: left;
+}
+
 // EDIT SETTINGS
+
 
 .upload-profile-picture {
   padding-bottom: 10px;

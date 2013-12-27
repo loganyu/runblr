@@ -1,23 +1,40 @@
 <div class="sub-comment">
-  <div class="username-link-container">  User: <%= link_to comment.user.username, user_url(comment.user), :class => "username-link" %>
-    <% unless current_user == comment.user %>
-        <li><%= render "users/follow_button", follower: comment.user %></li>
-    <% end %>
+  <div class="comment-container group">
+    <div class="comment-left">
+      <div class="username-link-container">  <%= link_to comment.user.username, user_url(comment.user), :class => "username-link" %>
+        <% unless current_user == comment.user %>
+            <li><%= render "users/follow_button", follower: comment.user %></li>
+        <% end %>
+      </div>
+    
+      <div>
+        <a class="post_avatar_link" href="<%= user_url(comment.user) %>">
+          <div>
+            <% if comment.user.has_profile_picture %>
+              <img src="<%= comment.user.profile_picture.url(:small) %>">
+            <% else %>
+              <img src="<%=asset_path "blank_profile.png"%>">
+            <% end %>
+          </div>
+        </a>
+      </div>
+    </div>
+    <li class="comment-body">  <%= comment.body %> </li>
   </div>
-  <li>  Comment: <%= comment.body %> </li>
-
   <ul>
 
     <%= render "comments/likes_template", comment: comment %>
 
-    <div class="new-comment-container">
-      <div class="post-comment-title"> Reply to this comment: </div>
-      <form action="<%= post_comments_url(comment.post.id) %>" method="POST" class="new-comment-form" post-id="<%= comment.post.id %>">
-        <textarea name="comment[body]"></textarea><br>
-          <input type="submit" class="comment-button-submit">
-        <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-        <input type="hidden" name="comment[parent_comment_id]" value="<%= comment.id %>">
-      </form>
+    
+    <div class="post-comment-title"> Reply to this comment.
+      <div class="new-comment-container hide">
+        <form action="<%= post_comments_url(comment.post.id) %>" method="POST" class="new-comment-form" post-id="<%= comment.post.id %>">
+          <textarea name="comment[body]" placeholder="Enter comment here." class="comment-text-box"></textarea><br>
+            <input type="submit" class="comment-button-submit">
+          <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+          <input type="hidden" name="comment[parent_comment_id]" value="<%= comment.id %>">
+        </form>
+      </div>
     </div>
 
   </ul>

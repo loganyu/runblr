@@ -147,13 +147,9 @@ $(document).ready(function(event){
   // FOLLOW BUTTONS
 
   function toggleFollowButtons ($dataid) {
-
       $(".user_follow_"+$dataid).toggleClass("can-follow");
   }
   
-
-  
-
   $(".dashboard_index").on("submit", ".follow-form", function (event) {
     event.preventDefault();
     var $currentTarget = $(event.currentTarget);
@@ -165,8 +161,6 @@ $(document).ready(function(event){
       type: "POST",
       data: $currentTarget.serializeJSON(),
       success: function (right_column) {
-        console.log(right_column);
-
         toggleFollowButtons($form.attr("data-id"));
         $("#right_column").html(right_column);
 
@@ -318,6 +312,14 @@ $(document).ready(function(event){
     $(this).find(".follow-button-container").show();
   }).on('mouseout',  ".username-link-container", function() {
     $(this).find(".follow-button-container").hide();
+  });
+
+  // POP UP COMMENT BOXES
+  
+  $(".post-comment-title").on("click", function() {
+    $(this).children(".new-comment-container").toggleClass("hide");
+  }).children().click(function(e) {
+    return false;
   });
 
 });
