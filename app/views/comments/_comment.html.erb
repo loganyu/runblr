@@ -6,6 +6,19 @@
             <li><%= render "users/follow_button", follower: comment.user %></li>
         <% end %>
       </div>
+      
+      <div class="delete-comment-container">
+      
+        <form action="<%= post_comment_url(comment.post.id, comment.id) %>" method="put"
+               class="delete-comment" data-id="<%= comment.id %>">
+          <input type="hidden" name="authenticity_token"
+                              value="<%= form_authenticity_token %>">
+          <input type="hidden" name="_method" value="delete">
+
+          <input type="submit" name="commit" value="Delete" class="delete-post-button" data-confirm='Are you sure?'>
+        </form>
+      
+      </div>
     
       <div>
         <a class="post_avatar_link" href="<%= user_url(comment.user) %>">
@@ -22,7 +35,7 @@
     <li class="comment-body">  <%= comment.body %> </li>
   </div>
   <ul>
-
+    
     <%= render "comments/likes_template", comment: comment %>
 
     

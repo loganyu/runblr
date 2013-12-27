@@ -27,6 +27,7 @@ class CommentsController < ApplicationController
 
   def show
     @post = params[:comment]
+    redirect_to :back
   end
 
   def update
@@ -39,7 +40,10 @@ class CommentsController < ApplicationController
   end
 
   def destroy
-    @comment = comment
+    @comment = Comment.find_by_id(params[:id])
+    @comment.delete
+    
+    head :ok
   end
 
   def like
