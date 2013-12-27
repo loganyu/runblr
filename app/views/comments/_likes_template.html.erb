@@ -31,7 +31,7 @@
 </li>
 
 <li class="comment-like-info-container data-comment-likes-<%= comment.id %>">
-  <div><%= comment.likes %> likes</div>
+  <div><%= comment.likes %> <%=  comment.likes == 1 ? "like" : "likes" %></div>
   <ul>
 
       <% comment.user_comment_likes.each do |user_comment_like| %>

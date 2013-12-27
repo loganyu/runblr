@@ -1,4 +1,4 @@
-<div><%= @comment.likes %> likes</div>
+<div><%= @comment.likes %> <%=  @comment.likes == 1 ? "like" : "likes" %> </div>
 <ul>
     <% @comment.user_comment_likes.each do |user_comment_like| %>
       <% if user_comment_like.value == 1 %>

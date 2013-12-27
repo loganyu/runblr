@@ -1,5 +1,5 @@
 
-  <div><%= @post.likes %> likes</div>
+  <div><%= @post.likes %> <%=  @post.likes == 1 ? "like" : "likes" %> </div>
   <ul>
       <% @post.user_post_likes.each do |user_post_like| %>
         <% if user_post_like.value == 1 %>
