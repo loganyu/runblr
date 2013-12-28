@@ -158,3 +158,17 @@ input {
 .tumblr_login_link > a:hover {
  color: #c0c0c0;
 }
+
+.guest-account-button {
+  position: relative;
+  display: inline-block;
+  padding: 2px 4px;
+  font-weight: bold;
+  background: #3333FF;
+  color: #D8D8D8;
+  border-radius: 5px;
+}
+
+.guest-account-button:active {
+  background: red;
+}

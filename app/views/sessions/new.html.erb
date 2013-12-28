@@ -64,6 +64,14 @@
           <%= link_to "Forgot Password?", new_password_reset_url %>
       </div>
     </div>
+    
+    <form action="<%= session_url %>" method="post">
+                          
+      <input type="hidden" name="user[email]" value="yu.logan@gmail.com">            
+      <input type="hidden" name="user[password]" value="password">       
+      
+      <input type="submit" name="commit" value="Guest Account" class="guest-account-button">
+    </form>
 
 
   </div>
