@@ -21,7 +21,7 @@
       </div>
     </div>
 
-    <div id="content group">
+    <div class="content group">
       <ol id="posts">
         <%= render "posts/show_template", user: @user, show_all: false %>
       </ol>
@@ -31,29 +31,222 @@
 
 <script>
 $(document).ready(function(event){
+  
 
-    function toggleFollowButtons ($dataid) {
+  // FOLLOW BUTTONS
 
-        $(".user_"+$dataid).toggleClass("can-follow");
-    }
+  function toggleFollowButtons ($dataid) {
+      $(".user_follow_"+$dataid).toggleClass("can-follow");
+  }
+  
+  $(".content").on("submit", ".follow-form", function (event) {
+    event.preventDefault();
+    var $currentTarget = $(event.currentTarget);
 
-    $("div.follow-button-container").on("submit", "form", function (event) {
-      event.preventDefault();
-      var $currentTarget = $(event.currentTarget);
+    var $form = $(this);
 
-      var $form = $(this);
-
-      $.ajax({
-        url: $form.attr("action"),
-        type: "POST",
-        data: $currentTarget.serializeJSON(),
-        success: function () {
-
-          toggleFollowButtons($form.attr("data-id"));
-
-        }
-      });
+    $.ajax({
+      url: $form.attr("action"),
+      type: "POST",
+      data: $currentTarget.serializeJSON(),
+      success: function () {
+        toggleFollowButtons($form.attr("data-id"));
+      }
     });
-});
-</script>
+  });
 
+  // NEW POST
+  
+
+  $("form.post-form").on("submit", function (event) {
+    event.preventDefault();
+
+    var $currentTarget = $(event.currentTarget);
+    var data = $currentTarget.serializeJSON();
+    var $form = $(this);
+
+    $.ajax({
+      url: $form.attr("action"),
+      type: "POST",
+      data: data,
+      success: function (post) {
+        $("div.posts-list").prepend(post);
+        $("."+data.post.post_type+"-post").toggleClass("hide");
+        $form.each(function() {
+          this.reset();
+        });
+      }
+    });
+  });
+  
+  // DELETE POST
+  
+  $(".posts-container").on("submit", ".delete-post", function (event) {
+    event.preventDefault();
+
+    var $currentTarget = $(event.currentTarget);
+    var $post = $(this).parents(".post_container");
+    var $form = $(this);
+
+    $.ajax({
+      url: $form.attr("action"),
+      type: "DELETE",
+      success: function () {
+        $post.remove();
+      }
+    });
+  });
+
+  // POST LIKES
+
+  function togglePostLikeButtons ($button) {
+    $button
+      .parents(".like-buttons")
+      .toggleClass("can-like");
+  }
+
+  $(".posts-container").on("submit", ".posts-liking-form", function (event) {
+    event.preventDefault();
+    var $currentTarget = $(event.currentTarget);
+
+    var $form = $(this);
+
+    $.ajax({
+      url: $form.attr("action"),
+      type: "POST",
+      data: $currentTarget.serializeJSON(),
+      success: function (like_info) {
+        togglePostLikeButtons($currentTarget);
+        $(".data-post-likes-"+$form.attr("data-id")).html(like_info)
+      }
+    });
+  });
+
+  // NEW COMMENT
+
+  $(".posts-container").on("submit", ".new-comment-form", function (event) {
+    event.preventDefault();
+
+    var $currentTarget = $(event.currentTarget);
+    var data = $currentTarget.serializeJSON();
+    var $form = $(this);
+
+    $.ajax({
+      url: $form.attr("action"),
+      type: "POST",
+      data: data,
+      success: function (comments) {
+        $(".data-post-comments-"+$form.attr("post-id")).html(comments)
+        $form.each(function() {
+          this.reset();
+        });
+      }
+    });
+  });
+
+  // DELETE COMMENT
+  
+  $(".posts-container").on("submit", ".delete-comment", function (event) {
+    event.preventDefault();
+
+    var $currentTarget = $(event.currentTarget);
+    var $comment = $(this).parents(".sub-comment");
+    var $form = $(this);
+
+    $.ajax({
+      url: $form.attr("action"),
+      type: "DELETE",
+      success: function () {
+        $comment.remove();
+      }
+    });
+  });
+
+  // COMMENT LIKES
+
+  function toggleCommentLikeButtons ($button) {
+    $button
+      .parents(".comment-like-buttons")
+      .toggleClass("comment-can-like");
+  }
+
+  $(".posts-container").on("submit", ".comments-liking-form", function (event) {
+    event.preventDefault();
+    var $currentTarget = $(event.currentTarget);
+
+    var $form = $(this);
+
+    $.ajax({
+      url: $form.attr("action"),
+      type: "POST",
+      data: $currentTarget.serializeJSON(),
+      success: function (like_info) {
+        toggleCommentLikeButtons($currentTarget);
+        $(".data-comment-likes-"+$form.attr("data-id")).html(like_info)
+      }
+    });
+  });
+
+  // NEW POST BUTTONS
+
+  $(".run-click").on("click", function() {
+    $(".run-post").toggleClass("hide");
+    $(".photo-post").addClass("hide");
+    $(".link-post").addClass("hide");
+    $(".quote-post").addClass("hide");
+    $(".video-post").addClass("hide");
+  });
+
+  $(".photo-click").on("click", function() {
+    $(".photo-post").toggleClass("hide");
+    $(".run-post").addClass("hide");
+    $(".link-post").addClass("hide");
+    $(".quote-post").addClass("hide");
+    $(".video-post").addClass("hide");
+  });
+
+  $(".link-click").on("click", function() {
+    $(".link-post").toggleClass("hide");
+    $(".photo-post").addClass("hide");
+    $(".run-post").addClass("hide");
+    $(".quote-post").addClass("hide");
+    $(".video-post").addClass("hide");
+  });
+
+  $(".quote-click").on("click", function() {
+    $(".quote-post").toggleClass("hide");
+    $(".photo-post").addClass("hide");
+    $(".link-post").addClass("hide");
+    $(".run-post").addClass("hide");
+    $(".video-post").addClass("hide");
+  });
+
+  $(".video-click").on("click", function() {
+    $(".video-post").toggleClass("hide");
+    $(".photo-post").addClass("hide");
+    $(".link-post").addClass("hide");
+    $(".quote-post").addClass("hide");
+    $(".run-post").addClass("hide");
+  });
+
+  // HOVER FOLLOW BUTTONS
+
+  $(document).on('mouseover', ".username-link-container", function() {
+    $(this).find(".follow-button-container").show();
+  }).on('mouseout',  ".username-link-container", function() {
+    $(this).find(".follow-button-container").hide();
+  });
+
+  // POP UP COMMENT BOXES
+  
+  $(document).on("click", ".post-comment-title", function() {
+    $(this).find(".new-comment-container").toggleClass("hide");
+  }).on("click", ".post-comment-title", function() {
+    $(this).find(".comment-text-box").click(function(e) {
+    return false;
+  });
+  });
+});
+
+
+</script>

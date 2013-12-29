@@ -16,7 +16,6 @@ body {
   width: 604px;
   margin: auto;
   margin-top: 40px;
-  margin-bottom: 40px;
   background: #A52A2A;
   border: 2px solid black;
   border-top-left-radius: 15px;
@@ -27,14 +26,255 @@ body {
   width: 100%;
   margin: auto;
   padding: 25px 0;
-  border-bottom: 2px solid gray;
+}
 
+
+.content {
+  width: 100%;
+  margin: auto;
+}
+
+// COMMENT FORMAT
+
+.post-comment-title {
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.post-comment-title:hover {
+  text-decoration: underline;
+  
+}
+
+.post-comment-title:active {
+  color: blue;
+  
+}
+
+.new-comment-container.hide {
+  display: none;
+}
+
+.comment-text-box {
+  width: 300px;
+}
+
+.comment-text-box {
+  font-weight: normal;
+}
+
+.comment-container {
+  width: 300px;
+  padding: 20px 20px;
+  background: white;
+}
+
+.comment-body {
+  padding: 15px 100px;
+}
+
+.comment-left {
+  float: left;
+}
+
+// EDIT SETTINGS
+
+
+.upload-profile-picture {
+  padding-bottom: 10px;
+}
+
+.submit-profile-picture {
+
+}
+
+.edit-title {
+  padding: 10px 10px;
+}
+
+.edit-user-info-form{
+  width: 245px;
+  padding: 20px 30px 30px 20px;
+}
+
+.shift-edit {
+  position: relative;
+  right: 7px;
+}
+
+// CLICK USER LINKS
+
+.post-comment-title {
+  margin-bottom: 5px;
+}
+
+.username-link {
+  color: #000099;
+  font-weight: bold;
+}
+
+.username-link:active {
+  color: #006699;
+}
+
+.follow-button-container{
+  position: absolute;
+  display: none;
+  z-index: 2;
+  top: -19px;
+  left: 35px;
+}
+
+.username-link:hover {
+
+};
+
+.username-link-container {
+  display: inline-block;
+  position: relative;
+};
+
+.post-count {
+  padding: 20px;
+}
+
+// POST CONTENT
+
+.post_title {
+  padding-bottom: 5px;
+  color: #000099;
+}
+
+.post_title > h2 > a:visited {
+  color: #000099;
+}
+
+.post_title:active {
+  color: #006699;
+}
+
+.post_body {
+
+}
+
+// POST FOOTER
+
+// COMMENT SUBMIT BUTTON
+
+.comment-button-submit {
+  position: relative;
+  display: inline-block;
+  padding: 2px 4px;
+  font-weight: bold;
+  background: #3333FF;
+  color: #D8D8D8;
+  border-radius: 5px;
+}
+
+.comment-button-submit:active {
+  background: #3300FF;
+  color: #F8F8F8;
+}
+
+// POST SUBMIT BUTTON
+
+.submit {
+}
+
+.submit-post > input {
+  position: relative;
+  display: inline-block;
+  padding: 10px 20px;
+  font-weight: bold;
+  background: #3333FF;
+  color: #D8D8D8;
+  box-shadow: 0 3px 0 0 #070;
+  border-radius: 5px;
+}
+
+
+.submit-post > input:active {
+  top: 3px;
+  box-shadow: none;
+  background: #3300FF;
+  color: #F8F8F8;
+}
+
+// LIKE BUTTON
+
+.like-button-submit{
+  position: relative;
+  display: inline-block;
+  padding: 2px 4px;
+  font-weight: bold;
+  background: #3333FF;
+  color: #D8D8D8;
+  border-radius: 5px;
+}
+
+.like-button-submit:active {
+  background: #3300FF;
+  color: #F8F8F8;
+}
+
+// FOLLOW BUTTON
+
+.follow-button-submit{
+  position: relative;
+  display: inline-block;
+  padding: 2px 4px;
+  font-weight: bold;
+  background: #3333FF;
+  color: #D8D8D8;
+  border-radius: 5px;
+}
+
+
+// COMMENT LIKE BUTTONS
+
+span.comment-can-like form.comment-unlike, form.comment-like {
+  display: none;
+}
+
+span.comment-can-like form.comment-like, form.comment-unlike {
+  display: block;
+}
+
+// COMMENT INDENT
+
+.sub-comment {
+ padding-left: 15px;
+ border-left: 2px solid gray;
+}
+
+// LIKE BUTTONS
+
+span.can-like form.unlike, form.like {
+  display: none;
+}
+
+span.can-like form.like, form.unlike {
+  display: block;
+}
+
+// FOLLOW BUTTONS
+
+span.can-follow form.unfollow, form.follow {
+  display: none;
+}
+
+span.can-follow form.follow, form.unfollow {
+  display: block;
 }
 
 .header-logo {
   float: right;
   display: block;
   padding-right: 50px;
+}
+
+.header-logo > a {
+  color: #000099;
 }
 
 .header-title {
@@ -48,7 +288,14 @@ body {
 }
 
 #posts {
-  margin: 0 0 0 25px;
+
+}
+
+.post-count {
+  color: red;
+  border-left: 2px solid black;
+  border-right: 2px solid black;
+  border-bottom: 2px solid black;
 }
 
 .post_container {
@@ -250,4 +497,41 @@ span.can-follow form.unfollow, form.follow {
 
 span.can-follow form.follow, form.unfollow {
   display: block;
+}
+
+// COMMENT HEADER
+
+.comment-footer {
+  width: 340px;
+}
+
+.comment-likes-container {
+  float: left;
+}
+
+.delete-comment-container {
+  float: right;
+}
+
+
+
+
+.delete-post-button {
+  position: relative;
+  display: inline-block;
+  padding: 2px 4px;
+  font-weight: bold;
+  background: #A80000;
+  color: #D8D8D8;
+  border-radius: 5px;
+}
+
+
+.post_footer {
+  padding: 10px 20px;
+  font-size: 13px;
+  border-bottom-right-radius: 6px;
+  border-bottom-left-radius: 6px;
+  background-color: #E8E8E8;
+  color: black;
 }
