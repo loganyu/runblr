@@ -1,44 +1,227 @@
+<head>
+  <title>Runblr </title>
+  <%= stylesheet_link_tag    "dashboard" %>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+</head>
+
 <% post = @post %>
 
-<h2> <%= link_to post.title, post_url(post) %> </h2>
-<h2> by <%= post.user.username %> </h2>
+        <div class="post_wrapper_individual">
+          <div class="post_header group">
+            <div class="username-link-header-container">
+              <div class="username-link-container">
+                <%= link_to post.user.username, user_url(post.user), :class => "username-link" %>
+                <% unless current_user == post.user %>
+                    <%= render "users/follow_button", follower: post.user %>
+                <% end %>
+              </div>
+            </div>
+            <% if post.user == current_user %>
+              <div class="delete-post-container">
+              
+                <form action="<%= post_url(post.id) %> " method="post"
+                       class="delete-post" data-id="<%= post.id %>">
+                  <input type="hidden" name="authenticity_token"
+                                      value="<%= form_authenticity_token %>">
+                  <input type="hidden" name="_method" value="delete">
 
-<li> Post Type: <%= post.post_type %></li>
-
-    <ul>
-      <li><%= post.workout_date %></li>
-      <li><%= post.workout_time %></li>
-      <% if post.post_type == "run" %>
-        <li><%= post.workout_type %> Run</li>
-        <li><%= post.miles %> Miles</li>
-        <li><%= post.hours %>:<%= post.minutes %>:<%= post.seconds %></li>
-      <% end %>
-      <li><%= post.body %></li>
-      <% if post.post_type == "link" || post.post_type == "video" %>
-        <li><%= post.url %></li>
-      <% end %>
-
-
-    </ul>
-
-    <ul>
-      <li> Options bar </li>
-         <ul>
-           <%= render "posts/likes_template", post: post %>
-         </ul>
-         <ul>
-           <li class="comment-form">
-             <div class="post-comment-title">Post Comment
-               <%= render "comments/new_template", post: post %>
-             </div>
-           </li>
-
-             <ul class="child-template">
-               <%= render "comments/comments_template", post: post %>
-             </ul>
-         </ul>
-    </ul>
+                  <input type="submit" name="commit" value="Delete" class="delete-post-button" data-confirm='Are you sure?'>
+                </form>
+              
+              </div>
+            <% end %>
+          </div>
+          <div class="post_content">
+            <%= render "posts/post_content_template", post: post %>
+          </div>
+          <div class="post_footer">
+            <%= render "posts/post_footer_template", post: post%>
+          </div>
+        </div>
+        
+        
+<script>
+$(document).ready(function(event){
 
 
+  // FOLLOW BUTTONS
+
+  function toggleFollowButtons ($dataid) {
+      $(".user_follow_"+$dataid).toggleClass("can-follow");
+  }
+
+  $(".post_wrapper_individual").on("submit", ".follow-form", function (event) {
+    event.preventDefault();
+    var $currentTarget = $(event.currentTarget);
+
+    var $form = $(this);
+
+    $.ajax({
+      url: $form.attr("action"),
+      type: "POST",
+      data: $currentTarget.serializeJSON(),
+      success: function (right_column) {
+        toggleFollowButtons($form.attr("data-id"));
+      }
+    });
+  });
+
+  // NEW POST
+
+
+  $("form.post-form").on("submit", function (event) {
+    event.preventDefault();
+
+    var $currentTarget = $(event.currentTarget);
+    var data = $currentTarget.serializeJSON();
+    var $form = $(this);
+
+    $.ajax({
+      url: $form.attr("action"),
+      type: "POST",
+      data: data,
+      success: function (post) {
+        $("div.posts-list").prepend(post);
+        $("."+data.post.post_type+"-post").toggleClass("hide");
+        $form.each(function() {
+          this.reset();
+        });
+      }
+    });
+  });
+
+  // DELETE POST
+
+  $(".posts-container").on("submit", ".delete-post", function (event) {
+    event.preventDefault();
+
+    var $currentTarget = $(event.currentTarget);
+    var $post = $(this).parents(".post_container");
+    var $form = $(this);
+
+    $.ajax({
+      url: $form.attr("action"),
+      type: "DELETE",
+      success: function () {
+        $post.remove();
+      }
+    });
+  });
+
+  // POST LIKES
+
+  function togglePostLikeButtons ($button) {
+    $button
+      .parents(".like-buttons")
+      .toggleClass("can-like");
+  }
+
+  $(".post_wrapper_individual").on("submit", ".posts-liking-form", function (event) {
+    event.preventDefault();
+    var $currentTarget = $(event.currentTarget);
+
+    var $form = $(this);
+
+    $.ajax({
+      url: $form.attr("action"),
+      type: "POST",
+      data: $currentTarget.serializeJSON(),
+      success: function (like_info) {
+        togglePostLikeButtons($currentTarget);
+        $(".data-post-likes-"+$form.attr("data-id")).html(like_info)
+      }
+    });
+  });
+
+  // NEW COMMENT
+
+  $(".post_wrapper_individual").on("submit", ".new-comment-form", function (event) {
+    event.preventDefault();
+
+    var $currentTarget = $(event.currentTarget);
+    var data = $currentTarget.serializeJSON();
+    var $form = $(this);
+
+    $.ajax({
+      url: $form.attr("action"),
+      type: "POST",
+      data: data,
+      success: function (comments) {
+        $(".data-post-comments-"+$form.attr("post-id")).html(comments)
+        $form.each(function() {
+          this.reset();
+        });
+      }
+    });
+  });
+
+  // DELETE COMMENT
+
+  $(".post_wrapper_individual").on("submit", ".delete-comment", function (event) {
+    event.preventDefault();
+
+    var $currentTarget = $(event.currentTarget);
+    var $comment = $(this).parents(".sub-comment:first");
+    var $form = $(this);
+
+    $.ajax({
+      url: $form.attr("action"),
+      type: "DELETE",
+      success: function () {
+        $comment.remove();
+      }
+    });
+  });
+
+  // COMMENT LIKES
+
+  function toggleCommentLikeButtons ($button) {
+    $button
+      .parents(".comment-like-buttons")
+      .toggleClass("comment-can-like");
+  }
+
+  $(".post_wrapper_individual").on("submit", ".comments-liking-form", function (event) {
+    event.preventDefault();
+    var $currentTarget = $(event.currentTarget);
+
+    var $form = $(this);
+
+    $.ajax({
+      url: $form.attr("action"),
+      type: "POST",
+      data: $currentTarget.serializeJSON(),
+      success: function (like_info) {
+        toggleCommentLikeButtons($currentTarget);
+        $(".data-comment-likes-"+$form.attr("data-id")).html(like_info)
+      }
+    });
+  });
+
+
+
+  // HOVER FOLLOW BUTTONS
+
+  $(document).on('mouseover', ".username-link-container", function() {
+    $(this).find(".follow-button-container").show();
+  }).on('mouseout',  ".username-link-container", function() {
+    $(this).find(".follow-button-container").hide();
+  });
+
+  // POP UP COMMENT BOXES
+
+  $(document).on("click", ".post-comment-title", function() {
+    $(this).find(".new-comment-container").toggleClass("hide");
+  }).on("click", ".post-comment-title", function() {
+    $(this).find(".comment-text-box").click(function(e) {
+    return false;
+  });
+  });
+});
+
+
+</script>
 
 

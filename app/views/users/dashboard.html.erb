@@ -263,7 +263,7 @@ $(document).ready(function(event){
     event.preventDefault();
 
     var $currentTarget = $(event.currentTarget);
-    var $comment = $(this).parents(".sub-comment");
+    var $comment = $(this).parents(".sub-comment:first");
     var $form = $(this);
 
     $.ajax({
