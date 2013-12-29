@@ -40,7 +40,7 @@ class UsersController < ApplicationController
 
   def update
     @user = User.find_by_id(params[:id])
-
+    
     if @user.update_attributes(params[:user])
       flash[:notice] = "Settings updated"
       redirect_to :back

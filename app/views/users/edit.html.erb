@@ -13,7 +13,7 @@
     <div class="edit-title">
       <h2> Edit Information: </h2>
     </div>
-    <form class="edit-user-info-form" action="<%= users_url %>" method="post">
+    <form class="edit-user-info-form" action="<%= user_url(current_user) %>" method="post">
       <input type="hidden" name="_method" value="PUT">
         <input
           type="hidden"
@@ -54,6 +54,9 @@
           </label>
         </div>
       </div><br>
+      <% if flash[:notice] %>
+        <%= flash[:notice] %> <br><br>
+      <% end %>
       <% if flash[:errors] %>
         <div class="signup_forms_error group">
           <%= render "layouts/errors" %>
@@ -67,7 +70,16 @@
     <div class="edit-title">
       <h2> Upload Profile Picture: </h2>
     </div>
-    <form action="<%= user_url %>" method="POST"  enctype="multipart/form-data" class="edit-user-info-form">
+    
+    <div class="show_avatar_on_edit">
+        <% if current_user.has_profile_picture %>
+          <img src="<%= current_user.profile_picture.url(:small) %>">
+        <% else %>
+          <img src="<%=asset_path "blank_profile.png"%>">
+        <% end %>
+    </div>
+    
+    <form action="<%= user_url(current_user) %>" method="POST"  enctype="multipart/form-data" class="edit-user-info-form">
       <input type="hidden" name="_method" value="PUT">
       <input type="hidden" name="user[has_profile_picture]" value="true">
       <div class="upload-profile-picture">
@@ -78,5 +90,9 @@
       </div>
       <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
     </form>
+    
+
+    
   </div>
+
 </body>
