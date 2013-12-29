@@ -45,7 +45,7 @@ class UsersController < ApplicationController
       flash[:notice] = "Settings updated"
       redirect_to :back
     else
-      flash.now[:errors] = @comment.errors.full_messages
+      flash.now[:errors] = @user.errors.full_messages
       redirect_to :back
     end
 
