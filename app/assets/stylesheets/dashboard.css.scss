@@ -511,8 +511,19 @@ a, a:visited, a:active {
 
 }
 
+.post_header_individual {
+  width: 500px;
+  margin: auto;
+  padding: 20px 0;
+}
+
+.post_header_individual >  h2 {
+  float: right;
+  color: #000099;
+  padding-right: 20px;
+}
+
 .post_wrapper_individual {
-  float: center;
   width: 500px;
   margin: auto;
   padding: 20px 0;

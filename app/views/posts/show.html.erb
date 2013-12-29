@@ -6,41 +6,57 @@
   <%= csrf_meta_tags %>
 </head>
 
+<body>
+
 <% post = @post %>
 
-        <div class="post_wrapper_individual">
-          <div class="post_header group">
-            <div class="username-link-header-container">
-              <div class="username-link-container">
-                <%= link_to post.user.username, user_url(post.user), :class => "username-link" %>
-                <% unless current_user == post.user %>
-                    <%= render "users/follow_button", follower: post.user %>
-                <% end %>
-              </div>
-            </div>
-            <% if post.user == current_user %>
-              <div class="delete-post-container">
-              
-                <form action="<%= post_url(post.id) %> " method="post"
-                       class="delete-post" data-id="<%= post.id %>">
-                  <input type="hidden" name="authenticity_token"
-                                      value="<%= form_authenticity_token %>">
-                  <input type="hidden" name="_method" value="delete">
 
-                  <input type="submit" name="commit" value="Delete" class="delete-post-button" data-confirm='Are you sure?'>
-                </form>
-              
-              </div>
-            <% end %>
-          </div>
-          <div class="post_content">
-            <%= render "posts/post_content_template", post: post %>
-          </div>
-          <div class="post_footer">
-            <%= render "posts/post_footer_template", post: post%>
-          </div>
-        </div>
+
+<div class="post_wrapper_individual">
+  
+  <div class="post_header_individual group">
+    <h2 class="header-logo">
+      <% if current_user.nil? %>
+        <%= link_to "Create an Account", new_user_url %>
+      <% else %>
+        <%= link_to "Dashboard", user_dashboard_url(current_user) %>
+      <% end %>
+    </h2>
+  </div>
+  
+  <div class="post_header group">
+    <div class="username-link-header-container">
+      <div class="username-link-container">
+        <%= link_to post.user.username, user_url(post.user), :class => "username-link" %>
+        <% unless current_user == post.user %>
+            <%= render "users/follow_button", follower: post.user %>
+        <% end %>
+      </div>
+    </div>
+    <% if post.user == current_user %>
+      <div class="delete-post-container">
+      
+        <form action="<%= post_url(post.id) %> " method="post"
+               class="delete-post" data-id="<%= post.id %>">
+          <input type="hidden" name="authenticity_token"
+                              value="<%= form_authenticity_token %>">
+          <input type="hidden" name="_method" value="delete">
+
+          <input type="submit" name="commit" value="Delete" class="delete-post-button" data-confirm='Are you sure?'>
+        </form>
+      
+      </div>
+    <% end %>
+  </div>
+  <div class="post_content">
+    <%= render "posts/post_content_template", post: post %>
+  </div>
+  <div class="post_footer">
+    <%= render "posts/post_footer_template", post: post%>
+  </div>
+</div>
         
+</body>
         
 <script>
 $(document).ready(function(event){
