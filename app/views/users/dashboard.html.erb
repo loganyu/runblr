@@ -20,12 +20,12 @@
         <ul class="blog_menu">
 
           <li class="control_item group">
-            <a href="#" class="right_link">
+            <div class="right_link">
               Followers
-            </a>
-            <a href="#" class="right_link_amount">
+            </div>
+            <div class="right_link_amount">
               <%= current_user.followers.count %>
-            </a>
+            </div>
           </li>
           <li class="control_item group">
             <% current_user.followers.sort.each do |follower| %>
@@ -48,12 +48,12 @@
 
           </li>
           <li class="control_item group">
-            <a href="#" class="right_link">
+            <div class="right_link">
               Following
-            </a>
-            <a href="#" class="right_link_amount">
+            </div>
+            <div class="right_link_amount">
               <%= current_user.followed_users.count %>
-            </a>
+            </div>
           <li class="control_item group">
             <% current_user.followed_users.sort.each do |followed_user| %>
               <%= link_to followed_user.username, user_url(followed_user) %> <br>
