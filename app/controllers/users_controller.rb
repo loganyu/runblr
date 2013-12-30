@@ -21,7 +21,7 @@ class UsersController < ApplicationController
 
       redirect_to user_dashboard_url(current_user)
     else
-      flash[:errors] = @user.errors.full_messages
+      flash.now[:errors] = @user.errors.full_messages
       render :new
     end
 
@@ -45,7 +45,7 @@ class UsersController < ApplicationController
       flash[:notice] = "Settings updated"
       redirect_to :back
     else
-      flash.now[:errors] = @user.errors.full_messages
+      flash[:errors] = @user.errors.full_messages
       redirect_to :back
     end
 

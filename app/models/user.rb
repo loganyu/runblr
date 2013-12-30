@@ -1,11 +1,14 @@
 class User < ActiveRecord::Base
   attr_accessible :username, :password, :session_token, :email, :profile_picture, :has_profile_picture
   after_initialize :ensure_session_token
+  attr_reader :password
 
-  validates :username, :session_token, :password_digest, :email, presence: true
+  validates :username, :session_token, :email, presence: true
   validates :username, :email, uniqueness: true
   validates :username, :length => 6..20
-  validates :email, :format => { :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i, :on => :create }
+  validates :email, :format => { :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i }
+  validates :password_digest, :presence => { :message => "Password can't be blank" }
+  validates :password, :length => { :minimum => 6, :allow_nil => true }
 
   has_attached_file :profile_picture, :styles => {
           :big => "600x600>",
@@ -47,6 +50,7 @@ class User < ActiveRecord::Base
 
 
   def password=(pw_string)
+    @password = pw_string
     self.password_digest = BCrypt::Password.create(pw_string)
   end
 
