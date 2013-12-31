@@ -21,7 +21,7 @@ Runblr::Application.routes.draw do
     end
   end
 
-  root to: 'users#dashboard'
+  root to: 'session#new'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
