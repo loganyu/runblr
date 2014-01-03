@@ -4,6 +4,15 @@
   <% feed_posts = user.posts %>
 <% end %>
 
+<div class="post-errors">
+  <% if flash[:errors] %>
+   <p> Oops. Something went wrong. </p>
+    <% flash[:errors].each do |error| %>
+      <p><%= error %> </p>
+    <% end %>
+  <% end %>
+</div>
+
 <div class="post-count">
   <h2> Posts </h2>
 </div>

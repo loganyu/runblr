@@ -12,9 +12,9 @@ class PostsController < ApplicationController
     #   end
     # end
     else
-      flash.now[:errors] = @post.errors.full_messages
-      # redirect_to :back
-      head :ok
+      flash[:errors] = @post.errors.full_messages
+      redirect_to :back
+      # head :ok
     end
   end
 
