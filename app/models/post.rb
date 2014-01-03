@@ -10,7 +10,7 @@ class Post < ActiveRecord::Base
 
   has_attached_file :photo, :styles => {
     :big => "600x600>",
-    :small => "450x400#"
+    :small => "420x400#"
   }
 
   def likes
