@@ -173,36 +173,36 @@ $(document).ready(function(event){
   // NEW POST
   
 
-  $("form.post-form").on("submit", function (event) {
-    event.preventDefault();
-
-    var $currentTarget = $(event.currentTarget);
-    var data = $currentTarget.serializeJSON();
-    var $form = $(this);
-
-    $.ajax({
-      url: $form.attr("action"),
-      type: "POST",
-      data: data,
-      success: function (post) {
-        $("div.posts-list").prepend(post);
-        $("."+data.post.post_type+"-post").toggleClass("hide");
-        $form.each(function() {
-          this.reset();
-        });
-      }
-    });
-  });
-  
-  function handle_files(files) {
-    var file = files[0];
-    var reader = new FileReader();
-    reader.onload = function(e) {
-      // you need to send e.target.result in your $.ajax request
-      console.log(this.result);
-    }
-    reader.readAsDataURL(file);
-  }
+  // $("form.post-form").on("submit", function (event) {
+  //   event.preventDefault();
+  // 
+  //   var $currentTarget = $(event.currentTarget);
+  //   var data = $currentTarget.serializeJSON();
+  //   var $form = $(this);
+  // 
+  //   $.ajax({
+  //     url: $form.attr("action"),
+  //     type: "POST",
+  //     data: data,
+  //     success: function (post) {
+  //       $("div.posts-list").prepend(post);
+  //       $("."+data.post.post_type+"-post").toggleClass("hide");
+  //       $form.each(function() {
+  //         this.reset();
+  //       });
+  //     }
+  //   });
+  // });
+  // 
+  // function handle_files(files) {
+  //   var file = files[0];
+  //   var reader = new FileReader();
+  //   reader.onload = function(e) {
+  //     // you need to send e.target.result in your $.ajax request
+  //     console.log(this.result);
+  //   }
+  //   reader.readAsDataURL(file);
+  // }
   
   // DELETE POST
   
