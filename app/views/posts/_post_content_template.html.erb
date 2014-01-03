@@ -30,12 +30,19 @@
           <li>Time: <%= "%02d" % post.hours %>:<%= "%02d" % post.minutes %>:<%= "%02d" % post.seconds %></li>
       <% end %>
       <li><%= post.body %></li>
-      <% if post.post_type == "link" || post.post_type == "video" %>
-        <li><%= post.url %></li>
-      <% end %>
+
       <% if post.post_type == "photo" %>
         <li><img src="<%= post.photo.url(:small) %>"></li>
       <% end %>
+      
+      <% if post.post_type == "video" %>
+        <li><%= raw(Post.youtube_embed(post.url)) %></li>
+      <% end %>
+      
+      <% if post.post_type == "link"  %>
+        <li><%= post.url %></li>
+      <% end %>
+      
     </ul>
   </div>
 </ul>

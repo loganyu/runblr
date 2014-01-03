@@ -88,5 +88,6 @@ class PostsController < ApplicationController
     def user_owns_post?
       redirect_to :back unless @post.user == current_user
     end
+    
 
 end
