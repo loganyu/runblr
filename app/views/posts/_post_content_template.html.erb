@@ -40,7 +40,15 @@
       <% end %>
       
       <% if post.post_type == "link"  %>
-        <li><%= post.url %></li>
+        <% object = LinkThumbnailer.generate(post.url) %>
+        <div class="link-info-container group">
+          <div class="link-title">
+            <li><a href="<%=  object.url %>"><%= object.title %></a></li>
+          </div>
+          <div class="link-picture">
+            <li><a href="<%=  object.url %>"><img src="<%= object.images.first %>"></a></li>
+          </div>
+        </div>
       <% end %>
       
     </ul>

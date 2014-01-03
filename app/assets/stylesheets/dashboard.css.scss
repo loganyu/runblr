@@ -132,6 +132,34 @@
 
 }
 
+// POST LINKS
+
+.link-info-container {
+  
+}
+
+.link-title {
+  float: right;
+  width: 210px;
+  font-weight: bold;
+}
+
+.link-title > li > a:hover {
+  color: #000099;
+}
+
+
+
+.link-picture {
+  float: left;
+  width: 200px;
+  height: auto;
+}
+
+.link-picture > li > a > img {
+  width: 200px;
+}
+
 // POST FOOTER
 
 // COMMENT SUBMIT BUTTON
@@ -590,6 +618,10 @@ a, a:visited, a:active {
   background: #A80000;
   color: #D8D8D8;
   border-radius: 5px;
+}
+
+.delete-post-button:hover {
+ cursor: pointer; 
 }
 
 
