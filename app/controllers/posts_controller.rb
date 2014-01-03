@@ -6,16 +6,16 @@ class PostsController < ApplicationController
   def create
     @post = current_user.posts.new(params[:post])
     if @post.save
-      # redirect_to :back
-      respond_to do |format|
-        format.html { render partial: "new_post_template", post: @post}
-      end
-    end
-    # else
-    #   flash.now[:errors] = @post.errors.full_messages
-    #   # redirect_to :back
-    #   head :ok
+      redirect_to :back
+    #   respond_to do |format|
+    #     format.html { render partial: "new_post_template", post: @post}
+    #   end
     # end
+    else
+      flash.now[:errors] = @post.errors.full_messages
+      # redirect_to :back
+      head :ok
+    end
   end
 
   def new
