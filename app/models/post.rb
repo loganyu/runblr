@@ -3,6 +3,9 @@ class Post < ActiveRecord::Base
 
   validates :title, presence: true
   validates :user, presence: true
+  validates :photo, presence: { :message => "must be attached" }, if: "post_type == 'photo'"
+  validates :body, presence: true, if: "post_type == 'quote'"
+  validates :url, presence: true, if: "post_type == 'video' || post_type == 'link'"
 
   belongs_to :user, inverse_of: :posts
   has_many :user_post_likes, inverse_of: :post
@@ -26,4 +29,5 @@ class Post < ActiveRecord::Base
 
     comments_by_parent
   end
+  
 end
