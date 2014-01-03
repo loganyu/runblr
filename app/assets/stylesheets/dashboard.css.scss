@@ -141,14 +141,15 @@
 .link-title {
   float: right;
   width: 210px;
+}
+
+.link-title > li > a {
   font-weight: bold;
 }
 
 .link-title > li > a:hover {
   color: #000099;
 }
-
-
 
 .link-picture {
   float: left;
