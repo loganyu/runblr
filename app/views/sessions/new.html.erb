@@ -66,14 +66,22 @@
       </div>
     </div>
     
-    <form action="<%= session_url %>" method="post">
-                          
-      <input type="hidden" name="user[email]" value="yu.logan@gmail.com">            
-      <input type="hidden" name="user[password]" value="password">       
-      
-      <input type="submit" value="Guest Account" class="guest-account-button">
+    <form>
+      <input type="submit" value="Click Here for Guest Account" class="guest-account-button">
     </form>
-
-
   </div>
 </body>
+
+<script>
+$(document).ready(function(){
+
+  $('.guest-account-button').on("click", function(event) {
+    event.preventDefault();
+    
+    $('#user_email').val("yu.logan@gmail.com");
+    $('#user_password').val("password");
+  });
+  
+});
+
+</script>
