@@ -61,10 +61,11 @@
     <input type="Submit" value="Submit">
   </div>
   
-  <div class="fill-form-<%= post_type %>">
-    <input type="Submit" value="Click here to fill with sample data.">
-  </div>
-  
+  <% unless post_type == "photo" %>
+    <div class="fill-form-<%= post_type %>">
+      <input type="Submit" value="Click here to fill with sample data.">
+    </div>
+    <% end %>
   
   <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
   
