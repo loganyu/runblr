@@ -373,5 +373,21 @@ $(document).ready(function(event){
   });
 });
 
+// AUTOFILL POSTS
+
+$('.fill-form-run').on("click", function(event) {
+  event.preventDefault();
+  
+  $('#post_title').val("Ran Over Williamsburg Bridge");
+  $('#post_date').val("2014-01-12");
+  $('#post_time').val("13:02:00");
+  $('#post_workout_type').val("Tempo");
+  $('#post_miles').val("9.5");
+  $('#post_hours').val("1");
+  $('#post_minutes').val("10");
+  $('#post_seconds').val("03");
+  $('#post_description').val("Happy new year! I had a nice tempo run over the bridge. My legs weren't too sore.")
+  
+});
 
 </script>

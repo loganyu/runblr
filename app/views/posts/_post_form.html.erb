@@ -6,17 +6,17 @@
   <h1> New <%= post_type %> </h1>
   <br>
 
-  Title: <input name="post[title]" value="<%= post.title %>" style="width: 366px"><br><br>
+  Title: <input id="post_title" name="post[title]" value="<%= post.title %>" style="width: 366px"><br><br>
 
   <% if post_type == "run" %>
-    Date: <input type="date" name="post[workout_date]" value="<%post.workout_date%>" style="text-align:center"><br><br>
-    Time: <input type="time" name="post[workout_time]" value="<%post.workout_time%>" style="text-align:center"><br><br>
+    Date: <input id="post_date" type="date" name="post[workout_date]" value="<%post.workout_date%>" style="text-align:center"><br><br>
+    Time: <input id="post_time" type="time" name="post[workout_time]" value="<%post.workout_time%>" style="text-align:center"><br><br>
   <% end %>
 
   <% if post_type == "run" %>
 
     Workout Type:
-      <select name="post[workout_type]">
+      <select id="post_workout_type" name="post[workout_type]">
         <option value="Regular" "selected">Regular</option><br>
         <option value="Speed">Speed</option><br>
         <option value="Long">Long</option><br>
@@ -25,13 +25,13 @@
         <option value="Race">Race</option><br>
       </select> <br><br>
 
-    Miles: <input name="post[miles]" value="<%= post.miles %>" maxlength="3" size="3"><br><br>
+    Miles: <input id="post_miles" name="post[miles]" value="<%= post.miles %>" maxlength="4" size="4"><br><br>
 
-    Duration: <input name="post[hours]" value="<%= post.hours %>" maxlength="2" size="2"
+    Duration: <input id="post_hours" name="post[hours]" value="<%= post.hours %>" maxlength="2" size="2"
                 style="text-align:center" placeholder="00">
-                    : <input name="post[minutes]" value="<%= post.minutes %>" maxlength="2"size="2"
+                    : <input id="post_minutes" name="post[minutes]" value="<%= post.minutes %>" maxlength="2"size="2"
                     style="text-align:center" placeholder="00">
-                    : <input name="post[seconds]" value="<%= post.seconds %>" maxlength="2" size="2"
+                    : <input id="post_seconds" name="post[seconds]" value="<%= post.seconds %>" maxlength="2" size="2"
                     style="text-align:center" placeholder="00"><br><br>
 
 
@@ -39,7 +39,7 @@
 
   <% if post_type == "run" || post_type == "quote" %>
 
-    <textarea style="width:398px; height:50px" name="post[body]" value="<%= post.body %>"></textarea><br>
+    <textarea id="post_description" style="width:398px; height:50px" name="post[body]" value="<%= post.body %>"></textarea><br>
 
   <% end %>
 
@@ -61,7 +61,7 @@
     <input type="Submit" value="Submit">
   </div>
   
-  <div class="fill-form">
+  <div class="fill-form-<%= post_type %>">
     <input type="Submit" value="Click here to fill with sample data.">
   </div>
   

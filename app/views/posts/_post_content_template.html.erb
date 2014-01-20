@@ -5,16 +5,16 @@
   <div class="post_body">
     <ul>
       <% unless post.workout_date.nil? %>
-        <li>Workout Date: <%= post.workout_date %></li>
+        <li><b>Workout Date:</b> <%= post.workout_date %></li>
       <% end %>
       <% unless post.workout_time.nil? %>
-        <li>Workout Time: <%= post.workout_time %></li>
+        <li><b>Workout Time:</b> <%= post.workout_time %></li>
       <% end %>
       <% unless post.workout_time.nil? %>
-        <li>Run Type: <%= post.workout_type %> Run</li>
+        <li><b>Run Type:</b> <%= post.workout_type %> Run</li>
       <% end %>
       <% unless post.miles.nil? %>
-        <li>Total Miles: <%= post.miles %> </li>
+        <li><b>Total Miles:</b> <%= post.miles %> </li>
       <% end %>
       <% unless post.hours.nil? && post.minutes.nil? && post.seconds.nil? %>
 
@@ -27,8 +27,9 @@
         <% if post.seconds.nil? %>
           <% post.seconds = 0 %>
         <% end %>
-          <li>Time: <%= "%02d" % post.hours %>:<%= "%02d" % post.minutes %>:<%= "%02d" % post.seconds %></li>
-      <% end %>
+          <li><b>Time:</b> <%= "%02d" % post.hours %>:<%= "%02d" % post.minutes %>:<%= "%02d" % post.seconds %></li>
+      <% end %><br>
+      
       <li><%= post.body %></li>
 
       <% if post.post_type == "photo" %>
