@@ -386,7 +386,7 @@ $('.fill-form-run').on("click", function(event) {
   $('.post_hours').val("1");
   $('.post_minutes').val("10");
   $('.post_seconds').val("03");
-  $('.post_description').val("Happy new year! I had a nice tempo run over the bridge. My legs weren't too sore.")
+  $('.post_run_description').val("Happy new year! I had a nice tempo run over the bridge. My legs weren't too sore.")
   
 });
 
@@ -394,7 +394,21 @@ $('.fill-form-link').on("click", function(event) {
   event.preventDefault();
   
   $('.post_link_title').val("Congratulations Mary!!");
-  $('.post_url').val("http://www.iaaf.org/news/report/mary-cain-1000m-world-record");
+  $('.post_link_url').val("http://www.iaaf.org/news/report/mary-cain-1000m-world-record");
+});
+
+$('.fill-form-quote').on("click", function(event) {
+  event.preventDefault();
+  
+  $('.post_quote_title').val("Pre");
+  $('.post_quote_description').val("To give anything less than your best, is to sacrifice the gift. -Steve Prefontaine");
+});
+
+$('.fill-form-video').on("click", function(event) {
+  event.preventDefault();
+  
+  $('.post_video_title').val("Gatlin vs. Bolt");
+  $('.post_video_url').val("http://www.youtube.com/watch?v=MAz6yRznoiM");
 });
 
 </script>

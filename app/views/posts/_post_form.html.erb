@@ -39,13 +39,13 @@
 
   <% if post_type == "run" || post_type == "quote" %>
 
-    <textarea class="post_description" style="width:398px; height:50px" name="post[body]" value="<%= post.body %>"></textarea><br>
+    <textarea class="post_<%= post_type %>_description" style="width:398px; height:50px" name="post[body]" value="<%= post.body %>"></textarea><br>
 
   <% end %>
 
   <% if post_type == "link" || post_type == "video" %>
 
-    URL: <input class="post_url" name="post[url]" value="<%= post.url %>" style="width: 362px"><br>
+    URL: <input class="post_<%= post_type %>_url" name="post[url]" value="<%= post.url %>" style="width: 362px"><br>
 
   <% end %>
 
@@ -62,7 +62,7 @@
   </div>
   
   <% unless post_type == "photo" %>
-    <div class="fill-form-<%= post_type %>">
+    <div class="fill-form fill-form-<%= post_type %>">
       <input type="Submit" value="Click here to fill with sample data.">
     </div>
     <% end %>
