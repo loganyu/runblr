@@ -511,7 +511,7 @@ a, a:visited, a:active {
   background-color: #fff;
 
   color: black;
-  border-radius: 6px;
+
 }
 
 .new_post_label {
@@ -524,7 +524,7 @@ a, a:visited, a:active {
   padding-top: 20px;
 }
 
-.new_post_label:active {
+.new_post_label:hover {
   background: gray;
 };
 
