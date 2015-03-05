@@ -65,7 +65,7 @@
           <%= link_to "Forgot Password?", new_password_reset_url %>
       </div>
     </div>
-    
+
     <form>
       <input type="submit" value="Click Here for Guest Account" class="guest-account-button">
     </form>
@@ -77,11 +77,11 @@ $(document).ready(function(){
 
   $('.guest-account-button').on("click", function(event) {
     event.preventDefault();
-    
+
     $('#user_email').val("yu.logan@gmail.com");
     $('#user_password').val("password");
   });
-  
+
 });
 
 </script>
